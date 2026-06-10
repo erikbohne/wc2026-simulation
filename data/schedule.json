@@ -1,0 +1,741 @@
+{
+  "source": "FIFA official match schedule (via Wikipedia, fetched 2026-06-10)",
+  "matches": [
+    {
+      "match": 1,
+      "group": "A",
+      "date": "2026-06-11",
+      "home": "MEX",
+      "away": "RSA",
+      "city": "Mexico City"
+    },
+    {
+      "match": 2,
+      "group": "A",
+      "date": "2026-06-11",
+      "home": "KOR",
+      "away": "CZE",
+      "city": "Zapopan"
+    },
+    {
+      "match": 3,
+      "group": "B",
+      "date": "2026-06-12",
+      "home": "CAN",
+      "away": "BIH",
+      "city": "Toronto"
+    },
+    {
+      "match": 4,
+      "group": "D",
+      "date": "2026-06-12",
+      "home": "USA",
+      "away": "PAR",
+      "city": "Inglewood"
+    },
+    {
+      "match": 5,
+      "group": "C",
+      "date": "2026-06-13",
+      "home": "HAI",
+      "away": "SCO",
+      "city": "Foxborough"
+    },
+    {
+      "match": 6,
+      "group": "D",
+      "date": "2026-06-13",
+      "home": "AUS",
+      "away": "TUR",
+      "city": "Vancouver"
+    },
+    {
+      "match": 7,
+      "group": "C",
+      "date": "2026-06-13",
+      "home": "BRA",
+      "away": "MAR",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 8,
+      "group": "B",
+      "date": "2026-06-13",
+      "home": "QAT",
+      "away": "SUI",
+      "city": "Santa Clara"
+    },
+    {
+      "match": 9,
+      "group": "E",
+      "date": "2026-06-14",
+      "home": "CIV",
+      "away": "ECU",
+      "city": "Philadelphia"
+    },
+    {
+      "match": 10,
+      "group": "E",
+      "date": "2026-06-14",
+      "home": "GER",
+      "away": "CUW",
+      "city": "Houston"
+    },
+    {
+      "match": 11,
+      "group": "F",
+      "date": "2026-06-14",
+      "home": "NED",
+      "away": "JPN",
+      "city": "Arlington"
+    },
+    {
+      "match": 12,
+      "group": "F",
+      "date": "2026-06-14",
+      "home": "SWE",
+      "away": "TUN",
+      "city": "Guadalupe"
+    },
+    {
+      "match": 13,
+      "group": "H",
+      "date": "2026-06-15",
+      "home": "KSA",
+      "away": "URU",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 14,
+      "group": "H",
+      "date": "2026-06-15",
+      "home": "ESP",
+      "away": "CPV",
+      "city": "Atlanta"
+    },
+    {
+      "match": 15,
+      "group": "G",
+      "date": "2026-06-15",
+      "home": "IRN",
+      "away": "NZL",
+      "city": "Inglewood"
+    },
+    {
+      "match": 16,
+      "group": "G",
+      "date": "2026-06-15",
+      "home": "BEL",
+      "away": "EGY",
+      "city": "Seattle"
+    },
+    {
+      "match": 17,
+      "group": "I",
+      "date": "2026-06-16",
+      "home": "FRA",
+      "away": "SEN",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 18,
+      "group": "I",
+      "date": "2026-06-16",
+      "home": "IRQ",
+      "away": "NOR",
+      "city": "Foxborough"
+    },
+    {
+      "match": 19,
+      "group": "J",
+      "date": "2026-06-16",
+      "home": "ARG",
+      "away": "ALG",
+      "city": "Kansas City"
+    },
+    {
+      "match": 20,
+      "group": "J",
+      "date": "2026-06-16",
+      "home": "AUT",
+      "away": "JOR",
+      "city": "Santa Clara"
+    },
+    {
+      "match": 21,
+      "group": "L",
+      "date": "2026-06-17",
+      "home": "GHA",
+      "away": "PAN",
+      "city": "Toronto"
+    },
+    {
+      "match": 22,
+      "group": "L",
+      "date": "2026-06-17",
+      "home": "ENG",
+      "away": "CRO",
+      "city": "Arlington"
+    },
+    {
+      "match": 23,
+      "group": "K",
+      "date": "2026-06-17",
+      "home": "POR",
+      "away": "COD",
+      "city": "Houston"
+    },
+    {
+      "match": 24,
+      "group": "K",
+      "date": "2026-06-17",
+      "home": "UZB",
+      "away": "COL",
+      "city": "Mexico City"
+    },
+    {
+      "match": 25,
+      "group": "A",
+      "date": "2026-06-18",
+      "home": "CZE",
+      "away": "RSA",
+      "city": "Atlanta"
+    },
+    {
+      "match": 26,
+      "group": "B",
+      "date": "2026-06-18",
+      "home": "SUI",
+      "away": "BIH",
+      "city": "Inglewood"
+    },
+    {
+      "match": 27,
+      "group": "B",
+      "date": "2026-06-18",
+      "home": "CAN",
+      "away": "QAT",
+      "city": "Vancouver"
+    },
+    {
+      "match": 28,
+      "group": "A",
+      "date": "2026-06-18",
+      "home": "MEX",
+      "away": "KOR",
+      "city": "Zapopan"
+    },
+    {
+      "match": 29,
+      "group": "C",
+      "date": "2026-06-19",
+      "home": "BRA",
+      "away": "HAI",
+      "city": "Philadelphia"
+    },
+    {
+      "match": 30,
+      "group": "C",
+      "date": "2026-06-19",
+      "home": "SCO",
+      "away": "MAR",
+      "city": "Foxborough"
+    },
+    {
+      "match": 31,
+      "group": "D",
+      "date": "2026-06-19",
+      "home": "TUR",
+      "away": "PAR",
+      "city": "Santa Clara"
+    },
+    {
+      "match": 32,
+      "group": "D",
+      "date": "2026-06-19",
+      "home": "USA",
+      "away": "AUS",
+      "city": "Seattle"
+    },
+    {
+      "match": 33,
+      "group": "E",
+      "date": "2026-06-20",
+      "home": "GER",
+      "away": "CIV",
+      "city": "Toronto"
+    },
+    {
+      "match": 34,
+      "group": "E",
+      "date": "2026-06-20",
+      "home": "ECU",
+      "away": "CUW",
+      "city": "Kansas City"
+    },
+    {
+      "match": 35,
+      "group": "F",
+      "date": "2026-06-20",
+      "home": "NED",
+      "away": "SWE",
+      "city": "Houston"
+    },
+    {
+      "match": 36,
+      "group": "F",
+      "date": "2026-06-20",
+      "home": "TUN",
+      "away": "JPN",
+      "city": "Guadalupe"
+    },
+    {
+      "match": 37,
+      "group": "H",
+      "date": "2026-06-21",
+      "home": "URU",
+      "away": "CPV",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 38,
+      "group": "H",
+      "date": "2026-06-21",
+      "home": "ESP",
+      "away": "KSA",
+      "city": "Atlanta"
+    },
+    {
+      "match": 39,
+      "group": "G",
+      "date": "2026-06-21",
+      "home": "BEL",
+      "away": "IRN",
+      "city": "Inglewood"
+    },
+    {
+      "match": 40,
+      "group": "G",
+      "date": "2026-06-21",
+      "home": "NZL",
+      "away": "EGY",
+      "city": "Vancouver"
+    },
+    {
+      "match": 41,
+      "group": "I",
+      "date": "2026-06-22",
+      "home": "NOR",
+      "away": "SEN",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 42,
+      "group": "I",
+      "date": "2026-06-22",
+      "home": "FRA",
+      "away": "IRQ",
+      "city": "Philadelphia"
+    },
+    {
+      "match": 43,
+      "group": "J",
+      "date": "2026-06-22",
+      "home": "ARG",
+      "away": "AUT",
+      "city": "Arlington"
+    },
+    {
+      "match": 44,
+      "group": "J",
+      "date": "2026-06-22",
+      "home": "JOR",
+      "away": "ALG",
+      "city": "Santa Clara"
+    },
+    {
+      "match": 45,
+      "group": "L",
+      "date": "2026-06-23",
+      "home": "ENG",
+      "away": "GHA",
+      "city": "Foxborough"
+    },
+    {
+      "match": 46,
+      "group": "L",
+      "date": "2026-06-23",
+      "home": "PAN",
+      "away": "CRO",
+      "city": "Toronto"
+    },
+    {
+      "match": 47,
+      "group": "K",
+      "date": "2026-06-23",
+      "home": "POR",
+      "away": "UZB",
+      "city": "Houston"
+    },
+    {
+      "match": 48,
+      "group": "K",
+      "date": "2026-06-23",
+      "home": "COL",
+      "away": "COD",
+      "city": "Zapopan"
+    },
+    {
+      "match": 49,
+      "group": "C",
+      "date": "2026-06-24",
+      "home": "SCO",
+      "away": "BRA",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 50,
+      "group": "C",
+      "date": "2026-06-24",
+      "home": "MAR",
+      "away": "HAI",
+      "city": "Atlanta"
+    },
+    {
+      "match": 51,
+      "group": "B",
+      "date": "2026-06-24",
+      "home": "SUI",
+      "away": "CAN",
+      "city": "Vancouver"
+    },
+    {
+      "match": 52,
+      "group": "B",
+      "date": "2026-06-24",
+      "home": "BIH",
+      "away": "QAT",
+      "city": "Seattle"
+    },
+    {
+      "match": 53,
+      "group": "A",
+      "date": "2026-06-24",
+      "home": "CZE",
+      "away": "MEX",
+      "city": "Mexico City"
+    },
+    {
+      "match": 54,
+      "group": "A",
+      "date": "2026-06-24",
+      "home": "RSA",
+      "away": "KOR",
+      "city": "Guadalupe"
+    },
+    {
+      "match": 55,
+      "group": "E",
+      "date": "2026-06-25",
+      "home": "CUW",
+      "away": "CIV",
+      "city": "Philadelphia"
+    },
+    {
+      "match": 56,
+      "group": "E",
+      "date": "2026-06-25",
+      "home": "ECU",
+      "away": "GER",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 57,
+      "group": "F",
+      "date": "2026-06-25",
+      "home": "JPN",
+      "away": "SWE",
+      "city": "Arlington"
+    },
+    {
+      "match": 58,
+      "group": "F",
+      "date": "2026-06-25",
+      "home": "TUN",
+      "away": "NED",
+      "city": "Kansas City"
+    },
+    {
+      "match": 59,
+      "group": "D",
+      "date": "2026-06-25",
+      "home": "TUR",
+      "away": "USA",
+      "city": "Inglewood"
+    },
+    {
+      "match": 60,
+      "group": "D",
+      "date": "2026-06-25",
+      "home": "PAR",
+      "away": "AUS",
+      "city": "Santa Clara"
+    },
+    {
+      "match": 61,
+      "group": "I",
+      "date": "2026-06-26",
+      "home": "NOR",
+      "away": "FRA",
+      "city": "Foxborough"
+    },
+    {
+      "match": 62,
+      "group": "I",
+      "date": "2026-06-26",
+      "home": "SEN",
+      "away": "IRQ",
+      "city": "Toronto"
+    },
+    {
+      "match": 63,
+      "group": "G",
+      "date": "2026-06-26",
+      "home": "EGY",
+      "away": "IRN",
+      "city": "Seattle"
+    },
+    {
+      "match": 64,
+      "group": "G",
+      "date": "2026-06-26",
+      "home": "NZL",
+      "away": "BEL",
+      "city": "Vancouver"
+    },
+    {
+      "match": 65,
+      "group": "H",
+      "date": "2026-06-26",
+      "home": "CPV",
+      "away": "KSA",
+      "city": "Houston"
+    },
+    {
+      "match": 66,
+      "group": "H",
+      "date": "2026-06-26",
+      "home": "URU",
+      "away": "ESP",
+      "city": "Zapopan"
+    },
+    {
+      "match": 67,
+      "group": "L",
+      "date": "2026-06-27",
+      "home": "PAN",
+      "away": "ENG",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 68,
+      "group": "L",
+      "date": "2026-06-27",
+      "home": "CRO",
+      "away": "GHA",
+      "city": "Philadelphia"
+    },
+    {
+      "match": 69,
+      "group": "J",
+      "date": "2026-06-27",
+      "home": "ALG",
+      "away": "AUT",
+      "city": "Kansas City"
+    },
+    {
+      "match": 70,
+      "group": "J",
+      "date": "2026-06-27",
+      "home": "JOR",
+      "away": "ARG",
+      "city": "Arlington"
+    },
+    {
+      "match": 71,
+      "group": "K",
+      "date": "2026-06-27",
+      "home": "COL",
+      "away": "POR",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 72,
+      "group": "K",
+      "date": "2026-06-27",
+      "home": "COD",
+      "away": "UZB",
+      "city": "Atlanta"
+    },
+    {
+      "match": 73,
+      "date": "2026-06-28",
+      "city": "Inglewood"
+    },
+    {
+      "match": 74,
+      "date": "2026-06-29",
+      "city": "Foxborough"
+    },
+    {
+      "match": 75,
+      "date": "2026-06-29",
+      "city": "Guadalupe"
+    },
+    {
+      "match": 76,
+      "date": "2026-06-29",
+      "city": "Houston"
+    },
+    {
+      "match": 77,
+      "date": "2026-06-30",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 78,
+      "date": "2026-06-30",
+      "city": "Arlington"
+    },
+    {
+      "match": 79,
+      "date": "2026-06-30",
+      "city": "Mexico City"
+    },
+    {
+      "match": 80,
+      "date": "2026-07-01",
+      "city": "Atlanta"
+    },
+    {
+      "match": 81,
+      "date": "2026-07-01",
+      "city": "Santa Clara"
+    },
+    {
+      "match": 82,
+      "date": "2026-07-01",
+      "city": "Seattle"
+    },
+    {
+      "match": 83,
+      "date": "2026-07-02",
+      "city": "Toronto"
+    },
+    {
+      "match": 84,
+      "date": "2026-07-02",
+      "city": "Inglewood"
+    },
+    {
+      "match": 85,
+      "date": "2026-07-02",
+      "city": "Vancouver"
+    },
+    {
+      "match": 86,
+      "date": "2026-07-03",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 87,
+      "date": "2026-07-03",
+      "city": "Kansas City"
+    },
+    {
+      "match": 88,
+      "date": "2026-07-03",
+      "city": "Arlington"
+    },
+    {
+      "match": 89,
+      "date": "2026-07-04",
+      "city": "Philadelphia"
+    },
+    {
+      "match": 90,
+      "date": "2026-07-04",
+      "city": "Houston"
+    },
+    {
+      "match": 91,
+      "date": "2026-07-05",
+      "city": "East Rutherford"
+    },
+    {
+      "match": 92,
+      "date": "2026-07-05",
+      "city": "Mexico City"
+    },
+    {
+      "match": 93,
+      "date": "2026-07-06",
+      "city": "Arlington"
+    },
+    {
+      "match": 94,
+      "date": "2026-07-06",
+      "city": "Seattle"
+    },
+    {
+      "match": 95,
+      "date": "2026-07-07",
+      "city": "Atlanta"
+    },
+    {
+      "match": 96,
+      "date": "2026-07-07",
+      "city": "Vancouver"
+    },
+    {
+      "match": 97,
+      "date": "2026-07-09",
+      "city": "Foxborough"
+    },
+    {
+      "match": 98,
+      "date": "2026-07-10",
+      "city": "Inglewood"
+    },
+    {
+      "match": 99,
+      "date": "2026-07-11",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 100,
+      "date": "2026-07-11",
+      "city": "Kansas City"
+    },
+    {
+      "match": 101,
+      "date": "2026-07-14",
+      "city": "Arlington"
+    },
+    {
+      "match": 102,
+      "date": "2026-07-15",
+      "city": "Atlanta"
+    },
+    {
+      "match": 103,
+      "date": "2026-07-18",
+      "city": "Miami Gardens"
+    },
+    {
+      "match": 104,
+      "date": "2026-07-19",
+      "city": "East Rutherford"
+    }
+  ]
+}

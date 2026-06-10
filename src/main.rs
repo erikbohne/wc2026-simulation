@@ -126,7 +126,8 @@ fn main() {
         results_updated,
         fixed_matches: fixed.count,
     };
-    let report = build_report(&counters, &teams, &meta);
+    let fixtures = wc2026_simulation::fixtures::build_fixtures(&teams, &fixed, &cfg);
+    let report = build_report(&counters, &teams, &meta, fixtures);
 
     if let Some(t) = team {
         print!(

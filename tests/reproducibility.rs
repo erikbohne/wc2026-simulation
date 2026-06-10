@@ -33,7 +33,12 @@ fn run_with_threads(threads: usize, seed: u64, n: u64) -> (String, String, Strin
         results_updated: None,
         fixed_matches: 0,
     };
-    let report = build_report(&counters, &teams, &meta);
+    let fixtures = wc2026_simulation::fixtures::build_fixtures(
+        &teams,
+        &wc2026_simulation::results::EMPTY,
+        &cfg,
+    );
+    let report = build_report(&counters, &teams, &meta, fixtures);
     (
         format_table(&report),
         serde_json::to_string_pretty(&report).unwrap(),

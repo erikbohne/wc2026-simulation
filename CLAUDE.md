@@ -23,7 +23,8 @@ Lib + thin bin. Teams are `u8` indices 0..48 into fixed arrays everywhere; no he
 - `src/bracket.rs` — const bracket tables for matches 73–104
 - `src/tournament.rs` — `simulate_one(seed)` / `simulate_one_from(fixed)`, Recorder trait (Null for MC, Full for --single)
 - `src/results.rs` — `FixedResults`: parse/validate `data/results.json`, lock played matches (group by team pair, KO by match number; KO results require feeders fixed)
-- `src/stats.rs` — integer counter aggregation, Report, output formats
+- `src/fixtures.rs` — embedded `data/schedule.json` (104 matches, dates/cities), per-match analytic probabilities (exact Poisson sums, Elo replayed in schedule order over real results), KO teams resolved from group tables + fixed KO winners
+- `src/stats.rs` — integer counter aggregation, Report (incl. `fixtures` block, `elo_rank`), output formats
 - `web/` — Next.js 16 + Tailwind v4 static frontend; reads `data/snapshots/latest.json` at build time (`src/lib/report.ts`). Hosted on Vercel (root directory `web`, domain wc2026.erikoss.com)
 
 ## Live-results pipeline

@@ -1,4 +1,5 @@
 use crate::data::{NUM_TEAMS, Teams};
+use crate::fixtures::Fixture;
 use crate::tournament::{STAGE_CHAMPION, TournamentResult};
 use serde::Serialize;
 
@@ -107,6 +108,8 @@ pub struct TeamRow {
     pub code: String,
     pub name: String,
     pub group: char,
+    pub elo: f64,
+    pub elo_rank: u8,
     pub win: f64,
     #[serde(rename = "final")]
     pub final_: f64,
@@ -132,6 +135,7 @@ pub struct Report {
     pub fixed_matches: u16,
     pub avg_goals_per_match: f64,
     pub teams: Vec<TeamRow>,
+    pub fixtures: Vec<Fixture>,
 }
 
 pub struct ReportMeta {
@@ -142,10 +146,28 @@ pub struct ReportMeta {
     pub fixed_matches: u16,
 }
 
-pub fn build_report(c: &Counters, teams: &Teams, meta: &ReportMeta) -> Report {
+pub fn build_report(
+    c: &Counters,
+    teams: &Teams,
+    meta: &ReportMeta,
+    fixtures: Vec<Fixture>,
+) -> Report {
     let n = c.n.max(1) as f64;
     let mut order: Vec<usize> = (0..NUM_TEAMS).collect();
     order.sort_by_key(|&t| (std::cmp::Reverse(c.stage_exact[6][t]), t));
+
+    let mut elo_order: Vec<usize> = (0..NUM_TEAMS).collect();
+    elo_order.sort_by(|&a, &b| {
+        teams.teams[b]
+            .elo
+            .partial_cmp(&teams.teams[a].elo)
+            .unwrap()
+            .then(teams.teams[a].fifa_rank.cmp(&teams.teams[b].fifa_rank))
+    });
+    let mut elo_rank = [0u8; NUM_TEAMS];
+    for (rank, &t) in elo_order.iter().enumerate() {
+        elo_rank[t] = rank as u8 + 1;
+    }
 
     let rows = order
         .into_iter()
@@ -155,6 +177,8 @@ pub fn build_report(c: &Counters, teams: &Teams, meta: &ReportMeta) -> Report {
                 code: team.code.clone(),
                 name: team.name.clone(),
                 group: team.group,
+                elo: team.elo,
+                elo_rank: elo_rank[t],
                 win: c.stage_exact[6][t] as f64 / n,
                 final_: c.reached(5, t) as f64 / n,
                 sf: c.reached(4, t) as f64 / n,
@@ -186,6 +210,7 @@ pub fn build_report(c: &Counters, teams: &Teams, meta: &ReportMeta) -> Report {
         fixed_matches: meta.fixed_matches,
         avg_goals_per_match: c.goals as f64 / c.matches.max(1) as f64,
         teams: rows,
+        fixtures,
     }
 }
 

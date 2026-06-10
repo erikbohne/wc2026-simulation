@@ -9,10 +9,33 @@ export interface GroupPositionDist {
   fourth: number;
 }
 
+export interface Fixture {
+  match: number;
+  stage: "group" | "r32" | "r16" | "qf" | "sf" | "third" | "final";
+  group: string | null;
+  date: string;
+  city: string | null;
+  home: string | null;
+  away: string | null;
+  home_label: string;
+  away_label: string;
+  status: "played" | "upcoming" | "tbd";
+  score: [number, number] | null;
+  penalties: boolean;
+  winner: string | null;
+  p_home: number | null;
+  p_draw: number | null;
+  p_away: number | null;
+  likely_score: [number, number] | null;
+  likely_p: number | null;
+}
+
 export interface TeamRow {
   code: string;
   name: string;
   group: string;
+  elo: number;
+  elo_rank: number;
   win: number;
   final: number;
   sf: number;
@@ -36,6 +59,7 @@ export interface Report {
   fixed_matches: number;
   avg_goals_per_match: number;
   teams: TeamRow[];
+  fixtures: Fixture[];
 }
 
 export function loadReport(): Report {

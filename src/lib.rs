@@ -2,6 +2,7 @@ pub mod annexe_c;
 pub mod bracket;
 pub mod data;
 pub mod engine;
+pub mod fixtures;
 pub mod group;
 pub mod results;
 pub mod stats;

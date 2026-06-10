@@ -1,5 +1,5 @@
 import { flag } from "@/lib/flags";
-import { loadReport, type TeamRow } from "@/lib/report";
+import { loadReport, type Fixture, type TeamRow } from "@/lib/report";
 
 const REPO = "https://github.com/erikbohne/wc2026-simulation";
 
@@ -63,6 +63,121 @@ function PodiumCard({ team, rank }: { team: TeamRow; rank: number }) {
         <span>Final {pct(team.final)}</span>
         <span>SF {pct(team.sf)}</span>
       </div>
+    </div>
+  );
+}
+
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+function shortDate(iso: string): string {
+  const [, m, d] = iso.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${d}`;
+}
+
+const STAGE_LABEL: Record<Fixture["stage"], string> = {
+  group: "Group",
+  r32: "R32",
+  r16: "R16",
+  qf: "QF",
+  sf: "SF",
+  third: "3rd place",
+  final: "Final",
+};
+
+function fixtureStage(f: Fixture): string {
+  return f.stage === "group" ? `Group ${f.group}` : STAGE_LABEL[f.stage];
+}
+
+function MatchCard({ f }: { f: Fixture }) {
+  const played = f.status === "played";
+  return (
+    <div
+      className={`min-w-56 flex-1 border border-pitch-line p-4 ${
+        played ? "bg-pitch-raised/30" : "bg-pitch-raised/70"
+      }`}
+    >
+      <div className="font-data flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-chalk-dim">
+        <span>
+          M{f.match} · {fixtureStage(f)}
+        </span>
+        <span>
+          {shortDate(f.date)}
+          {f.city ? ` · ${f.city}` : ""}
+        </span>
+      </div>
+      <div className="mt-3 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <span className="text-xl">{f.home ? flag(f.home) : "·"}</span>
+          <span className="font-display text-xl font-bold">
+            {f.home_label}
+          </span>
+        </div>
+        <div className="font-data text-lg font-semibold tabular-nums">
+          {played && f.score ? (
+            <span className={f.penalties ? "text-gold" : ""}>
+              {f.score[0]}–{f.score[1]}
+              {f.penalties ? " p" : ""}
+            </span>
+          ) : (
+            <span className="text-chalk-dim">
+              {f.likely_score
+                ? `${f.likely_score[0]}–${f.likely_score[1]}`
+                : "vs"}
+            </span>
+          )}
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="font-display text-xl font-bold">
+            {f.away_label}
+          </span>
+          <span className="text-xl">{f.away ? flag(f.away) : "·"}</span>
+        </div>
+      </div>
+      {f.p_home != null && (
+        <>
+          <div className="mt-3 flex h-1.5 w-full overflow-hidden bg-pitch-line">
+            <div
+              className="h-full bg-grass"
+              style={{ width: `${f.p_home * 100}%` }}
+            />
+            {f.p_draw != null && (
+              <div
+                className="h-full bg-chalk-dim/40"
+                style={{ width: `${f.p_draw * 100}%` }}
+              />
+            )}
+            <div
+              className="h-full bg-rose"
+              style={{ width: `${(f.p_away ?? 0) * 100}%` }}
+            />
+          </div>
+          <div className="font-data mt-1.5 flex justify-between text-[10px] tabular-nums text-chalk-dim">
+            <span>{(f.p_home * 100).toFixed(0)}%</span>
+            {f.p_draw != null && (
+              <span>draw {(f.p_draw * 100).toFixed(0)}%</span>
+            )}
+            <span>{((f.p_away ?? 0) * 100).toFixed(0)}%</span>
+          </div>
+        </>
+      )}
+      {played && f.p_home != null && (
+        <div className="font-data mt-1 text-[10px] uppercase tracking-[0.15em] text-chalk-dim/70">
+          pre-match model odds
+        </div>
+      )}
     </div>
   );
 }
@@ -160,10 +275,33 @@ function ProbCell({ p, hideOnMobile }: { p: number; hideOnMobile?: boolean }) {
   );
 }
 
+function RankDelta({ simRank, eloRank }: { simRank: number; eloRank: number }) {
+  const delta = eloRank - simRank;
+  if (delta === 0) {
+    return <span className="font-data text-xs text-chalk-dim/50">·</span>;
+  }
+  return (
+    <span
+      className={`font-data text-xs tabular-nums ${
+        delta > 0 ? "text-grass" : "text-rose"
+      }`}
+      title={`Elo rank ${eloRank} → sim rank ${simRank}`}
+    >
+      {delta > 0 ? "▲" : "▼"}
+      {Math.abs(delta)}
+    </span>
+  );
+}
+
 export default function Home() {
   const report = loadReport();
   const teams = report.teams;
   const favourite = teams[0];
+  const played = report.fixtures.filter((f) => f.status === "played");
+  const recent = played.slice(-2);
+  const next = report.fixtures
+    .filter((f) => f.status === "upcoming")
+    .slice(0, 3);
   const updated =
     report.fixed_matches === 0
       ? `Pre-tournament baseline · Elo ${report.elo_snapshot_date}`
@@ -232,6 +370,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="pb-16">
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-chalk-dim">
+              Matchday
+            </h2>
+            <span className="font-data text-[10px] uppercase tracking-[0.15em] text-chalk-dim">
+              {recent.length > 0 ? "last results · " : ""}next fixtures ·
+              win/draw/win + most likely score
+            </span>
+          </div>
+          <div className="flex flex-col gap-4 lg:flex-row">
+            {recent.map((f) => (
+              <MatchCard key={f.match} f={f} />
+            ))}
+            {next.map((f) => (
+              <MatchCard key={f.match} f={f} />
+            ))}
+          </div>
+        </section>
+
         <section>
           <h2 className="font-display mb-4 text-sm font-bold uppercase tracking-[0.25em] text-chalk-dim">
             The podium
@@ -283,6 +441,12 @@ export default function Home() {
               <thead>
                 <tr className="font-data border-b border-pitch-line bg-pitch-raised text-[10px] uppercase tracking-[0.18em] text-chalk-dim">
                   <th className="px-3 py-3 text-left font-medium">#</th>
+                  <th
+                    className="px-1 py-3 text-left font-medium"
+                    title="Sim rank vs Elo rank: ▲ = sim ranks the team higher than raw Elo"
+                  >
+                    vs Elo
+                  </th>
                   <th className="px-3 py-3 text-left font-medium">Team</th>
                   <th className="hidden px-3 py-3 text-left font-medium sm:table-cell">
                     Grp
@@ -309,6 +473,9 @@ export default function Home() {
                   >
                     <td className="font-data px-3 py-2.5 text-sm text-chalk-dim">
                       {i + 1}
+                    </td>
+                    <td className="px-1 py-2.5">
+                      <RankDelta simRank={i + 1} eloRank={t.elo_rank} />
                     </td>
                     <td className="px-3 py-2.5">
                       <div className="flex items-center gap-2.5">

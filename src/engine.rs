@@ -86,6 +86,67 @@ pub fn play_knockout(rng: &mut impl Rng, d: f64, pens: PensMode) -> MatchOutcome
     }
 }
 
+pub fn poisson_pmf(k: u32, lambda: f64) -> f64 {
+    let mut p = (-lambda).exp();
+    for i in 1..=k {
+        p *= lambda / i as f64;
+    }
+    p
+}
+
+const PROB_CAP: u32 = 24;
+
+/// Exact 90-minute (home win, draw, away win) probabilities for two lambdas.
+pub fn outcome_probs_for(la: f64, lb: f64) -> (f64, f64, f64) {
+    let mut win = 0.0;
+    let mut draw = 0.0;
+    let mut loss = 0.0;
+    for h in 0..=PROB_CAP {
+        let ph = poisson_pmf(h, la);
+        for a in 0..=PROB_CAP {
+            let p = ph * poisson_pmf(a, lb);
+            match h.cmp(&a) {
+                std::cmp::Ordering::Greater => win += p,
+                std::cmp::Ordering::Equal => draw += p,
+                std::cmp::Ordering::Less => loss += p,
+            }
+        }
+    }
+    (win, draw, loss)
+}
+
+pub fn outcome_probs(d: f64) -> (f64, f64, f64) {
+    let (la, lb) = lambdas(d);
+    outcome_probs_for(la, lb)
+}
+
+/// Probability the first team advances in a knockout match (90' + ET + pens).
+pub fn advance_prob(d: f64, pens: PensMode) -> f64 {
+    let (la, lb) = lambdas(d);
+    let (w90, d90, _) = outcome_probs_for(la, lb);
+    let (wet, det, _) = outcome_probs_for(la / 3.0, lb / 3.0);
+    let p_pens = match pens {
+        PensMode::Coin => 0.5,
+        PensMode::Elo => 0.5 + 0.5 * (win_expectancy(d) - 0.5),
+    };
+    w90 + d90 * (wet + det * p_pens)
+}
+
+/// Most likely exact 90-minute scoreline and its probability.
+pub fn most_likely_score(d: f64) -> (u8, u8, f64) {
+    let (la, lb) = lambdas(d);
+    let mut best = (0u8, 0u8, 0.0f64);
+    for h in 0..=8u32 {
+        for a in 0..=8u32 {
+            let p = poisson_pmf(h, la) * poisson_pmf(a, lb);
+            if p > best.2 {
+                best = (h as u8, a as u8, p);
+            }
+        }
+    }
+    best
+}
+
 pub fn margin_multiplier(margin: u8) -> f64 {
     match margin {
         0 | 1 => 1.0,
