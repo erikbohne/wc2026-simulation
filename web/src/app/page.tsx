@@ -75,56 +75,75 @@ function advanceProb(t: TeamRow): number {
   );
 }
 
-function GroupCard({ letter, teams }: { letter: string; teams: TeamRow[] }) {
-  const sorted = [...teams].sort((a, b) => advanceProb(b) - advanceProb(a));
+function heat(p: number): string {
+  if (p >= 0.5) return "bg-grass";
+  if (p >= 0.25) return "bg-gold";
+  return "bg-rose";
+}
+
+function HeatCell({ p }: { p: number }) {
   return (
-    <div className="border border-pitch-line bg-pitch-raised/60 p-5">
-      <div className="flex items-baseline justify-between">
-        <h3 className="font-display text-2xl font-bold uppercase tracking-wide">
-          Group <span className="text-grass">{letter}</span>
-        </h3>
-        <span className="font-data text-[10px] uppercase tracking-[0.2em] text-chalk-dim">
-          advance
-        </span>
+    <td className="p-px">
+      <div
+        className={`font-data px-1 py-1.5 text-center text-xs font-semibold tabular-nums text-pitch ${heat(p)}`}
+        style={{ opacity: 0.45 + p * 0.55 }}
+      >
+        {(p * 100).toFixed(1)}%
       </div>
-      <div className="mt-4 flex flex-col gap-3">
-        {sorted.map((t) => {
-          const gp = t.group_position;
-          return (
-            <div key={t.code}>
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex min-w-0 items-center gap-2">
-                  <span className="text-base">{flag(t.code)}</span>
-                  <span className="truncate text-sm font-medium">{t.name}</span>
-                  <span className="font-data text-[10px] text-chalk-dim/70">
-                    {t.expected_points.toFixed(1)} xPts
-                  </span>
-                </div>
-                <span className="font-data text-sm font-semibold tabular-nums text-grass">
-                  {pct(advanceProb(t))}
-                </span>
-              </div>
-              <div
-                className="mt-1.5 flex h-1.5 w-full overflow-hidden bg-pitch-line"
-                title={`1st ${pct(gp.first)} · 2nd ${pct(gp.second)} · 3rd & through ${pct(gp.third_qualified)} · out ${pct(gp.third_eliminated + gp.fourth)}`}
+    </td>
+  );
+}
+
+function GroupCard({ letter, teams }: { letter: string; teams: TeamRow[] }) {
+  const sorted = [...teams].sort(
+    (a, b) => b.group_position.first - a.group_position.first,
+  );
+  return (
+    <div className="border border-pitch-line bg-pitch-raised/60 p-4">
+      <h3 className="font-display text-center text-2xl font-bold uppercase tracking-wide">
+        Group <span className="text-grass">{letter}</span>
+      </h3>
+      <table className="mt-3 w-full border-collapse">
+        <thead>
+          <tr className="font-data text-[10px] uppercase tracking-[0.15em] text-chalk-dim">
+            <th className="pb-1.5 text-left font-medium">Team</th>
+            <th className="w-[15%] pb-1.5 text-center font-medium">1</th>
+            <th className="w-[15%] pb-1.5 text-center font-medium">2</th>
+            <th className="w-[15%] pb-1.5 text-center font-medium">3</th>
+            <th className="w-[15%] pb-1.5 text-center font-medium">4</th>
+            <th className="w-[16%] pb-1.5 text-center font-medium text-grass">
+              → KO
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {sorted.map((t) => {
+            const gp = t.group_position;
+            return (
+              <tr
+                key={t.code}
+                title={`${t.name}: ${t.expected_points.toFixed(1)} xPts · 3rd & through ${pct(gp.third_qualified)} · 3rd & out ${pct(gp.third_eliminated)}`}
               >
-                <div
-                  className="h-full bg-grass"
-                  style={{ width: `${gp.first * 100}%` }}
-                />
-                <div
-                  className="h-full bg-grass-dim"
-                  style={{ width: `${gp.second * 100}%` }}
-                />
-                <div
-                  className="h-full bg-gold"
-                  style={{ width: `${gp.third_qualified * 100}%` }}
-                />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+                <td className="pr-2">
+                  <div className="flex min-w-0 items-center gap-1.5">
+                    <span className="text-sm">{flag(t.code)}</span>
+                    <span className="truncate text-sm font-medium">
+                      {t.name}
+                    </span>
+                  </div>
+                </td>
+                <HeatCell p={gp.first} />
+                <HeatCell p={gp.second} />
+                <HeatCell p={gp.third_qualified + gp.third_eliminated} />
+                <HeatCell p={gp.fourth} />
+                <td className="font-data py-1.5 text-center text-xs font-semibold tabular-nums text-grass">
+                  {(advanceProb(t) * 100).toFixed(1)}%
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -231,18 +250,18 @@ export default function Home() {
             </h2>
             <div className="font-data flex items-center gap-4 text-[10px] uppercase tracking-[0.15em] text-chalk-dim">
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 bg-grass" /> 1st
+                <span className="inline-block h-2 w-2 bg-grass" /> ≥50%
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 bg-grass-dim" /> 2nd
+                <span className="inline-block h-2 w-2 bg-gold" /> 25–50%
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block h-2 w-2 bg-gold" /> 3rd &amp;
-                through
+                <span className="inline-block h-2 w-2 bg-rose" /> &lt;25%
               </span>
+              <span>→ KO = advance incl. best thirds</span>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-2">
             {Array.from({ length: 12 }, (_, i) =>
               String.fromCharCode(65 + i),
             ).map((letter) => (
