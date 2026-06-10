@@ -67,6 +67,68 @@ function PodiumCard({ team, rank }: { team: TeamRow; rank: number }) {
   );
 }
 
+function advanceProb(t: TeamRow): number {
+  return (
+    t.group_position.first +
+    t.group_position.second +
+    t.group_position.third_qualified
+  );
+}
+
+function GroupCard({ letter, teams }: { letter: string; teams: TeamRow[] }) {
+  const sorted = [...teams].sort((a, b) => advanceProb(b) - advanceProb(a));
+  return (
+    <div className="border border-pitch-line bg-pitch-raised/60 p-5">
+      <div className="flex items-baseline justify-between">
+        <h3 className="font-display text-2xl font-bold uppercase tracking-wide">
+          Group <span className="text-grass">{letter}</span>
+        </h3>
+        <span className="font-data text-[10px] uppercase tracking-[0.2em] text-chalk-dim">
+          advance
+        </span>
+      </div>
+      <div className="mt-4 flex flex-col gap-3">
+        {sorted.map((t) => {
+          const gp = t.group_position;
+          return (
+            <div key={t.code}>
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex min-w-0 items-center gap-2">
+                  <span className="text-base">{flag(t.code)}</span>
+                  <span className="truncate text-sm font-medium">{t.name}</span>
+                  <span className="font-data text-[10px] text-chalk-dim/70">
+                    {t.expected_points.toFixed(1)} xPts
+                  </span>
+                </div>
+                <span className="font-data text-sm font-semibold tabular-nums text-grass">
+                  {pct(advanceProb(t))}
+                </span>
+              </div>
+              <div
+                className="mt-1.5 flex h-1.5 w-full overflow-hidden bg-pitch-line"
+                title={`1st ${pct(gp.first)} · 2nd ${pct(gp.second)} · 3rd & through ${pct(gp.third_qualified)} · out ${pct(gp.third_eliminated + gp.fourth)}`}
+              >
+                <div
+                  className="h-full bg-grass"
+                  style={{ width: `${gp.first * 100}%` }}
+                />
+                <div
+                  className="h-full bg-grass-dim"
+                  style={{ width: `${gp.second * 100}%` }}
+                />
+                <div
+                  className="h-full bg-gold"
+                  style={{ width: `${gp.third_qualified * 100}%` }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function ProbCell({ p, hideOnMobile }: { p: number; hideOnMobile?: boolean }) {
   return (
     <td
@@ -163,6 +225,37 @@ export default function Home() {
         </section>
 
         <section className="py-16">
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.25em] text-chalk-dim">
+              The 12 groups
+            </h2>
+            <div className="font-data flex items-center gap-4 text-[10px] uppercase tracking-[0.15em] text-chalk-dim">
+              <span className="flex items-center gap-1.5">
+                <span className="inline-block h-2 w-2 bg-grass" /> 1st
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="inline-block h-2 w-2 bg-grass-dim" /> 2nd
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="inline-block h-2 w-2 bg-gold" /> 3rd &amp;
+                through
+              </span>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 12 }, (_, i) =>
+              String.fromCharCode(65 + i),
+            ).map((letter) => (
+              <GroupCard
+                key={letter}
+                letter={letter}
+                teams={teams.filter((t) => t.group === letter)}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section className="pb-16">
           <h2 className="font-display mb-4 text-sm font-bold uppercase tracking-[0.25em] text-chalk-dim">
             All 48 teams
           </h2>
