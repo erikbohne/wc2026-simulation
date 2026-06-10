@@ -4,11 +4,12 @@ use rayon::prelude::*;
 use wc2026_simulation::data::Teams;
 use wc2026_simulation::engine::PensMode;
 use wc2026_simulation::group::GROUP_SCHEDULE;
+use wc2026_simulation::results::{self, FixedResults};
 use wc2026_simulation::stats::{
     Counters, ReportMeta, build_report, format_csv, format_table, format_team_detail,
 };
 use wc2026_simulation::tournament::{
-    Config, FullRecorder, NullRecorder, SimData, run_seed, simulate_one,
+    Config, FullRecorder, NullRecorder, SimData, run_seed, simulate_one_from,
 };
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
@@ -58,6 +59,10 @@ struct Cli {
     /// Run one tournament and print full match-by-match results
     #[arg(long)]
     single: bool,
+
+    /// JSON file with real results to condition the simulation on
+    #[arg(long, value_name = "PATH")]
+    results: Option<String>,
 }
 
 fn main() {
@@ -73,8 +78,23 @@ fn main() {
         },
     };
 
+    let (fixed, results_updated) = match &cli.results {
+        Some(path) => {
+            let json = std::fs::read_to_string(path).unwrap_or_else(|e| {
+                eprintln!("cannot read {path}: {e}");
+                std::process::exit(2);
+            });
+            let (fixed, updated) = FixedResults::parse(&json, &teams).unwrap_or_else(|e| {
+                eprintln!("invalid results file {path}: {e}");
+                std::process::exit(2);
+            });
+            (fixed, Some(updated))
+        }
+        None => (results::EMPTY, None),
+    };
+
     if cli.single {
-        print_single(&teams, &data, &cfg, seed);
+        print_single(&teams, &data, &cfg, &fixed, seed);
         return;
     }
 
@@ -86,14 +106,14 @@ fn main() {
     });
 
     eprintln!(
-        "simulating {} tournaments (seed {seed}, dynamic elo {}, pens {:?})",
-        cli.simulations, cli.dynamic_elo, cli.pens
+        "simulating {} tournaments (seed {seed}, dynamic elo {}, pens {:?}, fixed matches {})",
+        cli.simulations, cli.dynamic_elo, cli.pens, fixed.count
     );
 
     let counters = (0..cli.simulations)
         .into_par_iter()
         .fold(Counters::zeroed, |mut c, i| {
-            let r = simulate_one(&data, &cfg, run_seed(seed, i), &mut NullRecorder);
+            let r = simulate_one_from(&data, &cfg, &fixed, run_seed(seed, i), &mut NullRecorder);
             c.absorb(&r);
             c
         })
@@ -103,6 +123,8 @@ fn main() {
         seed,
         dynamic_elo: cli.dynamic_elo,
         pens: format!("{:?}", cli.pens).to_lowercase(),
+        results_updated,
+        fixed_matches: fixed.count,
     };
     let report = build_report(&counters, &teams, &meta);
 
@@ -124,9 +146,9 @@ fn main() {
     }
 }
 
-fn print_single(teams: &Teams, data: &SimData, cfg: &Config, seed: u64) {
+fn print_single(teams: &Teams, data: &SimData, cfg: &Config, fixed: &FixedResults, seed: u64) {
     let mut rec = FullRecorder::default();
-    let result = simulate_one(data, cfg, run_seed(seed, 0), &mut rec);
+    let result = simulate_one_from(data, cfg, fixed, run_seed(seed, 0), &mut rec);
     let name = |t: u8| teams.teams[t as usize].name.as_str();
 
     println!("=== FIFA World Cup 2026 — single run (seed {seed}) ===\n");

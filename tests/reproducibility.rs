@@ -9,6 +9,7 @@ fn run_with_threads(threads: usize, seed: u64, n: u64) -> (String, String, Strin
     let cfg = Config::default();
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(threads)
+        .stack_size(8 * 1024 * 1024)
         .build()
         .unwrap();
     let counters = pool.install(|| {
@@ -29,6 +30,8 @@ fn run_with_threads(threads: usize, seed: u64, n: u64) -> (String, String, Strin
         seed,
         dynamic_elo: true,
         pens: "coin".into(),
+        results_updated: None,
+        fixed_matches: 0,
     };
     let report = build_report(&counters, &teams, &meta);
     (

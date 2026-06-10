@@ -2,6 +2,7 @@ use crate::bracket::{KNOCKOUT, KoSource, R32, Slot, stage_of_match};
 use crate::data::{NUM_GROUPS, NUM_TEAMS, TeamId, Teams};
 use crate::engine::{self, HOME_ADVANTAGE, MatchOutcome, PensMode};
 use crate::group::{GROUP_SCHEDULE, GroupResult, rank_group};
+use crate::results::FixedResults;
 use crate::third_place::{Third, allocate, best_eight_mask};
 use rand::SeedableRng;
 use rand_xoshiro::Xoshiro256PlusPlus;
@@ -118,6 +119,16 @@ pub fn simulate_one(
     seed: u64,
     rec: &mut impl Recorder,
 ) -> TournamentResult {
+    simulate_one_from(data, cfg, &crate::results::EMPTY, seed, rec)
+}
+
+pub fn simulate_one_from(
+    data: &SimData,
+    cfg: &Config,
+    fixed: &FixedResults,
+    seed: u64,
+    rec: &mut impl Recorder,
+) -> TournamentResult {
     let mut rng = Xoshiro256PlusPlus::seed_from_u64(seed);
     let mut elo = data.base_elo;
     let mut result = TournamentResult {
@@ -147,11 +158,14 @@ pub fn simulate_one(
     for g in 0..NUM_GROUPS {
         let members = data.groups[g];
         let mut goals = [[0u8; 4]; 4];
-        for &(ia, ib) in &GROUP_SCHEDULE {
+        for (si, &(ia, ib)) in GROUP_SCHEDULE.iter().enumerate() {
             let (a, b) = (members[ia as usize], members[ib as usize]);
             let d = (elo[a as usize] + data.home_bonus[a as usize])
                 - (elo[b as usize] + data.home_bonus[b as usize]);
-            let (ga, gb) = engine::play_90(&mut rng, d);
+            let (ga, gb) = match fixed.group[g][si] {
+                Some(score) => score,
+                None => engine::play_90(&mut rng, d),
+            };
             goals[ia as usize][ib as usize] = ga;
             goals[ib as usize][ia as usize] = gb;
             result.total_goals += (ga + gb) as u32;
@@ -204,7 +218,31 @@ pub fn simulate_one(
      -> (TeamId, TeamId) {
         let d = (elo[a as usize] + data.home_bonus[a as usize])
             - (elo[b as usize] + data.home_bonus[b as usize]);
-        let o = engine::play_knockout(rng, d, cfg.pens);
+        let o = match fixed.ko[(m - 73) as usize] {
+            Some(f) => {
+                assert!(
+                    (f.a == a && f.b == b) || (f.a == b && f.b == a),
+                    "fixed result for match {m} names {}/{} but simulation produced {}/{}",
+                    f.a,
+                    f.b,
+                    a,
+                    b
+                );
+                let (goals_a, goals_b) = if f.a == a {
+                    (f.goals_a, f.goals_b)
+                } else {
+                    (f.goals_b, f.goals_a)
+                };
+                MatchOutcome {
+                    goals_a,
+                    goals_b,
+                    extra_time: f.extra_time,
+                    penalties: f.penalties,
+                    a_advances: f.winner == a,
+                }
+            }
+            None => engine::play_knockout(rng, d, cfg.pens),
+        };
         result.total_goals += (o.goals_a + o.goals_b) as u32;
         result.matches += 1;
         rec(m, a, b, o);
@@ -287,6 +325,74 @@ mod tests {
             assert_eq!(in_r32, 32);
             let finalists = r.stage.iter().filter(|&&s| s >= STAGE_FINAL).count();
             assert_eq!(finalists, 2);
+        }
+    }
+
+    #[test]
+    fn fixed_group_result_holds_in_every_run() {
+        use crate::results::{FixedResults, MatchEntry};
+        let teams = Teams::load();
+        let data = SimData::new(&teams);
+        let cfg = Config::default();
+        let members = teams.groups[0];
+        let code = |t: TeamId| teams.teams[t as usize].code.clone();
+        let entries = [MatchEntry {
+            match_no: None,
+            home: code(members[0]),
+            away: code(members[1]),
+            score: (4, 0),
+            extra_time: false,
+            penalties: false,
+            winner: None,
+        }];
+        let fixed = FixedResults::from_entries(&entries, &teams).unwrap();
+        for seed in 0..20 {
+            let mut rec = FullRecorder::default();
+            let r = simulate_one_from(&data, &cfg, &fixed, seed, &mut rec);
+            assert_eq!(r.matches, 104);
+            let m = rec
+                .group_matches
+                .iter()
+                .find(|&&(g, a, b, _, _)| g == 0 && a == members[0] && b == members[1])
+                .unwrap();
+            assert_eq!((m.3, m.4), (4, 0));
+        }
+    }
+
+    #[test]
+    fn fixed_results_change_outcome_distribution() {
+        use crate::results::{FixedResults, MatchEntry};
+        let teams = Teams::load();
+        let data = SimData::new(&teams);
+        let cfg = Config::default();
+        let members = teams.groups[0];
+        let code = |t: TeamId| teams.teams[t as usize].code.clone();
+        let entries: Vec<MatchEntry> = GROUP_SCHEDULE
+            .iter()
+            .map(|&(ia, ib)| MatchEntry {
+                match_no: None,
+                home: code(members[ia as usize]),
+                away: code(members[ib as usize]),
+                score: if ia == 3 {
+                    (3, 0)
+                } else if ib == 3 {
+                    (0, 3)
+                } else {
+                    (1, 1)
+                },
+                extra_time: false,
+                penalties: false,
+                winner: None,
+            })
+            .collect();
+        let fixed = FixedResults::from_entries(&entries, &teams).unwrap();
+        // team at slot 3 wins all its matches -> must always top the group
+        let t3 = members[3];
+        for seed in 0..50 {
+            let r = simulate_one_from(&data, &cfg, &fixed, seed, &mut NullRecorder);
+            assert_eq!(r.group_pos[t3 as usize], 0);
+            assert_eq!(r.points[t3 as usize], 9);
+            assert!(r.stage[t3 as usize] >= STAGE_R32);
         }
     }
 

@@ -1,0 +1,45 @@
+name: Simulate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/results.json"
+      - "data/teams.json"
+      - "src/**"
+  workflow_dispatch:
+
+concurrency:
+  group: simulate
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Run simulation
+        run: |
+          cargo build --release
+          ./target/release/wc2026-sim -n 100000 -s 2026 --results data/results.json -o json > data/snapshots/latest.json
+          played=$(python3 -c "import json; print(json.load(open('data/snapshots/latest.json'))['fixed_matches'])")
+          mkdir -p data/snapshots/history
+          cp data/snapshots/latest.json "data/snapshots/history/$(printf '%03d' "$played")-matches.json"
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/snapshots
+          if git diff --cached --quiet; then
+            echo "no snapshot changes"
+          else
+            git commit -m "data: refresh simulation snapshot"
+            git push
+          fi

@@ -128,6 +128,8 @@ pub struct Report {
     pub pens: String,
     pub elo_snapshot_date: String,
     pub elo_source: String,
+    pub results_updated: Option<String>,
+    pub fixed_matches: u16,
     pub avg_goals_per_match: f64,
     pub teams: Vec<TeamRow>,
 }
@@ -136,6 +138,8 @@ pub struct ReportMeta {
     pub seed: u64,
     pub dynamic_elo: bool,
     pub pens: String,
+    pub results_updated: Option<String>,
+    pub fixed_matches: u16,
 }
 
 pub fn build_report(c: &Counters, teams: &Teams, meta: &ReportMeta) -> Report {
@@ -178,6 +182,8 @@ pub fn build_report(c: &Counters, teams: &Teams, meta: &ReportMeta) -> Report {
         pens: meta.pens.clone(),
         elo_snapshot_date: teams.snapshot_date.clone(),
         elo_source: teams.source.clone(),
+        results_updated: meta.results_updated.clone(),
+        fixed_matches: meta.fixed_matches,
         avg_goals_per_match: c.goals as f64 / c.matches.max(1) as f64,
         teams: rows,
     }

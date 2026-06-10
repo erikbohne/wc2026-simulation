@@ -3,6 +3,7 @@ pub mod bracket;
 pub mod data;
 pub mod engine;
 pub mod group;
+pub mod results;
 pub mod stats;
 pub mod third_place;
 pub mod tournament;

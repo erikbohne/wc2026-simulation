@@ -5,6 +5,10 @@ use wc2026_simulation::tournament::{Config, NullRecorder, SimData, run_seed, sim
 
 #[test]
 fn elo_favourites_dominate_and_goal_average_is_realistic() {
+    rayon::ThreadPoolBuilder::new()
+        .stack_size(8 * 1024 * 1024)
+        .build_global()
+        .ok();
     let teams = Teams::load();
     let data = SimData::new(&teams);
     let cfg = Config::default();

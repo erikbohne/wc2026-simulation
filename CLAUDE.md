@@ -9,6 +9,8 @@ Monte Carlo simulator for the FIFA World Cup 2026. Rust, single static binary, z
 - `cargo clippy --all-targets` and `cargo fmt --check` — must be clean
 - `cargo run --release -- -n 100000` — main run; must finish < 1s
 - `cargo run --release -- --single -s 42` — one full tournament, match-by-match
+- `cargo run --release -- --results data/results.json -o json` — condition on real results
+- `cd web && npm run dev` / `npm run build` / `npm run lint` — Next.js frontend
 
 ## Architecture
 
@@ -19,8 +21,16 @@ Lib + thin bin. Teams are `u8` indices 0..48 into fixed arrays everywhere; no he
 - `src/group.rs` — round robin, standings, official FIFA Art. 13 tiebreakers
 - `src/third_place.rs` — third-place ranking + official Annexe C allocation table (495 rows, keyed by u16 group bitmask)
 - `src/bracket.rs` — const bracket tables for matches 73–104
-- `src/tournament.rs` — `simulate_one(seed)`, Recorder trait (Null for MC, Full for --single)
+- `src/tournament.rs` — `simulate_one(seed)` / `simulate_one_from(fixed)`, Recorder trait (Null for MC, Full for --single)
+- `src/results.rs` — `FixedResults`: parse/validate `data/results.json`, lock played matches (group by team pair, KO by match number; KO results require feeders fixed)
 - `src/stats.rs` — integer counter aggregation, Report, output formats
+- `web/` — Next.js 16 + Tailwind v4 static frontend; reads `data/snapshots/latest.json` at build time (`src/lib/report.ts`). Hosted on Vercel (root directory `web`, domain wc2026.erikoss.com)
+
+## Live-results pipeline
+
+1. Edit `data/results.json` after each real match (group: `{"home","away","score"}`; KO adds `"match"` 73–104, plus `"penalties"`/`"winner"` when tied) and push to main.
+2. `.github/workflows/simulate.yml` rebuilds, runs 100k sims with seed 2026, commits `data/snapshots/latest.json` + `data/snapshots/history/NNN-matches.json`.
+3. Vercel redeploys on the snapshot commit; the page is fully static.
 
 ## Hard rules
 
