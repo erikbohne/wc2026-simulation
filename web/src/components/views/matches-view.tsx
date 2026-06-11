@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Flag } from "@/components/flag";
 import { usePick } from "@/components/mode";
@@ -45,16 +46,20 @@ function TeamCell({
   const top = likely[0];
 
   const content = code ? (
-    <>
+    <Link
+      href={`/team/${code}`}
+      className="flex items-center gap-1.5 transition-colors hover:text-accent"
+    >
       <Flag code={code} className="text-xs" />
       <span className="font-data text-[13px] font-semibold">{code}</span>
-    </>
+    </Link>
   ) : (
     <>
       <span className="font-data text-[10px] text-ink-dim/70">{label}</span>
       {top && (
-        <span
-          className="flex items-center gap-1"
+        <Link
+          href={`/team/${top.code}`}
+          className="flex items-center gap-1 transition-colors hover:text-accent"
           title={likely
             .map((s) => `${s.code} ${(s.p * 100).toFixed(1)}%`)
             .join(" · ")}
@@ -63,7 +68,7 @@ function TeamCell({
           <span className="font-data text-[11px] text-ink-dim">
             {top.code} {Math.round(top.p * 100)}%
           </span>
-        </span>
+        </Link>
       )}
     </>
   );
@@ -199,13 +204,7 @@ export function MatchesView({
   }
 
   return (
-    <section className="py-10">
-      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Matches</h1>
-        <span className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
-          all 104 · results above, schedule below
-        </span>
-      </div>
+    <section className="mx-auto w-full max-w-3xl py-10">
       <div className="flex flex-col gap-7">
         {days.map((day) => (
           <div key={day.date}>
