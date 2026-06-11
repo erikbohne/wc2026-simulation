@@ -7,8 +7,13 @@ export function MatchCard({ f }: { f: Fixture }) {
   return (
     <div className="glass min-w-56 flex-1 rounded-3xl p-5">
       <div className="font-data flex items-center justify-between text-[10px] tracking-[0.12em] text-ink-dim uppercase">
-        <span>
+        <span className="flex items-center gap-1.5">
           M{f.match} · {fixtureStage(f)}
+          {played && (
+            <span className="rounded-md bg-win/15 px-1.5 py-0.5 font-semibold text-win-deep">
+              FT{f.penalties ? " · PENS" : ""}
+            </span>
+          )}
         </span>
         <span>
           {shortDate(f.date)}
@@ -33,9 +38,9 @@ export function MatchCard({ f }: { f: Fixture }) {
               {f.penalties ? " p" : ""}
             </span>
           ) : (
-            <span className="text-ink-dim">
+            <span className="text-sm text-ink-dim/80">
               {f.likely_score
-                ? `${f.likely_score[0]}–${f.likely_score[1]}`
+                ? `~${f.likely_score[0]}–${f.likely_score[1]}`
                 : "vs"}
             </span>
           )}
