@@ -133,6 +133,9 @@ pub fn simulate_one_from(
 ) -> TournamentResult {
     let mut rng = Xoshiro256PlusPlus::seed_from_u64(seed);
     let mut elo = data.base_elo;
+    for e in elo.iter_mut() {
+        *e += engine::STRENGTH_SIGMA * engine::gaussian(&mut rng);
+    }
     let mut result = TournamentResult {
         stage: [STAGE_GROUP; NUM_TEAMS],
         group_pos: [0; NUM_TEAMS],

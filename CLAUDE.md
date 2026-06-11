@@ -18,7 +18,7 @@ Monte Carlo simulator for the FIFA World Cup 2026. Rust, single static binary, z
 Lib + thin bin. Teams are `u8` indices 0..48 into fixed arrays everywhere; no heap allocation in the simulation hot loop.
 
 - `src/data.rs` — `Team`, embedded `data/teams.json` (include_str!), validation
-- `src/engine.rs` — Elo expectancy, hand-rolled Knuth Poisson sampler, match simulation, dynamic Elo (K=60)
+- `src/engine.rs` — Elo expectancy, hand-rolled Knuth Poisson sampler, match simulation, dynamic Elo (K=60). Goal mapping is deliberately flatter than raw Elo (`SPREAD = 1400`, not 1000) and each simulated tournament perturbs every team's Elo by `N(0, STRENGTH_SIGMA=75)` (Box-Muller, first 96 RNG draws of each run) — both calibrated 2026-06-11 against market/Opta title odds (Spain ~17% not 28%). The calibration test asserts the dampened expectancy curve, scale 400·SPREAD/1000.
 - `src/group.rs` — round robin, standings, official FIFA Art. 13 tiebreakers
 - `src/third_place.rs` — third-place ranking + official Annexe C allocation table (495 rows, keyed by u16 group bitmask)
 - `src/bracket.rs` — const bracket tables for matches 73–104

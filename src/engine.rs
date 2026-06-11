@@ -1,13 +1,21 @@
 use rand::{Rng, RngExt};
 
 pub const BASE_LAMBDA: f64 = 1.2;
-pub const SPREAD: f64 = 1000.0;
+pub const SPREAD: f64 = 1400.0;
 pub const HOME_ADVANTAGE: f64 = 100.0;
 pub const LAMBDA_MIN: f64 = 0.15;
 pub const LAMBDA_MAX: f64 = 5.0;
 pub const K_FACTOR: f64 = 60.0;
+pub const STRENGTH_SIGMA: f64 = 75.0;
 
 const LN_10: f64 = std::f64::consts::LN_10;
+
+/// Standard normal sample via Box-Muller; consumes exactly two RNG draws.
+pub fn gaussian(rng: &mut impl Rng) -> f64 {
+    let u1 = rng.random::<f64>();
+    let u2 = rng.random::<f64>();
+    (-2.0 * (1.0 - u1).ln()).sqrt() * (std::f64::consts::TAU * u2).cos()
+}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PensMode {

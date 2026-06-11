@@ -38,7 +38,8 @@ Same seed → byte-identical output regardless of thread count. Run `wcsim --hel
 
 ## How it works
 
-- Every match samples goal counts from Poisson distributions scaled by the Elo difference (`λ = 1.2 · 10^(±d/1000)`), calibrated so outcomes track Elo win expectancy within ±3pp. Hosts (USA/MEX/CAN) receive +100 Elo.
+- Every match samples goal counts from Poisson distributions scaled by the Elo difference (`λ = 1.2 · 10^(±d/1400)`). The mapping is deliberately flatter than raw Elo expectancy — raw Elo compounds over seven rounds into favourite odds well above what markets believe. Hosts (USA/MEX/CAN) receive +100 Elo.
+- Each simulated tournament first perturbs every team's rating by Gaussian noise (σ = 75 Elo), modeling uncertainty about true strength. Together with the flatter mapping this calibrates pre-tournament title odds against market consensus (Spain ~17%, not ~28%).
 - Knockouts: 90 minutes → extra time (λ/3) → penalty shootout.
 - Dynamic Elo (default on): ratings update during each simulated tournament using the eloratings.net formula (K=60) and are reset between runs.
 - Tournament rules follow the official FIFA World Cup 26 Regulations exactly: Article 13 group tiebreakers (head-to-head first among tied teams, then GD/GF, FIFA ranking last — no lots), the verbatim Annexe C allocation table for all 495 third-place combinations, and the Art. 12 bracket (matches 73–104).
