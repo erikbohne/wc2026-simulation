@@ -1,10 +1,5 @@
 import { HomeView } from "@/components/views/home-view";
-import {
-  loadBaseline,
-  loadHistory,
-  loadInsights,
-  loadReport,
-} from "@/lib/report";
+import { loadBaseline, loadHistory, loadReport } from "@/lib/report";
 
 export default function Home() {
   return (
@@ -12,7 +7,6 @@ export default function Home() {
       live={loadReport()}
       baseline={loadBaseline()}
       history={loadHistory()}
-      insights={loadInsights()}
     />
   );
 }

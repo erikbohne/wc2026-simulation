@@ -81,16 +81,6 @@ export function loadBaseline(): Report {
   return load("baseline.json");
 }
 
-export interface Insight {
-  date: string;
-  text: string;
-}
-
-export function loadInsights(): Insight[] {
-  const file = path.join(process.cwd(), "..", "data", "insights.json");
-  return JSON.parse(readFileSync(file, "utf8")) as Insight[];
-}
-
 export interface HistoryPoint {
   matches: number;
   updated: string | null;

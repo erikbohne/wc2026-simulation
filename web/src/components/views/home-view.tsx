@@ -1,27 +1,23 @@
 "use client";
 
-import { InsightsRail } from "@/components/insights";
 import { usePick } from "@/components/mode";
 import { OddsChart } from "@/components/odds-chart";
 import { Terminal } from "@/components/terminal";
-import type { HistoryPoint, Insight, Report } from "@/lib/report";
+import type { HistoryPoint, Report } from "@/lib/report";
 
 export function HomeView({
   live,
   baseline,
   history,
-  insights,
 }: {
   live: Report;
   baseline: Report;
   history: HistoryPoint[];
-  insights: Insight[];
 }) {
   const report = usePick(live, baseline);
 
   return (
     <div className="mx-auto w-full max-w-3xl">
-      <InsightsRail insights={insights} />
       <section className="py-10 sm:py-14">
         <div className="rise">
           <Terminal report={report} />
