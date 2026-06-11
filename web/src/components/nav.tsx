@@ -6,6 +6,7 @@ import { ModeToggle } from "@/components/mode";
 
 const TABS = [
   { href: "/", label: "Home" },
+  { href: "/matches", label: "Matches" },
   { href: "/bracket", label: "Bracket" },
   { href: "/groups", label: "Groups" },
   { href: "/table", label: "Table" },
@@ -33,7 +34,7 @@ export function Nav() {
                 <Link
                   key={t.href}
                   href={t.href}
-                  className={`rounded-full px-4 py-1.5 text-[15px] transition-colors ${
+                  className={`rounded-full px-3 py-1.5 text-[14px] transition-colors lg:px-4 lg:text-[15px] ${
                     active
                       ? "bg-ink/[0.07] font-semibold text-ink"
                       : "text-ink-dim hover:text-ink"
@@ -50,7 +51,7 @@ export function Nav() {
               href={REPO}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden rounded-full bg-ink px-4 py-2 text-[14px] font-semibold text-white transition-opacity hover:opacity-80 md:block"
+              className="hidden rounded-full bg-ink px-4 py-2 text-[14px] font-semibold text-white transition-opacity hover:opacity-80 lg:block"
             >
               GitHub
             </a>
@@ -65,7 +66,7 @@ export function Nav() {
               <Link
                 key={t.href}
                 href={t.href}
-                className={`flex flex-col items-center rounded-full px-3 py-2 text-[13px] transition-colors ${
+                className={`flex flex-col items-center rounded-full px-2 py-2 text-[13px] transition-colors ${
                   active ? "font-semibold text-ink" : "text-ink-dim"
                 }`}
               >
