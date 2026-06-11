@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Report } from "@/lib/report";
 
-const CMD = "wc2026-sim -n 100000 --results data/results.json";
+const CMD = "wcsim -n 100000 --results data/results.json";
 const SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
 const RUN_TICKS = 30;
 
@@ -115,7 +115,7 @@ export function Terminal({ report }: { report: Report }) {
         <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
         <span className="font-data ml-3 text-[11px] text-ink-dim/70">
-          wc2026-simulation — zsh
+          wcsim — zsh
         </span>
       </div>
       <div className="font-data h-[21.5rem] overflow-hidden p-4 text-[10.5px] leading-[1.75] sm:text-[11.5px]">

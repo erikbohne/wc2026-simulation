@@ -20,5 +20,5 @@ lto = "thin"
 codegen-units = 1
 
 [[bin]]
-name = "wc2026-sim"
+name = "wcsim"
 path = "src/main.rs"

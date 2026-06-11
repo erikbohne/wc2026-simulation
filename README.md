@@ -1,4 +1,4 @@
-# wc2026-sim
+# wcsim
 
 Monte Carlo simulator for the FIFA World Cup 2026. Runs the full 104-match tournament 100,000 times in well under a second and reports per-team advancement probabilities using Elo ratings + Poisson goals.
 
@@ -16,7 +16,7 @@ Rank  Team                 Group    Win%  Final%    SF%    QF%   R16%   R32%
 ## Install
 
 ```sh
-cargo build --release     # binary at target/release/wc2026-sim
+cargo build --release     # binary at target/release/wcsim
 cargo install --path .
 ```
 
@@ -25,16 +25,16 @@ Requires Rust 1.85+.
 ## Usage
 
 ```sh
-wc2026-sim                     # default: 100k sims, probability table
-wc2026-sim -n 1000000 -s 42    # more runs, fixed seed (reproducible)
-wc2026-sim --single -s 42      # one tournament, match-by-match results
-wc2026-sim --team NOR          # detailed report for one team
-wc2026-sim -o json             # machine-readable (also: csv)
-wc2026-sim --pens elo          # Elo-weighted shootouts instead of coin flip
-wc2026-sim --dynamic-elo false # freeze ratings within each tournament
+wcsim                     # default: 100k sims, probability table
+wcsim -n 1000000 -s 42    # more runs, fixed seed (reproducible)
+wcsim --single -s 42      # one tournament, match-by-match results
+wcsim --team NOR          # detailed report for one team
+wcsim -o json             # machine-readable (also: csv)
+wcsim --pens elo          # Elo-weighted shootouts instead of coin flip
+wcsim --dynamic-elo false # freeze ratings within each tournament
 ```
 
-Same seed → byte-identical output regardless of thread count. Run `wc2026-sim --help` for all flags.
+Same seed → byte-identical output regardless of thread count. Run `wcsim --help` for all flags.
 
 ## How it works
 

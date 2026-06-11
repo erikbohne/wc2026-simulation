@@ -27,7 +27,7 @@ enum OutputArg {
 
 #[derive(Parser, Debug)]
 #[command(
-    name = "wc2026-sim",
+    name = "wcsim",
     version,
     about = "Monte Carlo simulator for the FIFA World Cup 2026"
 )]
