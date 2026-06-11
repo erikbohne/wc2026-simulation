@@ -64,6 +64,10 @@ cargo run --release -- -n 100000
 cargo run --release -- --single -s 42
 ```
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: CI must be green, FIFA rules are followed to the letter, and same seed means byte-identical output.
+
 ## License
 
 MIT
