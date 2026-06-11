@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { flag } from "@/lib/flags";
+import { Flag } from "@/components/flag";
 import { advanceProb, pct } from "@/lib/format";
 import type { TeamRow } from "@/lib/report";
 
@@ -67,7 +67,7 @@ export function GroupCard({
                     href={`/team/${t.code}`}
                     className="flex min-w-0 items-center gap-1.5 transition-colors hover:text-accent"
                   >
-                    <span className="text-base">{flag(t.code)}</span>
+                    <Flag code={t.code} className="text-xs" />
                     <span className="truncate text-sm font-medium">
                       {t.name}
                     </span>

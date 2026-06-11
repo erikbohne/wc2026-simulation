@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { flag } from "@/lib/flags";
+import { Flag } from "@/components/flag";
 import { pct } from "@/lib/format";
 import type { TeamRow } from "@/lib/report";
 
@@ -18,7 +18,9 @@ export function PodiumCard({ team, rank }: { team: TeamRow; rank: number }) {
       >
         {rank}
       </div>
-      <div className="text-5xl">{flag(team.code)}</div>
+      <div>
+        <Flag code={team.code} className="text-4xl" />
+      </div>
       <div className="mt-3 text-2xl font-bold tracking-tight">{team.name}</div>
       <div className="font-data mt-0.5 text-xs text-ink-dim">
         Group {team.group} · {team.code}

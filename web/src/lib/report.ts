@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
 export interface GroupPositionDist {
@@ -79,4 +79,25 @@ export function loadReport(): Report {
 
 export function loadBaseline(): Report {
   return load("baseline.json");
+}
+
+export interface HistoryPoint {
+  matches: number;
+  updated: string | null;
+  win: Record<string, number>;
+}
+
+export function loadHistory(): HistoryPoint[] {
+  const dir = path.join(process.cwd(), "..", "data", "snapshots", "history");
+  const files = readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .sort();
+  return files.map((f) => {
+    const r = JSON.parse(
+      readFileSync(path.join(dir, f), "utf8"),
+    ) as Report;
+    const win: Record<string, number> = {};
+    for (const t of r.teams) win[t.code] = t.win;
+    return { matches: r.fixed_matches, updated: r.results_updated, win };
+  });
 }

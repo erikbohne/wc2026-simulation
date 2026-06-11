@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { GroupCard } from "@/components/group-card";
 import { MatchCard } from "@/components/match-card";
+import { Flag } from "@/components/flag";
 import { usePick } from "@/components/mode";
-import { flag } from "@/lib/flags";
 import { pct } from "@/lib/format";
 import type { Report, TeamRow } from "@/lib/report";
 
@@ -63,7 +63,7 @@ export function TeamView({
       <div className="glass rounded-3xl p-7">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <span className="text-6xl">{flag(team.code)}</span>
+            <Flag code={team.code} className="text-5xl" />
             <div>
               <h1 className="text-3xl font-bold tracking-tight">
                 {team.name}
@@ -135,7 +135,7 @@ export function TeamView({
                 className="flex items-center justify-between rounded-xl px-2 py-1 transition-colors hover:bg-white/60"
               >
                 <span className="flex items-center gap-2 text-sm font-medium">
-                  <span className="text-lg">{flag(o.code)}</span>
+                  <Flag code={o.code} className="text-sm" />
                   {o.code}
                 </span>
                 <span className="flex items-center gap-2">

@@ -66,6 +66,10 @@ struct Cli {
 }
 
 fn main() {
+    rayon::ThreadPoolBuilder::new()
+        .stack_size(8 * 1024 * 1024)
+        .build_global()
+        .ok();
     let cli = Cli::parse();
     let teams = Teams::load();
     let data = SimData::new(&teams);

@@ -1,4 +1,4 @@
-import { flag } from "@/lib/flags";
+import { Flag } from "@/components/flag";
 import { fixtureStage, shortDate } from "@/lib/format";
 import type { Fixture } from "@/lib/report";
 
@@ -17,7 +17,11 @@ export function MatchCard({ f }: { f: Fixture }) {
       </div>
       <div className="mt-3.5 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="text-2xl">{f.home ? flag(f.home) : "·"}</span>
+          {f.home ? (
+            <Flag code={f.home} className="text-lg" />
+          ) : (
+            <span className="text-lg text-ink-dim">·</span>
+          )}
           <span className="text-lg font-bold tracking-tight">
             {f.home_label}
           </span>
@@ -40,7 +44,11 @@ export function MatchCard({ f }: { f: Fixture }) {
           <span className="text-lg font-bold tracking-tight">
             {f.away_label}
           </span>
-          <span className="text-2xl">{f.away ? flag(f.away) : "·"}</span>
+          {f.away ? (
+            <Flag code={f.away} className="text-lg" />
+          ) : (
+            <span className="text-lg text-ink-dim">·</span>
+          )}
         </div>
       </div>
       {f.p_home != null && (

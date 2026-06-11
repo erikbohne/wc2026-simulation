@@ -1,20 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import { Flag } from "@/components/flag";
 import { MatchCard } from "@/components/match-card";
 import { usePick } from "@/components/mode";
+import { OddsChart } from "@/components/odds-chart";
 import { PodiumCard } from "@/components/podium-card";
-import { flag } from "@/lib/flags";
+import { Terminal } from "@/components/terminal";
 import { pct } from "@/lib/format";
-import type { Report } from "@/lib/report";
+import type { HistoryPoint, Report } from "@/lib/report";
 
-function StatChip({ label, value }: { label: string; value: string }) {
+function StatChip({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="glass rounded-2xl px-4 py-3.5">
       <div className="font-data text-[10px] tracking-[0.15em] text-ink-dim uppercase">
         {label}
       </div>
-      <div className="font-data mt-1 text-lg tabular-nums">{value}</div>
+      <div className="font-data mt-1 flex items-center gap-1.5 text-lg tabular-nums">
+        {value}
+      </div>
     </div>
   );
 }
@@ -22,9 +26,11 @@ function StatChip({ label, value }: { label: string; value: string }) {
 export function HomeView({
   live,
   baseline,
+  history,
 }: {
   live: Report;
   baseline: Report;
+  history: HistoryPoint[];
 }) {
   const report = usePick(live, baseline);
   const teams = report.teams;
@@ -37,47 +43,53 @@ export function HomeView({
 
   return (
     <>
-      <section className="py-14 sm:py-20">
-        <h1 className="text-5xl font-bold tracking-tighter sm:text-7xl">
-          <span className="rise block" style={{ animationDelay: "0s" }}>
-            104 matches.
-          </span>
-          <span
-            className="rise block bg-gradient-to-r from-win-deep via-accent to-accent bg-clip-text text-transparent"
-            style={{ animationDelay: "0.1s" }}
+      <section className="grid items-center gap-10 py-12 lg:grid-cols-2 sm:py-16">
+        <div>
+          <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl">
+            <span className="rise block" style={{ animationDelay: "0s" }}>
+              104 matches.
+            </span>
+            <span
+              className="rise block bg-gradient-to-r from-win-deep via-accent to-accent bg-clip-text text-transparent"
+              style={{ animationDelay: "0.1s" }}
+            >
+              100,000 futures.
+            </span>
+          </h1>
+          <p
+            className="rise mt-5 max-w-xl text-lg leading-relaxed text-ink-dim"
+            style={{ animationDelay: "0.2s" }}
           >
-            100,000 futures.
-          </span>
-        </h1>
-        <p
-          className="rise mt-5 max-w-xl text-lg leading-relaxed text-ink-dim"
-          style={{ animationDelay: "0.2s" }}
-        >
-          A Monte Carlo simulation of the FIFA World Cup 2026, re-run after
-          every real match. Elo-driven, Poisson-scored, reproducible to the
-          last decimal — and fully open source.
-        </p>
-        <div
-          className="rise mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4"
-          style={{ animationDelay: "0.3s" }}
-        >
-          <StatChip
-            label="Simulations"
-            value={report.simulations.toLocaleString("en-US")}
-          />
-          <StatChip
-            label="Matches played"
-            value={`${report.fixed_matches} / 104`}
-          />
-          <StatChip
-            label="Favourite"
-            value={`${flag(favourite.code)} ${favourite.code} ${pct(favourite.win)}`}
-          />
-          <StatChip
-            label="Goals / match"
-            value={report.avg_goals_per_match.toFixed(2)}
-          />
+            A Monte Carlo simulation of the FIFA World Cup 2026, re-run after
+            every real match. Elo-driven, Poisson-scored, reproducible to the
+            last decimal — and fully open source.
+          </p>
+          <div
+            className="rise mt-8 grid grid-cols-2 gap-3"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <StatChip
+              label="Matches played"
+              value={`${report.fixed_matches} / 104`}
+            />
+            <StatChip
+              label="Favourite"
+              value={
+                <>
+                  <Flag code={favourite.code} className="text-sm" />
+                  {favourite.code} {pct(favourite.win)}
+                </>
+              }
+            />
+          </div>
         </div>
+        <div className="rise" style={{ animationDelay: "0.25s" }}>
+          <Terminal report={report} />
+        </div>
+      </section>
+
+      <section className="pb-14">
+        <OddsChart history={history} teams={live.teams} />
       </section>
 
       <section className="pb-14">

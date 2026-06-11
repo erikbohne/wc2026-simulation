@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { flag } from "@/lib/flags";
+import { Flag } from "@/components/flag";
 import { pct } from "@/lib/format";
 import type { TeamRow } from "@/lib/report";
 
@@ -81,7 +81,7 @@ export function Leaderboard({ teams }: { teams: TeamRow[] }) {
                   href={`/team/${t.code}`}
                   className="flex items-center gap-2.5 transition-colors hover:text-accent"
                 >
-                  <span className="text-lg">{flag(t.code)}</span>
+                  <Flag code={t.code} className="text-sm" />
                   <span className="font-medium">{t.name}</span>
                   <span className="font-data text-[10px] text-ink-dim/60">
                     {t.code}
