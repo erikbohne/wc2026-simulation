@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { flag } from "@/lib/flags";
 import { pct } from "@/lib/format";
 import type { TeamRow } from "@/lib/report";
@@ -76,13 +77,16 @@ export function Leaderboard({ teams }: { teams: TeamRow[] }) {
                 <RankDelta simRank={i + 1} eloRank={t.elo_rank} />
               </td>
               <td className="px-3 py-2.5">
-                <div className="flex items-center gap-2.5">
+                <Link
+                  href={`/team/${t.code}`}
+                  className="flex items-center gap-2.5 transition-colors hover:text-accent"
+                >
                   <span className="text-lg">{flag(t.code)}</span>
                   <span className="font-medium">{t.name}</span>
                   <span className="font-data text-[10px] text-ink-dim/60">
                     {t.code}
                   </span>
-                </div>
+                </Link>
               </td>
               <td className="font-data hidden px-3 py-2.5 text-sm text-ink-dim sm:table-cell">
                 {t.group}

@@ -104,6 +104,12 @@ pub struct GroupPositionDist {
 }
 
 #[derive(Debug, Serialize)]
+pub struct R32Opponent {
+    pub code: String,
+    pub p: f64,
+}
+
+#[derive(Debug, Serialize)]
 pub struct TeamRow {
     pub code: String,
     pub name: String,
@@ -121,6 +127,7 @@ pub struct TeamRow {
     pub expected_points: f64,
     pub expected_gd: f64,
     pub group_position: GroupPositionDist,
+    pub r32_opponents: Vec<R32Opponent>,
 }
 
 #[derive(Debug, Serialize)]
@@ -173,12 +180,26 @@ pub fn build_report(
         .into_iter()
         .map(|t| {
             let team = &teams.teams[t];
+            let mut opponents: Vec<(usize, u64)> = (0..NUM_TEAMS)
+                .map(|o| (o, c.r32_opp[t * NUM_TEAMS + o]))
+                .filter(|&(_, count)| count > 0)
+                .collect();
+            opponents.sort_by_key(|&(o, count)| (std::cmp::Reverse(count), o));
+            let r32_opponents = opponents
+                .into_iter()
+                .take(8)
+                .map(|(o, count)| R32Opponent {
+                    code: teams.teams[o].code.clone(),
+                    p: count as f64 / n,
+                })
+                .collect();
             TeamRow {
                 code: team.code.clone(),
                 name: team.name.clone(),
                 group: team.group,
                 elo: team.elo,
                 elo_rank: elo_rank[t],
+                r32_opponents,
                 win: c.stage_exact[6][t] as f64 / n,
                 final_: c.reached(5, t) as f64 / n,
                 sf: c.reached(4, t) as f64 / n,

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ModeProvider } from "@/components/mode";
 import { Nav } from "@/components/nav";
 import { loadReport } from "@/lib/report";
 import "./globals.css";
@@ -63,10 +64,12 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="flex min-h-full flex-col">
         <div className="backdrop-blobs" />
-        <Nav />
-        <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-28">
-          {children}
-        </main>
+        <ModeProvider>
+          <Nav />
+          <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-28">
+            {children}
+          </main>
+        </ModeProvider>
         <Footer />
       </body>
     </html>

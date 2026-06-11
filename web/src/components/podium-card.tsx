@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { flag } from "@/lib/flags";
 import { pct } from "@/lib/format";
 import type { TeamRow } from "@/lib/report";
@@ -5,8 +6,9 @@ import type { TeamRow } from "@/lib/report";
 export function PodiumCard({ team, rank }: { team: TeamRow; rank: number }) {
   const first = rank === 1;
   return (
-    <div
-      className="rise glass relative rounded-3xl p-6"
+    <Link
+      href={`/team/${team.code}`}
+      className="rise glass relative block rounded-3xl p-6 transition-transform hover:scale-[1.015]"
       style={{ animationDelay: `${0.25 + rank * 0.08}s` }}
     >
       <div
@@ -41,6 +43,6 @@ export function PodiumCard({ team, rank }: { team: TeamRow; rank: number }) {
         <span>Final {pct(team.final)}</span>
         <span>SF {pct(team.sf)}</span>
       </div>
-    </div>
+    </Link>
   );
 }

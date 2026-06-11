@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ModeToggle } from "@/components/mode";
 
 const TABS = [
   { href: "/", label: "Home" },
@@ -40,12 +41,15 @@ export function Nav() {
             );
           })}
         </div>
-        <a
-          href={REPO}
-          className="hidden rounded-full bg-ink px-4 py-2 text-[14px] font-semibold text-white transition-opacity hover:opacity-80 sm:block"
-        >
-          GitHub
-        </a>
+        <div className="flex items-center gap-2">
+          <ModeToggle />
+          <a
+            href={REPO}
+            className="hidden rounded-full bg-ink px-4 py-2 text-[14px] font-semibold text-white transition-opacity hover:opacity-80 md:block"
+          >
+            GitHub
+          </a>
+        </div>
       </nav>
     </div>
   );

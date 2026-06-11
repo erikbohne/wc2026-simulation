@@ -30,12 +30,18 @@ export interface Fixture {
   likely_p: number | null;
 }
 
+export interface R32Opponent {
+  code: string;
+  p: number;
+}
+
 export interface TeamRow {
   code: string;
   name: string;
   group: string;
   elo: number;
   elo_rank: number;
+  r32_opponents: R32Opponent[];
   win: number;
   final: number;
   sf: number;
@@ -62,13 +68,15 @@ export interface Report {
   fixtures: Fixture[];
 }
 
-export function loadReport(): Report {
-  const file = path.join(
-    process.cwd(),
-    "..",
-    "data",
-    "snapshots",
-    "latest.json",
-  );
+function load(name: string): Report {
+  const file = path.join(process.cwd(), "..", "data", "snapshots", name);
   return JSON.parse(readFileSync(file, "utf8")) as Report;
+}
+
+export function loadReport(): Report {
+  return load("latest.json");
+}
+
+export function loadBaseline(): Report {
+  return load("baseline.json");
 }

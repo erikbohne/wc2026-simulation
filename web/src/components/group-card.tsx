@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { flag } from "@/lib/flags";
 import { advanceProb, pct } from "@/lib/format";
 import type { TeamRow } from "@/lib/report";
@@ -62,12 +63,15 @@ export function GroupCard({
                 title={`${t.name}: ${t.expected_points.toFixed(1)} xPts · 3rd & through ${pct(gp.third_qualified)} · 3rd & out ${pct(gp.third_eliminated)}`}
               >
                 <td className="pr-2">
-                  <div className="flex min-w-0 items-center gap-1.5">
+                  <Link
+                    href={`/team/${t.code}`}
+                    className="flex min-w-0 items-center gap-1.5 transition-colors hover:text-accent"
+                  >
                     <span className="text-base">{flag(t.code)}</span>
                     <span className="truncate text-sm font-medium">
                       {t.name}
                     </span>
-                  </div>
+                  </Link>
                 </td>
                 <HeatCell p={gp.first} />
                 <HeatCell p={gp.second} />
