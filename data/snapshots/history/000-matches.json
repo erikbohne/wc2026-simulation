@@ -4421,7 +4421,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "KOR",
+          "p": 0.32085
+        },
+        {
+          "code": "CZE",
+          "p": 0.26434
+        },
+        {
+          "code": "MEX",
+          "p": 0.24478
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "SUI",
+          "p": 0.38558
+        },
+        {
+          "code": "CAN",
+          "p": 0.34503
+        },
+        {
+          "code": "BIH",
+          "p": 0.17637
+        }
+      ]
     },
     {
       "match": 74,
@@ -4441,7 +4469,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ECU",
+          "p": 0.47757
+        },
+        {
+          "code": "GER",
+          "p": 0.40717
+        },
+        {
+          "code": "CIV",
+          "p": 0.10275
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "SCO",
+          "p": 0.18062
+        },
+        {
+          "code": "PAR",
+          "p": 0.14648
+        },
+        {
+          "code": "MAR",
+          "p": 0.14072
+        }
+      ]
     },
     {
       "match": 75,
@@ -4461,7 +4517,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "NED",
+          "p": 0.52662
+        },
+        {
+          "code": "JPN",
+          "p": 0.28426
+        },
+        {
+          "code": "SWE",
+          "p": 0.11655
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "MAR",
+          "p": 0.38632
+        },
+        {
+          "code": "SCO",
+          "p": 0.31004
+        },
+        {
+          "code": "BRA",
+          "p": 0.25612
+        }
+      ]
     },
     {
       "match": 76,
@@ -4481,7 +4565,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "BRA",
+          "p": 0.61859
+        },
+        {
+          "code": "MAR",
+          "p": 0.23383
+        },
+        {
+          "code": "SCO",
+          "p": 0.13858
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "JPN",
+          "p": 0.33752
+        },
+        {
+          "code": "NED",
+          "p": 0.27384
+        },
+        {
+          "code": "SWE",
+          "p": 0.22575
+        }
+      ]
     },
     {
       "match": 77,
@@ -4501,7 +4613,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "FRA",
+          "p": 0.63561
+        },
+        {
+          "code": "NOR",
+          "p": 0.21625
+        },
+        {
+          "code": "SEN",
+          "p": 0.1359
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "SWE",
+          "p": 0.2008
+        },
+        {
+          "code": "TUN",
+          "p": 0.1667
+        },
+        {
+          "code": "JPN",
+          "p": 0.15723
+        }
+      ]
     },
     {
       "match": 78,
@@ -4521,7 +4661,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "GER",
+          "p": 0.37889
+        },
+        {
+          "code": "ECU",
+          "p": 0.34688
+        },
+        {
+          "code": "CIV",
+          "p": 0.22017
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "NOR",
+          "p": 0.39104
+        },
+        {
+          "code": "SEN",
+          "p": 0.30187
+        },
+        {
+          "code": "FRA",
+          "p": 0.24854
+        }
+      ]
     },
     {
       "match": 79,
@@ -4541,7 +4709,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "MEX",
+          "p": 0.59191
+        },
+        {
+          "code": "KOR",
+          "p": 0.20107
+        },
+        {
+          "code": "CZE",
+          "p": 0.14031
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "CIV",
+          "p": 0.17638
+        },
+        {
+          "code": "SCO",
+          "p": 0.127
+        },
+        {
+          "code": "KSA",
+          "p": 0.11095
+        }
+      ]
     },
     {
       "match": 80,
@@ -4561,7 +4757,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ENG",
+          "p": 0.65073
+        },
+        {
+          "code": "CRO",
+          "p": 0.29014
+        },
+        {
+          "code": "PAN",
+          "p": 0.02991
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "COD",
+          "p": 0.22011
+        },
+        {
+          "code": "UZB",
+          "p": 0.21996
+        },
+        {
+          "code": "SEN",
+          "p": 0.10888
+        }
+      ]
     },
     {
       "match": 81,
@@ -4581,7 +4805,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "USA",
+          "p": 0.38279
+        },
+        {
+          "code": "TUR",
+          "p": 0.35216
+        },
+        {
+          "code": "PAR",
+          "p": 0.163
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "BIH",
+          "p": 0.27016
+        },
+        {
+          "code": "QAT",
+          "p": 0.16571
+        },
+        {
+          "code": "SUI",
+          "p": 0.12231
+        }
+      ]
     },
     {
       "match": 82,
@@ -4601,7 +4853,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "BEL",
+          "p": 0.43339
+        },
+        {
+          "code": "IRN",
+          "p": 0.26988
+        },
+        {
+          "code": "EGY",
+          "p": 0.24947
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "CZE",
+          "p": 0.21236
+        },
+        {
+          "code": "KOR",
+          "p": 0.19486
+        },
+        {
+          "code": "RSA",
+          "p": 0.1773
+        }
+      ]
     },
     {
       "match": 83,
@@ -4621,7 +4901,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "POR",
+          "p": 0.40842
+        },
+        {
+          "code": "COL",
+          "p": 0.37202
+        },
+        {
+          "code": "COD",
+          "p": 0.11138
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "CRO",
+          "p": 0.47458
+        },
+        {
+          "code": "ENG",
+          "p": 0.26724
+        },
+        {
+          "code": "PAN",
+          "p": 0.1294
+        }
+      ]
     },
     {
       "match": 84,
@@ -4641,7 +4949,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ESP",
+          "p": 0.89013
+        },
+        {
+          "code": "URU",
+          "p": 0.10152
+        },
+        {
+          "code": "KSA",
+          "p": 0.00488
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "AUT",
+          "p": 0.45079
+        },
+        {
+          "code": "ALG",
+          "p": 0.28201
+        },
+        {
+          "code": "JOR",
+          "p": 0.13983
+        }
+      ]
     },
     {
       "match": 85,
@@ -4661,7 +4997,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "CAN",
+          "p": 0.48839
+        },
+        {
+          "code": "SUI",
+          "p": 0.4139
+        },
+        {
+          "code": "BIH",
+          "p": 0.06981
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "EGY",
+          "p": 0.18826
+        },
+        {
+          "code": "IRN",
+          "p": 0.17789
+        },
+        {
+          "code": "BEL",
+          "p": 0.13305
+        }
+      ]
     },
     {
       "match": 86,
@@ -4681,7 +5045,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ARG",
+          "p": 0.83826
+        },
+        {
+          "code": "AUT",
+          "p": 0.09968
+        },
+        {
+          "code": "ALG",
+          "p": 0.04552
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "URU",
+          "p": 0.6971
+        },
+        {
+          "code": "KSA",
+          "p": 0.11115
+        },
+        {
+          "code": "ESP",
+          "p": 0.10355
+        }
+      ]
     },
     {
       "match": 87,
@@ -4701,7 +5093,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "COL",
+          "p": 0.50141
+        },
+        {
+          "code": "POR",
+          "p": 0.43601
+        },
+        {
+          "code": "UZB",
+          "p": 0.03177
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "GHA",
+          "p": 0.21556
+        },
+        {
+          "code": "PAN",
+          "p": 0.21513
+        },
+        {
+          "code": "CRO",
+          "p": 0.13425
+        }
+      ]
     },
     {
       "match": 88,
@@ -4721,7 +5141,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "TUR",
+          "p": 0.29777
+        },
+        {
+          "code": "USA",
+          "p": 0.29311
+        },
+        {
+          "code": "PAR",
+          "p": 0.23238
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "IRN",
+          "p": 0.30915
+        },
+        {
+          "code": "EGY",
+          "p": 0.29504
+        },
+        {
+          "code": "BEL",
+          "p": 0.28896
+        }
+      ]
     },
     {
       "match": 89,
@@ -4741,7 +5189,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ECU",
+          "p": 0.35502
+        },
+        {
+          "code": "GER",
+          "p": 0.29484
+        },
+        {
+          "code": "CIV",
+          "p": 0.05551
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "FRA",
+          "p": 0.55277
+        },
+        {
+          "code": "NOR",
+          "p": 0.1641
+        },
+        {
+          "code": "SEN",
+          "p": 0.09587
+        }
+      ]
     },
     {
       "match": 90,
@@ -4761,7 +5237,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "SUI",
+          "p": 0.23644
+        },
+        {
+          "code": "CAN",
+          "p": 0.21979
+        },
+        {
+          "code": "MEX",
+          "p": 0.14315
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "NED",
+          "p": 0.3657
+        },
+        {
+          "code": "JPN",
+          "p": 0.17313
+        },
+        {
+          "code": "MAR",
+          "p": 0.1421
+        }
+      ]
     },
     {
       "match": 91,
@@ -4781,7 +5285,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "BRA",
+          "p": 0.43205
+        },
+        {
+          "code": "JPN",
+          "p": 0.1325
+        },
+        {
+          "code": "MAR",
+          "p": 0.13051
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "NOR",
+          "p": 0.22905
+        },
+        {
+          "code": "FRA",
+          "p": 0.18217
+        },
+        {
+          "code": "GER",
+          "p": 0.17186
+        }
+      ]
     },
     {
       "match": 92,
@@ -4801,7 +5333,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "MEX",
+          "p": 0.45298
+        },
+        {
+          "code": "KOR",
+          "p": 0.1269
+        },
+        {
+          "code": "CZE",
+          "p": 0.0832
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ENG",
+          "p": 0.54114
+        },
+        {
+          "code": "CRO",
+          "p": 0.21618
+        },
+        {
+          "code": "POR",
+          "p": 0.0353
+        }
+      ]
     },
     {
       "match": 93,
@@ -4821,7 +5381,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "CRO",
+          "p": 0.24356
+        },
+        {
+          "code": "POR",
+          "p": 0.23448
+        },
+        {
+          "code": "COL",
+          "p": 0.2231
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ESP",
+          "p": 0.7875
+        },
+        {
+          "code": "URU",
+          "p": 0.06549
+        },
+        {
+          "code": "AUT",
+          "p": 0.06138
+        }
+      ]
     },
     {
       "match": 94,
@@ -4841,7 +5429,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "USA",
+          "p": 0.28364
+        },
+        {
+          "code": "TUR",
+          "p": 0.2596
+        },
+        {
+          "code": "PAR",
+          "p": 0.10457
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "BEL",
+          "p": 0.29835
+        },
+        {
+          "code": "IRN",
+          "p": 0.17025
+        },
+        {
+          "code": "EGY",
+          "p": 0.15469
+        }
+      ]
     },
     {
       "match": 95,
@@ -4861,7 +5477,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ARG",
+          "p": 0.67943
+        },
+        {
+          "code": "URU",
+          "p": 0.16795
+        },
+        {
+          "code": "ESP",
+          "p": 0.05605
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "TUR",
+          "p": 0.18515
+        },
+        {
+          "code": "USA",
+          "p": 0.18514
+        },
+        {
+          "code": "BEL",
+          "p": 0.14092
+        }
+      ]
     },
     {
       "match": 96,
@@ -4881,7 +5525,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "CAN",
+          "p": 0.3754
+        },
+        {
+          "code": "SUI",
+          "p": 0.30982
+        },
+        {
+          "code": "EGY",
+          "p": 0.04827
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "COL",
+          "p": 0.40435
+        },
+        {
+          "code": "POR",
+          "p": 0.34263
+        },
+        {
+          "code": "CRO",
+          "p": 0.04261
+        }
+      ]
     },
     {
       "match": 97,
@@ -4901,7 +5573,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "FRA",
+          "p": 0.40405
+        },
+        {
+          "code": "ECU",
+          "p": 0.15811
+        },
+        {
+          "code": "GER",
+          "p": 0.12322
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "NED",
+          "p": 0.25509
+        },
+        {
+          "code": "JPN",
+          "p": 0.1067
+        },
+        {
+          "code": "SUI",
+          "p": 0.10317
+        }
+      ]
     },
     {
       "match": 98,
@@ -4921,7 +5621,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ESP",
+          "p": 0.62909
+        },
+        {
+          "code": "COL",
+          "p": 0.06768
+        },
+        {
+          "code": "POR",
+          "p": 0.06678
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "USA",
+          "p": 0.17983
+        },
+        {
+          "code": "TUR",
+          "p": 0.16246
+        },
+        {
+          "code": "BEL",
+          "p": 0.15305
+        }
+      ]
     },
     {
       "match": 99,
@@ -4941,7 +5669,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "BRA",
+          "p": 0.26605
+        },
+        {
+          "code": "FRA",
+          "p": 0.11443
+        },
+        {
+          "code": "NOR",
+          "p": 0.11011
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ENG",
+          "p": 0.39965
+        },
+        {
+          "code": "MEX",
+          "p": 0.20134
+        },
+        {
+          "code": "CRO",
+          "p": 0.13563
+        }
+      ]
     },
     {
       "match": 100,
@@ -4961,7 +5717,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ARG",
+          "p": 0.58074
+        },
+        {
+          "code": "URU",
+          "p": 0.10169
+        },
+        {
+          "code": "USA",
+          "p": 0.04969
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "COL",
+          "p": 0.27403
+        },
+        {
+          "code": "POR",
+          "p": 0.22595
+        },
+        {
+          "code": "CAN",
+          "p": 0.17292
+        }
+      ]
     },
     {
       "match": 101,
@@ -4981,7 +5765,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "FRA",
+          "p": 0.29142
+        },
+        {
+          "code": "NED",
+          "p": 0.13666
+        },
+        {
+          "code": "ECU",
+          "p": 0.09077
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ESP",
+          "p": 0.53885
+        },
+        {
+          "code": "USA",
+          "p": 0.0507
+        },
+        {
+          "code": "TUR",
+          "p": 0.04446
+        }
+      ]
     },
     {
       "match": 102,
@@ -5001,7 +5813,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ENG",
+          "p": 0.25752
+        },
+        {
+          "code": "BRA",
+          "p": 0.1498
+        },
+        {
+          "code": "MEX",
+          "p": 0.10401
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ARG",
+          "p": 0.40844
+        },
+        {
+          "code": "COL",
+          "p": 0.13497
+        },
+        {
+          "code": "POR",
+          "p": 0.1071
+        }
+      ]
     },
     {
       "match": 103,
@@ -5021,7 +5861,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ESP",
+          "p": 0.14575
+        },
+        {
+          "code": "FRA",
+          "p": 0.14219
+        },
+        {
+          "code": "NED",
+          "p": 0.08007
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ARG",
+          "p": 0.13637
+        },
+        {
+          "code": "ENG",
+          "p": 0.12235
+        },
+        {
+          "code": "BRA",
+          "p": 0.07821
+        }
+      ]
     },
     {
       "match": 104,
@@ -5041,7 +5909,35 @@
       "p_draw": null,
       "p_away": null,
       "likely_score": null,
-      "likely_p": null
+      "likely_p": null,
+      "likely_home": [
+        {
+          "code": "ESP",
+          "p": 0.39321
+        },
+        {
+          "code": "FRA",
+          "p": 0.15262
+        },
+        {
+          "code": "NED",
+          "p": 0.05684
+        }
+      ],
+      "likely_away": [
+        {
+          "code": "ARG",
+          "p": 0.27269
+        },
+        {
+          "code": "ENG",
+          "p": 0.1423
+        },
+        {
+          "code": "COL",
+          "p": 0.0794
+        }
+      ]
     }
   ]
 }
