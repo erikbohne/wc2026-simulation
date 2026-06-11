@@ -4,15 +4,19 @@ import { Nav } from "@/components/nav";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WC26·SIM — World Cup 2026 win probabilities",
+  title: {
+    default: "wcsim — World Cup 2026, simulated",
+    template: "%s · wcsim",
+  },
   description:
     "104 matches, 100,000 simulated futures. A Monte Carlo simulation of the FIFA World Cup 2026, re-run after every real match. Elo-driven, Poisson-scored, open source.",
-  metadataBase: new URL("https://wc2026.erikoss.com"),
+  metadataBase: new URL("https://wc26.erikoss.com"),
   openGraph: {
-    title: "WC26·SIM — World Cup 2026 win probabilities",
+    title: "wcsim — World Cup 2026, simulated",
     description:
       "104 matches, 100,000 simulated futures. Updated after every real match.",
     type: "website",
+    siteName: "wcsim",
   },
 };
 

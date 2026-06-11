@@ -18,7 +18,7 @@ export async function generateMetadata({
   const team = loadReport().teams.find((t) => t.code === code);
   if (!team) return {};
   return {
-    title: `${team.name} — WC26·SIM`,
+    title: team.name,
     description: `${team.name}'s projected journey through the FIFA World Cup 2026: title odds ${(team.win * 100).toFixed(1)}%, from 100,000 simulated tournaments.`,
   };
 }

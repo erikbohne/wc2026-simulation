@@ -3,7 +3,7 @@ import { TableView } from "@/components/views/table-view";
 import { loadBaseline, loadReport } from "@/lib/report";
 
 export const metadata: Metadata = {
-  title: "Table — WC26·SIM",
+  title: "Table",
   description:
     "Advancement probabilities for all 48 World Cup 2026 teams, from 100,000 simulated tournaments.",
 };

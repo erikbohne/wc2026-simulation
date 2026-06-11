@@ -3,7 +3,7 @@ import { GroupsView } from "@/components/views/groups-view";
 import { loadBaseline, loadReport } from "@/lib/report";
 
 export const metadata: Metadata = {
-  title: "Groups — WC26·SIM",
+  title: "Groups",
   description:
     "Finishing-position probabilities for all 12 World Cup 2026 groups, from 100,000 simulated tournaments.",
 };
