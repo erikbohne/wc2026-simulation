@@ -68,21 +68,21 @@ export function Terminal({ report }: { report: Report }) {
     return cleanup;
   }, [lines]);
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#16181a] shadow-2xl">
-      <div className="flex items-center gap-1.5 border-b border-white/8 px-4 py-3">
+    <div className="glass-strong overflow-hidden rounded-2xl">
+      <div className="flex items-center gap-1.5 border-b border-hair px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
         <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-        <span className="font-data ml-3 text-[11px] text-white/35">
+        <span className="font-data ml-3 text-[11px] text-ink-dim/70">
           wc2026-simulation — zsh
         </span>
       </div>
       <div className="font-data h-72 overflow-hidden p-4 text-[11px] leading-[1.7] sm:text-xs">
-        <div className="whitespace-pre text-white/90">
-          <span className="text-[#28c840]">➜</span>{" "}
-          <span className="text-[#5ac8fa]">~</span> {CMD.slice(0, typed)}
+        <div className="whitespace-pre text-ink">
+          <span className="text-win-deep">➜</span>{" "}
+          <span className="text-accent">~</span> {CMD.slice(0, typed)}
           {typed < CMD.length && (
-            <span className="animate-pulse text-white/80">▍</span>
+            <span className="animate-pulse text-ink/70">▍</span>
           )}
         </div>
         {lines.slice(0, shown).map((l, i) => (
@@ -90,22 +90,22 @@ export function Terminal({ report }: { report: Report }) {
             key={i}
             className={`whitespace-pre ${
               i === 0
-                ? "text-white/40"
+                ? "text-ink-dim/70"
                 : i === 1
-                  ? "text-[#5ac8fa]"
+                  ? "text-accent"
                   : i === lines.length - 1
-                    ? "text-[#28c840]"
-                    : "text-white/75"
+                    ? "text-win-deep"
+                    : "text-ink/80"
             }`}
           >
             {l}
           </div>
         ))}
         {shown === lines.length && (
-          <div className="whitespace-pre text-white/90">
-            <span className="text-[#28c840]">➜</span>{" "}
-            <span className="text-[#5ac8fa]">~</span>{" "}
-            <span className="animate-pulse text-white/80">▍</span>
+          <div className="whitespace-pre text-ink">
+            <span className="text-win-deep">➜</span>{" "}
+            <span className="text-accent">~</span>{" "}
+            <span className="animate-pulse text-ink/70">▍</span>
           </div>
         )}
       </div>

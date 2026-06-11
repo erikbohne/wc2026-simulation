@@ -1,27 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Flag } from "@/components/flag";
 import { MatchCard } from "@/components/match-card";
 import { usePick } from "@/components/mode";
 import { OddsChart } from "@/components/odds-chart";
 import { PodiumCard } from "@/components/podium-card";
 import { Terminal } from "@/components/terminal";
-import { pct } from "@/lib/format";
 import type { HistoryPoint, Report } from "@/lib/report";
-
-function StatChip({ label, value }: { label: string; value: React.ReactNode }) {
-  return (
-    <div className="glass rounded-2xl px-4 py-3.5">
-      <div className="font-data text-[10px] tracking-[0.15em] text-ink-dim uppercase">
-        {label}
-      </div>
-      <div className="font-data mt-1 flex items-center gap-1.5 text-lg tabular-nums">
-        {value}
-      </div>
-    </div>
-  );
-}
 
 export function HomeView({
   live,
@@ -34,7 +19,6 @@ export function HomeView({
 }) {
   const report = usePick(live, baseline);
   const teams = report.teams;
-  const favourite = teams[0];
   const played = report.fixtures.filter((f) => f.status === "played");
   const recent = played.slice(-2);
   const next = report.fixtures
@@ -64,24 +48,6 @@ export function HomeView({
             every real match. Elo-driven, Poisson-scored, reproducible to the
             last decimal — and fully open source.
           </p>
-          <div
-            className="rise mt-8 grid grid-cols-2 gap-3"
-            style={{ animationDelay: "0.3s" }}
-          >
-            <StatChip
-              label="Matches played"
-              value={`${report.fixed_matches} / 104`}
-            />
-            <StatChip
-              label="Favourite"
-              value={
-                <>
-                  <Flag code={favourite.code} className="text-sm" />
-                  {favourite.code} {pct(favourite.win)}
-                </>
-              }
-            />
-          </div>
         </div>
         <div className="rise" style={{ animationDelay: "0.25s" }}>
           <Terminal report={report} />
