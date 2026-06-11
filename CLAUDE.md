@@ -11,6 +11,7 @@ Monte Carlo simulator for the FIFA World Cup 2026. Rust, single static binary, z
 - `cargo run --release -- --single -s 42` — one full tournament, match-by-match
 - `cargo run --release -- --results data/results.json -o json` — condition on real results
 - `cd web && npm run dev` / `npm run build` / `npm run lint` — Next.js frontend
+- Web CI runs `npm ci` on Node 26 — keep `.github/workflows/ci.yml` node-version matched to the local Node major (npm 10 vs 11 disagree on lockfile validity), and commit `web/package-lock.json` with any dependency change
 
 ## Architecture
 
