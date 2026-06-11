@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Flag } from "@/components/flag";
 import { usePick } from "@/components/mode";
 import { shortDate } from "@/lib/format";
@@ -118,6 +119,82 @@ function Column({
   );
 }
 
+function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
+  const code = side === "home" ? f.home : f.away;
+  const label = side === "home" ? f.home_label : f.away_label;
+  const likely = (side === "home" ? f.likely_home : f.likely_away) ?? [];
+  const goals = f.score ? (side === "home" ? f.score[0] : f.score[1]) : null;
+  const won = f.winner != null && f.winner === code;
+  const p =
+    f.status === "upcoming" ? (side === "home" ? f.p_home : f.p_away) : null;
+  const top = likely[0];
+
+  return (
+    <div
+      className={`flex w-9 flex-col items-center gap-0.5 ${
+        f.status === "played" && !won ? "opacity-45" : ""
+      }`}
+      title={
+        code
+          ? code
+          : likely.map((s) => `${s.code} ${(s.p * 100).toFixed(1)}%`).join(" · ")
+      }
+    >
+      {code ? (
+        <Flag code={code} className="text-[10px]" />
+      ) : top ? (
+        <Flag code={top.code} className="text-[10px] opacity-50" />
+      ) : (
+        <span className="h-[10px] w-[13px] rounded-[2px] bg-ink/10" />
+      )}
+      <span className="font-data text-[9px] font-semibold">
+        {code ?? label}
+      </span>
+      <span className="font-data text-[8px] tabular-nums text-ink-dim">
+        {goals != null
+          ? goals
+          : p != null
+            ? `${Math.round(p * 100)}%`
+            : top
+              ? `${Math.round(top.p * 100)}%`
+              : ""}
+      </span>
+    </div>
+  );
+}
+
+function MiniBox({ f, final }: { f: Fixture; final?: boolean }) {
+  return (
+    <div
+      className={`rounded-xl px-1 py-1.5 ${final ? "glass-strong" : "glass"}`}
+    >
+      <div className="flex justify-center gap-1">
+        <MiniSide f={f} side="home" />
+        <MiniSide f={f} side="away" />
+      </div>
+      <div className="font-data mt-0.5 text-center text-[7px] tracking-[0.05em] text-ink-dim/70 uppercase">
+        {shortDate(f.date)}
+      </div>
+    </div>
+  );
+}
+
+function Elbow({ span }: { span: number }) {
+  return (
+    <div style={{ gridColumn: `span ${span}` }} className="px-[25%]">
+      <div className="h-3 rounded-b-lg border-x border-b border-ink/15" />
+      <div className="mx-auto h-2.5 w-px bg-ink/15" />
+    </div>
+  );
+}
+
+const MOBILE_ROWS = [
+  { ids: [...LEFT.r32, ...RIGHT.r32], span: 1 },
+  { ids: [...LEFT.r16, ...RIGHT.r16], span: 2 },
+  { ids: [97, 98, 99, 100], span: 4 },
+  { ids: [101, 102], span: 8 },
+];
+
 export function BracketView({
   live,
   baseline,
@@ -129,6 +206,12 @@ export function BracketView({
   const fx = new Map(report.fixtures.map((f) => [f.match, f]));
   const final = fx.get(104)!;
   const third = fx.get(103)!;
+  const scroller = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scroller.current;
+    if (el) el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
+  }, []);
 
   return (
     <section className="py-10">
@@ -163,25 +246,37 @@ export function BracketView({
         <Column fixtures={fx} ids={RIGHT.r32} />
       </div>
 
-      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 xl:hidden">
-        {[
-          { label: "Round of 32", ids: [...LEFT.r32, ...RIGHT.r32] },
-          { label: "Round of 16", ids: [...LEFT.r16, ...RIGHT.r16] },
-          { label: "Quarter-finals", ids: [...LEFT.qf, ...RIGHT.qf] },
-          { label: "Semi-finals", ids: [...LEFT.sf, ...RIGHT.sf] },
-          { label: "Final", ids: [104, 103] },
-        ].map((col) => (
-          <div key={col.label} className="w-56 shrink-0 snap-start">
-            <div className="font-data mb-2 text-[9px] tracking-[0.15em] text-ink-dim uppercase">
-              {col.label}
-            </div>
-            <div className="flex flex-col gap-2">
-              {col.ids.map((id) => (
-                <Box key={id} f={fx.get(id)!} final={id === 104} />
+      <div ref={scroller} className="-mx-5 overflow-x-auto px-5 pb-4 xl:hidden">
+        <div className="grid w-[1380px] grid-cols-[repeat(16,1fr)] gap-x-1.5">
+          {MOBILE_ROWS.map((row, ri) => (
+            <div key={ri} className="contents">
+              {ri > 0 &&
+                row.ids.map((id) => <Elbow key={`e${id}`} span={row.span} />)}
+              {row.ids.map((id) => (
+                <div key={id} style={{ gridColumn: `span ${row.span}` }}>
+                  <div className="mx-auto max-w-44">
+                    <MiniBox f={fx.get(id)!} />
+                  </div>
+                </div>
               ))}
             </div>
+          ))}
+          <Elbow span={16} />
+          <div className="col-span-full flex flex-col items-center gap-3">
+            <div className="w-32">
+              <div className="font-data mb-1 text-center text-[8px] tracking-[0.2em] text-ink-dim uppercase">
+                Final
+              </div>
+              <MiniBox f={final} final />
+            </div>
+            <div className="w-32">
+              <div className="font-data mb-1 text-center text-[8px] tracking-[0.15em] text-ink-dim/70 uppercase">
+                3rd place
+              </div>
+              <MiniBox f={third} />
+            </div>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
