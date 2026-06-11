@@ -78,13 +78,13 @@ function TeamCell({
   );
 }
 
-function MatchRow({ f, next }: { f: Fixture; next: boolean }) {
+function MatchCard({ f, next }: { f: Fixture; next: boolean }) {
   const played = f.status === "played";
   return (
     <div
-      className={`flex flex-col gap-1.5 px-4 py-2.5 sm:flex-row sm:items-center sm:gap-3 ${
-        next ? "border-l-2 border-win bg-win/[0.06]" : ""
-      }`}
+      className={`glass flex flex-col gap-2 rounded-2xl px-4 py-3 sm:flex-row sm:items-center sm:gap-3 ${
+        next ? "ring-1 ring-win/60" : ""
+      } ${played ? "opacity-90" : ""}`}
     >
       <div className="font-data flex items-center gap-2 text-[10px] tracking-[0.08em] text-ink-dim uppercase sm:w-52 sm:shrink-0">
         <span className="w-9">M{f.match}</span>
@@ -188,7 +188,16 @@ export function MatchesView({
     }
   }, [anyPlayed, report]);
 
-  let lastDate = "";
+  const days: { date: string; fixtures: Fixture[] }[] = [];
+  for (const f of fixtures) {
+    const last = days[days.length - 1];
+    if (last && last.date === f.date) {
+      last.fixtures.push(f);
+    } else {
+      days.push({ date: f.date, fixtures: [f] });
+    }
+  }
+
   return (
     <section className="py-10">
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
@@ -197,29 +206,36 @@ export function MatchesView({
           all 104 · results above, schedule below
         </span>
       </div>
-      <div className="glass overflow-hidden rounded-3xl">
-        {fixtures.map((f) => {
-          const divider = f.date !== lastDate;
-          lastDate = f.date;
-          const isNext = f.match === nextMatch;
-          return (
-            <div
-              key={f.match}
-              ref={isNext ? nextRef : undefined}
-              className="scroll-mt-24 border-b border-hair last:border-0"
-            >
-              {divider && (
-                <div className="font-data flex items-center gap-3 bg-ink/[0.03] px-4 py-1.5 text-[10px] tracking-[0.2em] text-ink-dim uppercase">
-                  {dayLabel(f.date)}
-                  {f.match === 73 && (
-                    <span className="text-win-deep">knockouts</span>
-                  )}
-                </div>
+      <div className="flex flex-col gap-7">
+        {days.map((day) => (
+          <div key={day.date}>
+            <div className="mb-3 flex items-center gap-4">
+              <span className="font-data text-[11px] font-semibold tracking-[0.2em] text-ink-dim uppercase">
+                {dayLabel(day.date)}
+              </span>
+              {day.fixtures[0].match === 73 && (
+                <span className="font-data text-[10px] tracking-[0.15em] text-win-deep uppercase">
+                  knockouts
+                </span>
               )}
-              <MatchRow f={f} next={isNext} />
+              <div className="h-px flex-1 bg-ink/10" />
             </div>
-          );
-        })}
+            <div className="flex flex-col gap-3">
+              {day.fixtures.map((f) => {
+                const isNext = f.match === nextMatch;
+                return (
+                  <div
+                    key={f.match}
+                    ref={isNext ? nextRef : undefined}
+                    className="scroll-mt-24"
+                  >
+                    <MatchCard f={f} next={isNext} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
