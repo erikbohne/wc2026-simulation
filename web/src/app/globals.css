@@ -1,44 +1,79 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pitch: #0a0f0b;
-  --color-pitch-raised: #0f1610;
-  --color-pitch-line: #1d2a1f;
-  --color-grass: #45e08a;
-  --color-grass-dim: #2a9e5f;
-  --color-gold: #e9c860;
-  --color-rose: #e07a85;
-  --color-chalk: #e9efe9;
-  --color-chalk-dim: #8da394;
-  --font-display: var(--font-barlow-condensed);
-  --font-body: var(--font-barlow);
-  --font-data: var(--font-plex-mono);
+  --color-canvas: #f2f2f7;
+  --color-ink: #1d1d1f;
+  --color-ink-dim: #6e6e73;
+  --color-hair: rgba(60, 60, 67, 0.1);
+  --color-win: #34c759;
+  --color-win-deep: #248a3d;
+  --color-amber: #ff9500;
+  --color-loss: #ff3b30;
+  --color-accent: #0071e3;
+  --color-gold: #b8860b;
+  --font-body:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-data:
+    ui-monospace, "SF Mono", "Menlo", "Cascadia Mono", "Roboto Mono", monospace;
 }
 
 html {
-  background: var(--color-pitch);
-  color: var(--color-chalk);
+  background: var(--color-canvas);
+  color: var(--color-ink);
 }
 
 body {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body);
+  background: var(--color-canvas);
+  min-height: 100dvh;
+}
+
+.backdrop-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(
-      1200px 600px at 75% -10%,
-      rgba(69, 224, 138, 0.07),
+      640px 420px at 82% -5%,
+      rgba(52, 199, 89, 0.14),
+      transparent 65%
+    ),
+    radial-gradient(
+      560px 400px at 8% 12%,
+      rgba(0, 113, 227, 0.1),
       transparent 60%
     ),
     radial-gradient(
-      900px 500px at -10% 30%,
-      rgba(233, 200, 96, 0.04),
-      transparent 55%
-    ),
-    var(--color-pitch);
+      700px 500px at 50% 110%,
+      rgba(255, 149, 0, 0.07),
+      transparent 60%
+    );
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.03),
+    0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(32px) saturate(1.8);
+  -webkit-backdrop-filter: blur(32px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 ::selection {
-  background: var(--color-grass);
-  color: var(--color-pitch);
+  background: rgba(0, 113, 227, 0.2);
 }
 
 @keyframes rise {
