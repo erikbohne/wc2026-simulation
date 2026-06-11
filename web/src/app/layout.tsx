@@ -31,7 +31,7 @@ export default function RootLayout({
         <div className="backdrop-blobs" />
         <ModeProvider>
           <Nav />
-          <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-28 pb-12">
+          <main className="mx-auto w-full max-w-6xl flex-1 px-5 pt-24 pb-24 sm:pt-28 md:pb-12">
             {children}
           </main>
         </ModeProvider>

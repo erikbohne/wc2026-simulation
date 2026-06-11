@@ -20,7 +20,7 @@ function JourneyStep({
   return (
     <div className="flex flex-1 flex-col items-center gap-2">
       <div
-        className={`font-data text-lg font-semibold tabular-nums ${
+        className={`font-data text-sm font-semibold tabular-nums sm:text-lg ${
           last ? "text-gold" : "text-win-deep"
         }`}
       >

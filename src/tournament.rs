@@ -95,6 +95,8 @@ pub struct TournamentResult {
     pub points: [u8; NUM_TEAMS],
     pub gd: [i16; NUM_TEAMS],
     pub r32_opponent: [TeamId; NUM_TEAMS],
+    pub ko_a: [TeamId; 32],
+    pub ko_b: [TeamId; 32],
     pub champion: TeamId,
     pub third_place: TeamId,
     pub total_goals: u32,
@@ -137,6 +139,8 @@ pub fn simulate_one_from(
         points: [0; NUM_TEAMS],
         gd: [0; NUM_TEAMS],
         r32_opponent: [TeamId::MAX; NUM_TEAMS],
+        ko_a: [TeamId::MAX; 32],
+        ko_b: [TeamId::MAX; 32],
         champion: TeamId::MAX,
         third_place: TeamId::MAX,
         total_goals: 0,
@@ -269,6 +273,8 @@ pub fn simulate_one_from(
         result.stage[b as usize] = STAGE_R32;
         result.r32_opponent[a as usize] = b;
         result.r32_opponent[b as usize] = a;
+        result.ko_a[(m - 73) as usize] = a;
+        result.ko_b[(m - 73) as usize] = b;
         let (w, l) = play_ko(&mut rng, &mut elo, &mut result, &mut emit, m, a, b);
         result.stage[w as usize] = STAGE_R16;
         ko_winner[(m - 73) as usize] = w;
@@ -283,6 +289,8 @@ pub fn simulate_one_from(
             }
         };
         let (a, b) = (resolve(sa), resolve(sb));
+        result.ko_a[(m - 73) as usize] = a;
+        result.ko_b[(m - 73) as usize] = b;
         let (w, l) = play_ko(&mut rng, &mut elo, &mut result, &mut emit, m, a, b);
         ko_winner[(m - 73) as usize] = w;
         ko_loser[(m - 73) as usize] = l;

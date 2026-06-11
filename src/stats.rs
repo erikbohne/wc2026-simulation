@@ -1,5 +1,5 @@
 use crate::data::{NUM_TEAMS, Teams};
-use crate::fixtures::Fixture;
+use crate::fixtures::{Fixture, SlotLikely};
 use crate::tournament::{STAGE_CHAMPION, TournamentResult};
 use serde::Serialize;
 
@@ -13,6 +13,7 @@ pub struct Counters {
     pub points_sum: [u64; NUM_TEAMS],
     pub gd_sum: [i64; NUM_TEAMS],
     pub r32_opp: Vec<u64>,
+    pub ko_slot: Vec<u64>,
     pub goals: u64,
     pub group_goals: u64,
     pub matches: u64,
@@ -29,6 +30,7 @@ impl Counters {
             points_sum: [0; NUM_TEAMS],
             gd_sum: [0; NUM_TEAMS],
             r32_opp: vec![0; NUM_TEAMS * NUM_TEAMS],
+            ko_slot: vec![0; 32 * 2 * NUM_TEAMS],
             goals: 0,
             group_goals: 0,
             matches: 0,
@@ -49,6 +51,10 @@ impl Counters {
             if opp != u8::MAX {
                 self.r32_opp[t * NUM_TEAMS + opp as usize] += 1;
             }
+        }
+        for m in 0..32 {
+            self.ko_slot[(m * 2) * NUM_TEAMS + r.ko_a[m] as usize] += 1;
+            self.ko_slot[(m * 2 + 1) * NUM_TEAMS + r.ko_b[m] as usize] += 1;
         }
         self.third_place_winner[r.third_place as usize] += 1;
         self.goals += r.total_goals as u64;
@@ -76,6 +82,9 @@ impl Counters {
         }
         for i in 0..NUM_TEAMS * NUM_TEAMS {
             self.r32_opp[i] += other.r32_opp[i];
+        }
+        for i in 0..32 * 2 * NUM_TEAMS {
+            self.ko_slot[i] += other.ko_slot[i];
         }
         self.goals += other.goals;
         self.group_goals += other.group_goals;
@@ -157,9 +166,32 @@ pub fn build_report(
     c: &Counters,
     teams: &Teams,
     meta: &ReportMeta,
-    fixtures: Vec<Fixture>,
+    mut fixtures: Vec<Fixture>,
 ) -> Report {
     let n = c.n.max(1) as f64;
+
+    let top_slot = |slot: usize| -> Vec<SlotLikely> {
+        let mut counts: Vec<(usize, u64)> = (0..NUM_TEAMS)
+            .map(|t| (t, c.ko_slot[slot * NUM_TEAMS + t]))
+            .filter(|&(_, count)| count > 0)
+            .collect();
+        counts.sort_by_key(|&(t, count)| (std::cmp::Reverse(count), t));
+        counts
+            .into_iter()
+            .take(3)
+            .map(|(t, count)| SlotLikely {
+                code: teams.teams[t].code.clone(),
+                p: count as f64 / n,
+            })
+            .collect()
+    };
+    for fx in fixtures.iter_mut() {
+        if fx.match_no >= 73 && fx.home.is_none() {
+            let m = (fx.match_no - 73) as usize;
+            fx.likely_home = top_slot(m * 2);
+            fx.likely_away = top_slot(m * 2 + 1);
+        }
+    }
     let mut order: Vec<usize> = (0..NUM_TEAMS).collect();
     order.sort_by_key(|&t| (std::cmp::Reverse(c.stage_exact[6][t]), t));
 

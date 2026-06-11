@@ -17,11 +17,11 @@ export function Terminal({ report }: { report: Report }) {
     const maxWin = top[0]?.win ?? 1;
     return top.map((t, i) => ({
       rank: i + 1,
-      name: t.name.slice(0, 13),
+      name: t.name.slice(0, 12),
       group: t.group,
       win: t.win,
       final: t.final,
-      bar: "▇".repeat(Math.max(1, Math.round((t.win / maxWin) * 12))),
+      bar: "▇".repeat(Math.max(1, Math.round((t.win / maxWin) * 10))),
     }));
   }, [report]);
 
@@ -87,9 +87,9 @@ export function Terminal({ report }: { report: Report }) {
   const progress = Math.max(0, Math.min(1, tick / RUN_TICKS));
   const running = tick >= 0 && tick < RUN_TICKS;
   const ran = tick >= RUN_TICKS;
-  const barW = 18;
+  const barW = 12;
   const filled = Math.round(progress * barW);
-  const speed = (51.3 + Math.sin(tick * 1.7) * 4.2).toFixed(1);
+  const speed = Math.round(51.3 + Math.sin(tick * 1.7) * 4.2);
 
   const preflight = [
     <>
@@ -144,14 +144,13 @@ export function Terminal({ report }: { report: Report }) {
                 <span className="text-ink">
                   {String(Math.round(progress * 100)).padStart(3)}%
                 </span>{" "}
-                {fmt(Math.round(progress * report.simulations))} runs ·{" "}
-                {speed}M matches/s
+                {fmt(Math.round(progress * report.simulations))} · {speed}M
+                m/s
               </>
             ) : (
               <>
                 <span className="text-win-deep">✔</span>{" "}
-                {fmt(report.simulations)} tournaments ·{" "}
-                {fmt(report.simulations * 104)} matches in 0.19s
+                {fmt(report.simulations)} tournaments in 0.19s
               </>
             )}
           </div>
@@ -167,7 +166,7 @@ export function Terminal({ report }: { report: Report }) {
               <span className="text-ink-dim">
                 {String(r.rank).padEnd(6)}
               </span>
-              <span className="text-ink">{r.name.padEnd(15)}</span>
+              <span className="text-ink">{r.name.padEnd(14)}</span>
               <span className="text-ink-dim">{r.group.padEnd(4)}</span>
               <span className="text-win-deep">
                 {`${(r.win * 100).toFixed(1)}%`.padStart(7)}

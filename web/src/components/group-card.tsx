@@ -41,7 +41,7 @@ export function GroupCard({
       <h3 className="text-center text-xl font-bold tracking-tight">
         Group <span className="text-win-deep">{letter}</span>
       </h3>
-      <table className="mt-3 w-full border-collapse">
+      <table className="mt-3 w-full table-fixed border-collapse">
         <thead>
           <tr className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
             <th className="pb-1.5 text-left font-medium">Team</th>
@@ -49,7 +49,7 @@ export function GroupCard({
             <th className="w-[15%] pb-1.5 text-center font-medium">2</th>
             <th className="w-[15%] pb-1.5 text-center font-medium">3</th>
             <th className="w-[15%] pb-1.5 text-center font-medium">4</th>
-            <th className="w-[16%] pb-1.5 text-center font-medium text-win-deep">
+            <th className="hidden w-[16%] pb-1.5 text-center font-medium text-win-deep sm:table-cell">
               → KO
             </th>
           </tr>
@@ -77,7 +77,7 @@ export function GroupCard({
                 <HeatCell p={gp.second} />
                 <HeatCell p={gp.third_qualified + gp.third_eliminated} />
                 <HeatCell p={gp.fourth} />
-                <td className="font-data py-1.5 text-center text-xs font-semibold tabular-nums text-win-deep">
+                <td className="font-data hidden py-1.5 text-center text-xs font-semibold tabular-nums text-win-deep sm:table-cell">
                   {(advanceProb(t) * 100).toFixed(1)}%
                 </td>
               </tr>

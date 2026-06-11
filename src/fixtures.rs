@@ -25,6 +25,12 @@ struct ScheduleEntry {
     city: Option<String>,
 }
 
+#[derive(Debug, Clone, Serialize)]
+pub struct SlotLikely {
+    pub code: String,
+    pub p: f64,
+}
+
 #[derive(Debug, Serialize)]
 pub struct Fixture {
     #[serde(rename = "match")]
@@ -46,6 +52,10 @@ pub struct Fixture {
     pub p_away: Option<f64>,
     pub likely_score: Option<(u8, u8)>,
     pub likely_p: Option<f64>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub likely_home: Vec<SlotLikely>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub likely_away: Vec<SlotLikely>,
 }
 
 fn stage_name(m: u8) -> &'static str {
@@ -158,6 +168,8 @@ pub fn build_fixtures(teams: &Teams, fixed: &FixedResults, cfg: &Config) -> Vec<
             p_away: None,
             likely_score: None,
             likely_p: None,
+            likely_home: Vec::new(),
+            likely_away: Vec::new(),
         };
 
         if stage == "group" {

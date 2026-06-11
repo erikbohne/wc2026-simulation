@@ -9,6 +9,11 @@ export interface GroupPositionDist {
   fourth: number;
 }
 
+export interface SlotLikely {
+  code: string;
+  p: number;
+}
+
 export interface Fixture {
   match: number;
   stage: "group" | "r32" | "r16" | "qf" | "sf" | "third" | "final";
@@ -28,6 +33,8 @@ export interface Fixture {
   p_away: number | null;
   likely_score: [number, number] | null;
   likely_p: number | null;
+  likely_home?: SlotLikely[];
+  likely_away?: SlotLikely[];
 }
 
 export interface R32Opponent {
