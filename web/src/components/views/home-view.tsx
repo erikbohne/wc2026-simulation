@@ -27,29 +27,8 @@ export function HomeView({
 
   return (
     <>
-      <section className="grid items-center gap-10 py-12 lg:grid-cols-2 sm:py-16">
-        <div>
-          <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl">
-            <span className="rise block" style={{ animationDelay: "0s" }}>
-              104 matches.
-            </span>
-            <span
-              className="rise block bg-gradient-to-r from-win-deep via-accent to-accent bg-clip-text text-transparent"
-              style={{ animationDelay: "0.1s" }}
-            >
-              100,000 futures.
-            </span>
-          </h1>
-          <p
-            className="rise mt-5 max-w-xl text-lg leading-relaxed text-ink-dim"
-            style={{ animationDelay: "0.2s" }}
-          >
-            A Monte Carlo simulation of the FIFA World Cup 2026, re-run after
-            every real match. Elo-driven, Poisson-scored, reproducible to the
-            last decimal — and fully open source.
-          </p>
-        </div>
-        <div className="rise" style={{ animationDelay: "0.25s" }}>
+      <section className="py-10 sm:py-14">
+        <div className="rise mx-auto max-w-3xl">
           <Terminal report={report} />
         </div>
       </section>
