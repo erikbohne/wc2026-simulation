@@ -26,9 +26,9 @@ export function HomeView({
     .slice(0, 3);
 
   return (
-    <>
+    <div className="mx-auto w-full max-w-3xl">
       <section className="py-10 sm:py-14">
-        <div className="rise mx-auto max-w-3xl">
+        <div className="rise">
           <Terminal report={report} />
         </div>
       </section>
@@ -75,6 +75,6 @@ export function HomeView({
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

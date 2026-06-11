@@ -37,11 +37,18 @@ function Footer() {
           </p>
         </div>
         <div className="font-data flex flex-col gap-2 text-xs text-ink-dim">
-          <a href={REPO} className="transition-colors hover:text-accent">
+          <a
+            href={REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-accent"
+          >
             Source on GitHub ↗
           </a>
           <a
             href={`${REPO}/blob/main/data/results.json`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-colors hover:text-accent"
           >
             Match results data ↗

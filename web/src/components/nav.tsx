@@ -45,6 +45,8 @@ export function Nav() {
           <ModeToggle />
           <a
             href={REPO}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-full bg-ink px-4 py-2 text-[14px] font-semibold text-white transition-opacity hover:opacity-80 md:block"
           >
             GitHub
