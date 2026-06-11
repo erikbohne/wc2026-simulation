@@ -1,4 +1,10 @@
 {
-  "updated": "2026-06-10",
-  "matches": []
+  "updated": "2026-06-11",
+  "matches": [
+    {
+      "home": "MEX",
+      "away": "RSA",
+      "score": [2, 0]
+    }
+  ]
 }
