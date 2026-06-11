@@ -15,7 +15,7 @@ const COLORS = [
 
 const W = 760;
 const H = 300;
-const PAD = { top: 16, right: 16, bottom: 28, left: 40 };
+const PAD = { top: 16, right: 44, bottom: 28, left: 40 };
 
 export function OddsChart({
   history,
@@ -28,26 +28,48 @@ export function OddsChart({
   const [hover, setHover] = useState<number | null>(null);
 
   const { points, yMax } = useMemo(() => {
-    const pts = history.length > 0 ? history : [];
     let max = 0;
-    for (const p of pts) {
+    for (const p of history) {
       for (const t of top) max = Math.max(max, p.win[t.code] ?? 0);
     }
-    return { points: pts, yMax: Math.max(0.1, Math.ceil(max * 20) / 20 + 0.05) };
+    return {
+      points: history,
+      yMax: Math.max(0.1, Math.ceil(max * 20) / 20 + 0.05),
+    };
   }, [history, top]);
 
   const n = points.length;
   const x = (i: number) =>
-    n <= 1
-      ? PAD.left
-      : PAD.left + (i / (n - 1)) * (W - PAD.left - PAD.right);
+    n <= 1 ? PAD.left : PAD.left + (i / (n - 1)) * (W - PAD.left - PAD.right);
   const y = (p: number) =>
     H - PAD.bottom - (p / yMax) * (H - PAD.top - PAD.bottom);
 
+  const endFlags = useMemo(() => {
+    const raw = top.map((t, ti) => ({
+      code: t.code,
+      color: COLORS[ti],
+      y: y(points[n - 1]?.win[t.code] ?? 0),
+    }));
+    raw.sort((a, b) => a.y - b.y);
+    for (let i = 1; i < raw.length; i++) {
+      if (raw[i].y < raw[i - 1].y + 17) raw[i].y = raw[i - 1].y + 17;
+    }
+    return raw;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [points, top, n, yMax]);
+
   const gridLines = [0.25, 0.5, 0.75, 1].map((f) => yMax * f);
-  const hovered = hover != null ? points[hover] : null;
-  const last = points[n - 1];
-  const shown = hovered ?? last;
+  const hi = hover ?? n - 1;
+  const shown = points[hi];
+  const tooltipRows = shown
+    ? top
+        .map((t, ti) => ({
+          code: t.code,
+          color: COLORS[ti],
+          p: shown.win[t.code] ?? 0,
+        }))
+        .sort((a, b) => b.p - a.p)
+    : [];
 
   return (
     <div className="glass rounded-3xl p-6">
@@ -56,15 +78,10 @@ export function OddsChart({
           Title race
         </h2>
         <span className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
-          win probability · one point per update ·{" "}
-          {shown
-            ? hovered
-              ? `after ${shown.matches} matches`
-              : "live"
-            : ""}
+          win probability · updates after every match
         </span>
       </div>
-      <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_220px]">
+      <div className="relative mt-4">
         <svg
           viewBox={`0 0 ${W} ${H}`}
           className="w-full touch-none select-none"
@@ -120,40 +137,37 @@ export function OddsChart({
               the race chart fills in as matches are played
             </text>
           )}
-          {top.map((t, ti) => {
-            const d = points
-              .map(
-                (p, i) =>
-                  `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(p.win[t.code] ?? 0).toFixed(1)}`,
-              )
-              .join(" ");
-            return (
-              <g key={t.code}>
-                {n > 1 && (
-                  <path
-                    d={d}
-                    fill="none"
-                    stroke={COLORS[ti]}
-                    strokeWidth="2.5"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                  />
-                )}
-                <circle
-                  cx={x(hover ?? n - 1)}
-                  cy={y(points[hover ?? n - 1]?.win[t.code] ?? 0)}
-                  r="4"
-                  fill={COLORS[ti]}
-                  stroke="white"
-                  strokeWidth="1.5"
+          {top.map((t, ti) => (
+            <g key={t.code}>
+              {n > 1 && (
+                <path
+                  d={points
+                    .map(
+                      (p, i) =>
+                        `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(p.win[t.code] ?? 0).toFixed(1)}`,
+                    )
+                    .join(" ")}
+                  fill="none"
+                  stroke={COLORS[ti]}
+                  strokeWidth="2.5"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
                 />
-              </g>
-            );
-          })}
-          {hovered && n > 1 && (
+              )}
+              <circle
+                cx={x(hi)}
+                cy={y(points[hi]?.win[t.code] ?? 0)}
+                r="4"
+                fill={COLORS[ti]}
+                stroke="white"
+                strokeWidth="1.5"
+              />
+            </g>
+          ))}
+          {hover != null && n > 1 && (
             <line
-              x1={x(hover!)}
-              x2={x(hover!)}
+              x1={x(hover)}
+              x2={x(hover)}
               y1={PAD.top}
               y2={H - PAD.bottom}
               stroke="rgba(60,60,67,0.25)"
@@ -175,47 +189,51 @@ export function OddsChart({
             ) : null,
           )}
         </svg>
-        <div className="flex flex-col justify-center gap-2">
-          {top.map((t, ti) => {
-            const cur = shown?.win[t.code] ?? t.win;
-            const base = points[0]?.win[t.code] ?? cur;
-            const delta = (cur - base) * 100;
-            return (
-              <div
-                key={t.code}
-                className="flex items-center justify-between gap-2"
-              >
-                <span className="flex min-w-0 items-center gap-2">
+
+        {endFlags.map((f) => (
+          <span
+            key={f.code}
+            className="pointer-events-none absolute -translate-y-1/2"
+            style={{
+              left: `${((x(n - 1) + 10) / W) * 100}%`,
+              top: `${(f.y / H) * 100}%`,
+            }}
+            title={f.code}
+          >
+            <Flag code={f.code} className="text-[9px]" />
+          </span>
+        ))}
+
+        {hover != null && shown && (
+          <div
+            className="glass-strong pointer-events-none absolute top-2 z-10 rounded-xl px-3 py-2"
+            style={{
+              left: `${Math.min(82, Math.max(8, (x(hover) / W) * 100))}%`,
+              transform: "translateX(-50%)",
+            }}
+          >
+            <div className="font-data text-[10px] tracking-[0.1em] text-ink-dim uppercase">
+              {shown.matches === 0
+                ? "kickoff"
+                : `after ${shown.matches} matches`}
+            </div>
+            <div className="mt-1 flex flex-col gap-0.5">
+              {tooltipRows.map((r) => (
+                <div key={r.code} className="flex items-center gap-2">
                   <span
-                    className="h-2 w-2 shrink-0 rounded-full"
-                    style={{ background: COLORS[ti] }}
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ background: r.color }}
                   />
-                  <Flag code={t.code} className="text-[10px]" />
-                  <span className="truncate text-sm font-medium">
-                    {t.name}
+                  <Flag code={r.code} className="text-[8px]" />
+                  <span className="font-data text-[11px]">{r.code}</span>
+                  <span className="font-data ml-auto pl-3 text-[11px] font-semibold tabular-nums">
+                    {(r.p * 100).toFixed(1)}%
                   </span>
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="font-data text-sm font-semibold tabular-nums">
-                    {(cur * 100).toFixed(1)}%
-                  </span>
-                  <span
-                    className={`font-data w-12 text-right text-[11px] tabular-nums ${
-                      delta > 0.05
-                        ? "text-win-deep"
-                        : delta < -0.05
-                          ? "text-loss"
-                          : "text-ink-dim/50"
-                    }`}
-                  >
-                    {delta > 0.05 ? "▲" : delta < -0.05 ? "▼" : ""}
-                    {Math.abs(delta) > 0.05 ? Math.abs(delta).toFixed(1) : "—"}
-                  </span>
-                </span>
-              </div>
-            );
-          })}
-        </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
