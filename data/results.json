@@ -5,6 +5,11 @@
       "home": "MEX",
       "away": "RSA",
       "score": [2, 0]
+    },
+    {
+      "home": "KOR",
+      "away": "CZE",
+      "score": [2, 1]
     }
   ]
 }
