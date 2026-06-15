@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-11",
+  "updated": "2026-06-15",
   "matches": [
     {
       "home": "MEX",
@@ -10,6 +10,56 @@
       "home": "KOR",
       "away": "CZE",
       "score": [2, 1]
+    },
+    {
+      "home": "CAN",
+      "away": "BIH",
+      "score": [1, 1]
+    },
+    {
+      "home": "USA",
+      "away": "PAR",
+      "score": [4, 1]
+    },
+    {
+      "home": "HAI",
+      "away": "SCO",
+      "score": [0, 1]
+    },
+    {
+      "home": "AUS",
+      "away": "TUR",
+      "score": [2, 0]
+    },
+    {
+      "home": "BRA",
+      "away": "MAR",
+      "score": [1, 1]
+    },
+    {
+      "home": "QAT",
+      "away": "SUI",
+      "score": [1, 1]
+    },
+    {
+      "home": "CIV",
+      "away": "ECU",
+      "score": [1, 0]
+    },
+    {
+      "home": "GER",
+      "away": "CUW",
+      "score": [7, 1]
+    },
+    {
+      "home": "NED",
+      "away": "JPN",
+      "score": [2, 2]
+    },
+    {
+      "home": "SWE",
+      "away": "TUN",
+      "score": [5, 1]
     }
   ]
 }
