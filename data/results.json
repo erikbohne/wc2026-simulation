@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-15",
+  "updated": "2026-06-16",
   "matches": [
     {
       "home": "MEX",
@@ -60,6 +60,26 @@
       "home": "SWE",
       "away": "TUN",
       "score": [5, 1]
+    },
+    {
+      "home": "KSA",
+      "away": "URU",
+      "score": [1, 1]
+    },
+    {
+      "home": "ESP",
+      "away": "CPV",
+      "score": [0, 0]
+    },
+    {
+      "home": "IRN",
+      "away": "NZL",
+      "score": [2, 2]
+    },
+    {
+      "home": "BEL",
+      "away": "EGY",
+      "score": [1, 1]
     }
   ]
 }
