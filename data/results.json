@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-16",
+  "updated": "2026-06-17",
   "matches": [
     {
       "home": "MEX",
@@ -80,6 +80,26 @@
       "home": "BEL",
       "away": "EGY",
       "score": [1, 1]
+    },
+    {
+      "home": "FRA",
+      "away": "SEN",
+      "score": [3, 1]
+    },
+    {
+      "home": "IRQ",
+      "away": "NOR",
+      "score": [1, 4]
+    },
+    {
+      "home": "ARG",
+      "away": "ALG",
+      "score": [3, 0]
+    },
+    {
+      "home": "AUT",
+      "away": "JOR",
+      "score": [3, 1]
     }
   ]
 }
