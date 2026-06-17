@@ -2,21 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { Flag } from "@/components/flag";
+import { teamColor } from "@/lib/team-colors";
 import type { HistoryPoint, TeamRow } from "@/lib/report";
-
-const COLORS = [
-  "#0071e3",
-  "#ff3b30",
-  "#34c759",
-  "#ff9500",
-  "#af52de",
-  "#00c7be",
-];
 
 const W = 760;
 const H = 300;
 const PAD = { top: 16, right: 44, bottom: 36, left: 40 };
 const TOTAL_MATCHES = 104;
+const DEFAULT_N = 8;
+const MAX_SELECTED = 12;
 
 // Knockout phase boundaries (last match number of each phase).
 const PHASES = [
@@ -35,21 +29,34 @@ export function OddsChart({
   history: HistoryPoint[];
   teams: TeamRow[];
 }) {
-  const top = teams.slice(0, 6);
   const [hover, setHover] = useState<number | null>(null);
+  const [selected, setSelected] = useState<string[]>(() =>
+    teams.slice(0, DEFAULT_N).map((t) => t.code),
+  );
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const byCode = useMemo(
+    () => new Map(teams.map((t) => [t.code, t])),
+    [teams],
+  );
+  const series = useMemo(
+    () => selected.map((c) => byCode.get(c)).filter(Boolean) as TeamRow[],
+    [selected, byCode],
+  );
 
   const { points, yMax, maxMatches } = useMemo(() => {
     const pts = [...history].sort((a, b) => a.matches - b.matches);
     let max = 0;
     for (const p of pts) {
-      for (const t of top) max = Math.max(max, p.win[t.code] ?? 0);
+      for (const c of selected) max = Math.max(max, p.win[c] ?? 0);
     }
     return {
       points: pts,
       yMax: Math.max(0.1, Math.ceil(max * 20) / 20 + 0.05),
       maxMatches: pts.length ? pts[pts.length - 1].matches : 0,
     };
-  }, [history, top]);
+  }, [history, selected]);
 
   const n = points.length;
   const innerW = W - PAD.left - PAD.right;
@@ -58,33 +65,32 @@ export function OddsChart({
     H - PAD.bottom - (p / yMax) * (H - PAD.top - PAD.bottom);
 
   const endFlags = useMemo(() => {
-    const raw = top.map((t, ti) => ({
+    const raw = series.map((t) => ({
       code: t.code,
-      color: COLORS[ti],
+      color: teamColor(t.code),
       y: y(points[n - 1]?.win[t.code] ?? 0),
     }));
     raw.sort((a, b) => a.y - b.y);
     for (let i = 1; i < raw.length; i++) {
-      if (raw[i].y < raw[i - 1].y + 17) raw[i].y = raw[i - 1].y + 17;
+      if (raw[i].y < raw[i - 1].y + 15) raw[i].y = raw[i - 1].y + 15;
     }
     return raw;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [points, top, n, yMax]);
+  }, [points, series, n, yMax]);
 
   const gridLines = [0.25, 0.5, 0.75, 1].map((f) => yMax * f);
   const hi = hover ?? n - 1;
   const shown = points[hi];
   const tooltipRows = shown
-    ? top
-        .map((t, ti) => ({
+    ? series
+        .map((t) => ({
           code: t.code,
-          color: COLORS[ti],
+          color: teamColor(t.code),
           p: shown.win[t.code] ?? 0,
         }))
         .sort((a, b) => b.p - a.p)
     : [];
 
-  // nearest played snapshot to a given match-number on the axis
   const nearestIndex = (matchVal: number) => {
     let best = 0;
     let bestD = Infinity;
@@ -98,6 +104,25 @@ export function OddsChart({
     return best;
   };
 
+  const addable = teams
+    .filter((t) => !selected.includes(t.code))
+    .filter((t) => {
+      const q = query.trim().toLowerCase();
+      return (
+        !q ||
+        t.code.toLowerCase().includes(q) ||
+        t.name.toLowerCase().includes(q)
+      );
+    });
+  const atMax = selected.length >= MAX_SELECTED;
+
+  const remove = (code: string) =>
+    setSelected((s) => (s.length > 1 ? s.filter((c) => c !== code) : s));
+  const add = (code: string) =>
+    setSelected((s) =>
+      s.includes(code) || s.length >= MAX_SELECTED ? s : [...s, code],
+    );
+
   return (
     <div className="glass rounded-3xl p-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -108,7 +133,104 @@ export function OddsChart({
           win probability · {maxMatches}/{TOTAL_MATCHES} matches played
         </span>
       </div>
-      <div className="relative mt-4">
+
+      {/* team selector */}
+      <div className="mt-3 flex flex-wrap items-center gap-1.5">
+        {series.map((t) => (
+          <span
+            key={t.code}
+            className="group flex items-center gap-1.5 rounded-full border border-hair bg-white/60 py-1 pr-1 pl-2 text-[11px]"
+          >
+            <span
+              className="h-2 w-2 rounded-full"
+              style={{ background: teamColor(t.code) }}
+            />
+            <Flag code={t.code} className="text-[8px]" />
+            <span className="font-data font-medium text-ink">{t.code}</span>
+            <button
+              type="button"
+              onClick={() => remove(t.code)}
+              aria-label={`Remove ${t.name}`}
+              disabled={series.length <= 1}
+              className="grid h-4 w-4 place-items-center rounded-full text-ink-dim transition-colors hover:bg-ink/10 hover:text-ink disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <svg width="7" height="7" viewBox="0 0 8 8">
+                <path
+                  d="M1 1l6 6M7 1l-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          </span>
+        ))}
+
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setMenuOpen((o) => !o)}
+            disabled={atMax}
+            className="flex items-center gap-1 rounded-full border border-dashed border-ink/20 px-2.5 py-1 text-[11px] text-ink-dim transition-colors hover:border-ink/40 hover:text-ink disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <span className="text-[13px] leading-none">+</span>
+            {atMax ? `max ${MAX_SELECTED}` : "Add team"}
+          </button>
+
+          {menuOpen && (
+            <>
+              <button
+                type="button"
+                aria-label="Close team menu"
+                className="fixed inset-0 z-20 cursor-default"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setQuery("");
+                }}
+              />
+              <div className="glass-strong absolute left-0 z-30 mt-2 flex max-h-72 w-60 flex-col overflow-hidden rounded-2xl p-1.5">
+                <input
+                  autoFocus
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search teams…"
+                  className="mb-1 rounded-lg bg-ink/[0.04] px-2.5 py-1.5 text-[12px] text-ink outline-none placeholder:text-ink-dim/60"
+                />
+                <div className="flex flex-col overflow-y-auto">
+                  {addable.length === 0 && (
+                    <span className="px-2 py-3 text-center text-[11px] text-ink-dim">
+                      no teams found
+                    </span>
+                  )}
+                  {addable.map((t) => (
+                    <button
+                      key={t.code}
+                      type="button"
+                      onClick={() => {
+                        add(t.code);
+                        setQuery("");
+                      }}
+                      className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-left transition-colors hover:bg-ink/[0.05]"
+                    >
+                      <span
+                        className="h-2 w-2 shrink-0 rounded-full"
+                        style={{ background: teamColor(t.code) }}
+                      />
+                      <Flag code={t.code} className="text-[8px]" />
+                      <span className="text-[12.5px] text-ink">{t.name}</span>
+                      <span className="font-data ml-auto text-[11px] tabular-nums text-ink-dim">
+                        {(t.win * 100).toFixed(1)}%
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="relative mt-3">
         <svg
           viewBox={`0 0 ${W} ${H}`}
           className="w-full touch-none select-none"
@@ -214,7 +336,7 @@ export function OddsChart({
             </text>
           )}
 
-          {top.map((t, ti) => (
+          {series.map((t) => (
             <g key={t.code}>
               {n > 1 && (
                 <path
@@ -225,7 +347,7 @@ export function OddsChart({
                     )
                     .join(" ")}
                   fill="none"
-                  stroke={COLORS[ti]}
+                  stroke={teamColor(t.code)}
                   strokeWidth="2.5"
                   strokeLinejoin="round"
                   strokeLinecap="round"
@@ -235,7 +357,7 @@ export function OddsChart({
                 cx={x(points[hi]?.matches ?? 0)}
                 cy={y(points[hi]?.win[t.code] ?? 0)}
                 r="4"
-                fill={COLORS[ti]}
+                fill={teamColor(t.code)}
                 stroke="white"
                 strokeWidth="1.5"
               />
