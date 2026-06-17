@@ -15,7 +15,18 @@ const COLORS = [
 
 const W = 760;
 const H = 300;
-const PAD = { top: 16, right: 44, bottom: 28, left: 40 };
+const PAD = { top: 16, right: 44, bottom: 36, left: 40 };
+const TOTAL_MATCHES = 104;
+
+// Knockout phase boundaries (last match number of each phase).
+const PHASES = [
+  { end: 72, label: "Groups" },
+  { end: 88, label: "R32" },
+  { end: 96, label: "R16" },
+  { end: 100, label: "QF" },
+  { end: 102, label: "SF" },
+  { end: 104, label: "F" },
+];
 
 export function OddsChart({
   history,
@@ -27,20 +38,22 @@ export function OddsChart({
   const top = teams.slice(0, 6);
   const [hover, setHover] = useState<number | null>(null);
 
-  const { points, yMax } = useMemo(() => {
+  const { points, yMax, maxMatches } = useMemo(() => {
+    const pts = [...history].sort((a, b) => a.matches - b.matches);
     let max = 0;
-    for (const p of history) {
+    for (const p of pts) {
       for (const t of top) max = Math.max(max, p.win[t.code] ?? 0);
     }
     return {
-      points: history,
+      points: pts,
       yMax: Math.max(0.1, Math.ceil(max * 20) / 20 + 0.05),
+      maxMatches: pts.length ? pts[pts.length - 1].matches : 0,
     };
   }, [history, top]);
 
   const n = points.length;
-  const x = (i: number) =>
-    n <= 1 ? PAD.left : PAD.left + (i / (n - 1)) * (W - PAD.left - PAD.right);
+  const innerW = W - PAD.left - PAD.right;
+  const x = (m: number) => PAD.left + (m / TOTAL_MATCHES) * innerW;
   const y = (p: number) =>
     H - PAD.bottom - (p / yMax) * (H - PAD.top - PAD.bottom);
 
@@ -71,6 +84,20 @@ export function OddsChart({
         .sort((a, b) => b.p - a.p)
     : [];
 
+  // nearest played snapshot to a given match-number on the axis
+  const nearestIndex = (matchVal: number) => {
+    let best = 0;
+    let bestD = Infinity;
+    points.forEach((p, i) => {
+      const d = Math.abs(p.matches - matchVal);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    });
+    return best;
+  };
+
   return (
     <div className="glass rounded-3xl p-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -78,7 +105,7 @@ export function OddsChart({
           Title race
         </h2>
         <span className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
-          win probability · updates after every match
+          win probability · {maxMatches}/{TOTAL_MATCHES} matches played
         </span>
       </div>
       <div className="relative mt-4">
@@ -89,10 +116,8 @@ export function OddsChart({
             if (n < 2) return;
             const rect = e.currentTarget.getBoundingClientRect();
             const px = ((e.clientX - rect.left) / rect.width) * W;
-            const i = Math.round(
-              ((px - PAD.left) / (W - PAD.left - PAD.right)) * (n - 1),
-            );
-            setHover(Math.max(0, Math.min(n - 1, i)));
+            const matchVal = ((px - PAD.left) / innerW) * TOTAL_MATCHES;
+            setHover(nearestIndex(matchVal));
           }}
           onPointerLeave={() => setHover(null)}
         >
@@ -118,6 +143,38 @@ export function OddsChart({
               </text>
             </g>
           ))}
+
+          {/* phase boundary separators + labels */}
+          {PHASES.map((ph, i) => {
+            const startM = i === 0 ? 0 : PHASES[i - 1].end;
+            const mid = (startM + ph.end) / 2;
+            return (
+              <g key={ph.label}>
+                {ph.end < TOTAL_MATCHES && (
+                  <line
+                    x1={x(ph.end)}
+                    x2={x(ph.end)}
+                    y1={PAD.top}
+                    y2={H - PAD.bottom}
+                    stroke="rgba(60,60,67,0.08)"
+                  />
+                )}
+                <text
+                  x={x(mid)}
+                  y={H - PAD.bottom + 22}
+                  textAnchor="middle"
+                  className="fill-ink-dim"
+                  fontSize="9"
+                  fontFamily="var(--font-data)"
+                  opacity={0.7}
+                >
+                  {ph.label}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* baseline */}
           <line
             x1={PAD.left}
             x2={W - PAD.right}
@@ -125,6 +182,25 @@ export function OddsChart({
             y2={y(0)}
             stroke="rgba(60,60,67,0.2)"
           />
+
+          {/* per-match ticks: played vs upcoming */}
+          {Array.from({ length: TOTAL_MATCHES }, (_, k) => k + 1).map((m) => {
+            const played = m <= maxMatches;
+            return (
+              <line
+                key={m}
+                x1={x(m)}
+                x2={x(m)}
+                y1={y(0)}
+                y2={y(0) + (played ? 5 : 3)}
+                stroke={
+                  played ? "rgba(60,60,67,0.45)" : "rgba(60,60,67,0.15)"
+                }
+                strokeWidth={1}
+              />
+            );
+          })}
+
           {n === 1 && (
             <text
               x={(PAD.left + W - PAD.right) / 2}
@@ -137,6 +213,7 @@ export function OddsChart({
               the race chart fills in as matches are played
             </text>
           )}
+
           {top.map((t, ti) => (
             <g key={t.code}>
               {n > 1 && (
@@ -144,7 +221,7 @@ export function OddsChart({
                   d={points
                     .map(
                       (p, i) =>
-                        `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(p.win[t.code] ?? 0).toFixed(1)}`,
+                        `${i === 0 ? "M" : "L"}${x(p.matches).toFixed(1)},${y(p.win[t.code] ?? 0).toFixed(1)}`,
                     )
                     .join(" ")}
                   fill="none"
@@ -155,7 +232,7 @@ export function OddsChart({
                 />
               )}
               <circle
-                cx={x(hi)}
+                cx={x(points[hi]?.matches ?? 0)}
                 cy={y(points[hi]?.win[t.code] ?? 0)}
                 r="4"
                 fill={COLORS[ti]}
@@ -164,29 +241,41 @@ export function OddsChart({
               />
             </g>
           ))}
+
           {hover != null && n > 1 && (
             <line
-              x1={x(hover)}
-              x2={x(hover)}
+              x1={x(points[hover].matches)}
+              x2={x(points[hover].matches)}
               y1={PAD.top}
               y2={H - PAD.bottom}
               stroke="rgba(60,60,67,0.25)"
             />
           )}
-          {points.map((p, i) =>
-            n > 1 && (i === 0 || i === n - 1) ? (
+
+          {/* x-axis endpoints */}
+          {n > 1 && (
+            <>
               <text
-                key={i}
-                x={x(i)}
-                y={H - 8}
-                textAnchor={i === 0 ? "start" : "end"}
+                x={x(0)}
+                y={H - 6}
+                textAnchor="start"
                 className="fill-ink-dim"
                 fontSize="10"
                 fontFamily="var(--font-data)"
               >
-                {i === 0 ? "kickoff" : `after ${p.matches}`}
+                kickoff
               </text>
-            ) : null,
+              <text
+                x={x(TOTAL_MATCHES)}
+                y={H - 6}
+                textAnchor="end"
+                className="fill-ink-dim"
+                fontSize="10"
+                fontFamily="var(--font-data)"
+              >
+                104
+              </text>
+            </>
           )}
         </svg>
 
@@ -195,7 +284,7 @@ export function OddsChart({
             key={f.code}
             className="pointer-events-none absolute -translate-y-1/2"
             style={{
-              left: `${((x(n - 1) + 10) / W) * 100}%`,
+              left: `${((x(maxMatches) + 10) / W) * 100}%`,
               top: `${(f.y / H) * 100}%`,
             }}
             title={f.code}
@@ -208,7 +297,7 @@ export function OddsChart({
           <div
             className="glass-strong pointer-events-none absolute top-2 z-10 rounded-xl px-3 py-2"
             style={{
-              left: `${Math.min(82, Math.max(8, (x(hover) / W) * 100))}%`,
+              left: `${Math.min(82, Math.max(8, (x(shown.matches) / W) * 100))}%`,
               transform: "translateX(-50%)",
             }}
           >

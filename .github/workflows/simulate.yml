@@ -29,9 +29,9 @@ jobs:
         run: |
           cargo build --release
           ./target/release/wcsim -n 100000 -s 2026 --results data/results.json -o json > data/snapshots/latest.json
-          played=$(python3 -c "import json; print(json.load(open('data/snapshots/latest.json'))['fixed_matches'])")
-          mkdir -p data/snapshots/history
-          cp data/snapshots/latest.json "data/snapshots/history/$(printf '%03d' "$played")-matches.json"
+          # Per-match title-race history: one snapshot for every prefix of results
+          # (0..N played), so the chart has a point after every single game.
+          bash scripts/gen_history.sh data/results.json 2026 100000
       - name: Commit snapshot
         run: |
           git config user.name "github-actions[bot]"
