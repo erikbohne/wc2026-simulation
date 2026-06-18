@@ -1,105 +1,197 @@
 {
-  "updated": "2026-06-17",
+  "updated": "2026-06-18",
   "matches": [
     {
       "home": "MEX",
       "away": "RSA",
-      "score": [2, 0]
+      "score": [
+        2,
+        0
+      ]
     },
     {
       "home": "KOR",
       "away": "CZE",
-      "score": [2, 1]
+      "score": [
+        2,
+        1
+      ]
     },
     {
       "home": "CAN",
       "away": "BIH",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "USA",
       "away": "PAR",
-      "score": [4, 1]
+      "score": [
+        4,
+        1
+      ]
     },
     {
       "home": "HAI",
       "away": "SCO",
-      "score": [0, 1]
+      "score": [
+        0,
+        1
+      ]
     },
     {
       "home": "AUS",
       "away": "TUR",
-      "score": [2, 0]
+      "score": [
+        2,
+        0
+      ]
     },
     {
       "home": "BRA",
       "away": "MAR",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "QAT",
       "away": "SUI",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "CIV",
       "away": "ECU",
-      "score": [1, 0]
+      "score": [
+        1,
+        0
+      ]
     },
     {
       "home": "GER",
       "away": "CUW",
-      "score": [7, 1]
+      "score": [
+        7,
+        1
+      ]
     },
     {
       "home": "NED",
       "away": "JPN",
-      "score": [2, 2]
+      "score": [
+        2,
+        2
+      ]
     },
     {
       "home": "SWE",
       "away": "TUN",
-      "score": [5, 1]
+      "score": [
+        5,
+        1
+      ]
     },
     {
       "home": "KSA",
       "away": "URU",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "ESP",
       "away": "CPV",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "IRN",
       "away": "NZL",
-      "score": [2, 2]
+      "score": [
+        2,
+        2
+      ]
     },
     {
       "home": "BEL",
       "away": "EGY",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "FRA",
       "away": "SEN",
-      "score": [3, 1]
+      "score": [
+        3,
+        1
+      ]
     },
     {
       "home": "IRQ",
       "away": "NOR",
-      "score": [1, 4]
+      "score": [
+        1,
+        4
+      ]
     },
     {
       "home": "ARG",
       "away": "ALG",
-      "score": [3, 0]
+      "score": [
+        3,
+        0
+      ]
     },
     {
       "home": "AUT",
       "away": "JOR",
-      "score": [3, 1]
+      "score": [
+        3,
+        1
+      ]
+    },
+    {
+      "home": "GHA",
+      "away": "PAN",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "home": "ENG",
+      "away": "CRO",
+      "score": [
+        4,
+        2
+      ]
+    },
+    {
+      "home": "POR",
+      "away": "COD",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "home": "UZB",
+      "away": "COL",
+      "score": [
+        1,
+        3
+      ]
     }
   ]
 }
