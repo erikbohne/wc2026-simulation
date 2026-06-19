@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-18",
+  "updated": "2026-06-19",
   "matches": [
     {
       "home": "MEX",
@@ -191,6 +191,38 @@
       "score": [
         1,
         3
+      ]
+    },
+    {
+      "home": "CZE",
+      "away": "RSA",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "home": "SUI",
+      "away": "BIH",
+      "score": [
+        4,
+        1
+      ]
+    },
+    {
+      "home": "CAN",
+      "away": "QAT",
+      "score": [
+        6,
+        0
+      ]
+    },
+    {
+      "home": "MEX",
+      "away": "KOR",
+      "score": [
+        1,
+        0
       ]
     }
   ]
