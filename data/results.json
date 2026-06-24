@@ -240,6 +240,16 @@
       "home": "COL",
       "away": "COD",
       "score": [1, 0]
+    },
+    {
+      "home": "SUI",
+      "away": "CAN",
+      "score": [2, 1]
+    },
+    {
+      "home": "BIH",
+      "away": "QAT",
+      "score": [3, 1]
     }
   ]
 }
