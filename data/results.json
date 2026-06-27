@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26",
+  "updated": "2026-06-27",
   "matches": [
     {
       "home": "MEX",
@@ -300,6 +300,36 @@
       "home": "PAR",
       "away": "AUS",
       "score": [0, 0]
+    },
+    {
+      "home": "NOR",
+      "away": "FRA",
+      "score": [1, 4]
+    },
+    {
+      "home": "SEN",
+      "away": "IRQ",
+      "score": [5, 0]
+    },
+    {
+      "home": "EGY",
+      "away": "IRN",
+      "score": [1, 1]
+    },
+    {
+      "home": "NZL",
+      "away": "BEL",
+      "score": [1, 5]
+    },
+    {
+      "home": "CPV",
+      "away": "KSA",
+      "score": [0, 0]
+    },
+    {
+      "home": "URU",
+      "away": "ESP",
+      "score": [0, 1]
     }
   ]
 }
