@@ -8,12 +8,20 @@ description = "Monte Carlo simulator for the FIFA World Cup 2026"
 repository = "https://github.com/erikbohne/wc2026-simulation"
 
 [dependencies]
-rand = "0.10"
 rand_xoshiro = "0.8"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+
+# Native binary (src/main.rs): full rand (OS seeding), CLI, parallelism.
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rand = "0.10"
 clap = { version = "4.6", features = ["derive"] }
 rayon = "1.12"
+
+# wasm32 (the in-browser simulator): rand without default features so it never
+# pulls getrandom/OS entropy — the engine seeds deterministically anyway.
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+rand = { version = "0.10", default-features = false }
 
 [profile.release]
 lto = "thin"

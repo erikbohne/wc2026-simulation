@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:wasm": "wasm-pack build ../crates/wasm --target web --release --out-dir ../../web/src/wasm && rm -f src/wasm/.gitignore && mkdir -p public/wasm && cp src/wasm/wcsim_wasm_bg.wasm public/wasm/"
   },
   "dependencies": {
     "flag-icons": "^7.5.0",

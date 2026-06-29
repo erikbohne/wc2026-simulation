@@ -1,0 +1,16 @@
+{
+  "name": "wcsim-wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "wcsim_wasm_bg.wasm",
+    "wcsim_wasm.js",
+    "wcsim_wasm.d.ts"
+  ],
+  "main": "wcsim_wasm.js",
+  "types": "wcsim_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

@@ -1,2 +1,4 @@
 /target
 .vercel
+/crates/wasm/target
+/crates/wasm/pkg
