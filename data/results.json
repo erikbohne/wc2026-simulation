@@ -1,335 +1,581 @@
 {
-  "updated": "2026-06-27",
+  "updated": "2026-06-28",
   "matches": [
     {
       "home": "MEX",
       "away": "RSA",
-      "score": [2, 0]
+      "score": [
+        2,
+        0
+      ]
     },
     {
       "home": "KOR",
       "away": "CZE",
-      "score": [2, 1]
+      "score": [
+        2,
+        1
+      ]
     },
     {
       "home": "CAN",
       "away": "BIH",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "USA",
       "away": "PAR",
-      "score": [4, 1]
+      "score": [
+        4,
+        1
+      ]
     },
     {
       "home": "HAI",
       "away": "SCO",
-      "score": [0, 1]
+      "score": [
+        0,
+        1
+      ]
     },
     {
       "home": "AUS",
       "away": "TUR",
-      "score": [2, 0]
+      "score": [
+        2,
+        0
+      ]
     },
     {
       "home": "BRA",
       "away": "MAR",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "QAT",
       "away": "SUI",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "CIV",
       "away": "ECU",
-      "score": [1, 0]
+      "score": [
+        1,
+        0
+      ]
     },
     {
       "home": "GER",
       "away": "CUW",
-      "score": [7, 1]
+      "score": [
+        7,
+        1
+      ]
     },
     {
       "home": "NED",
       "away": "JPN",
-      "score": [2, 2]
+      "score": [
+        2,
+        2
+      ]
     },
     {
       "home": "SWE",
       "away": "TUN",
-      "score": [5, 1]
+      "score": [
+        5,
+        1
+      ]
     },
     {
       "home": "KSA",
       "away": "URU",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "ESP",
       "away": "CPV",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "IRN",
       "away": "NZL",
-      "score": [2, 2]
+      "score": [
+        2,
+        2
+      ]
     },
     {
       "home": "BEL",
       "away": "EGY",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "FRA",
       "away": "SEN",
-      "score": [3, 1]
+      "score": [
+        3,
+        1
+      ]
     },
     {
       "home": "IRQ",
       "away": "NOR",
-      "score": [1, 4]
+      "score": [
+        1,
+        4
+      ]
     },
     {
       "home": "ARG",
       "away": "ALG",
-      "score": [3, 0]
+      "score": [
+        3,
+        0
+      ]
     },
     {
       "home": "AUT",
       "away": "JOR",
-      "score": [3, 1]
+      "score": [
+        3,
+        1
+      ]
     },
     {
       "home": "GHA",
       "away": "PAN",
-      "score": [1, 0]
+      "score": [
+        1,
+        0
+      ]
     },
     {
       "home": "ENG",
       "away": "CRO",
-      "score": [4, 2]
+      "score": [
+        4,
+        2
+      ]
     },
     {
       "home": "POR",
       "away": "COD",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "UZB",
       "away": "COL",
-      "score": [1, 3]
+      "score": [
+        1,
+        3
+      ]
     },
     {
       "home": "CZE",
       "away": "RSA",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "SUI",
       "away": "BIH",
-      "score": [4, 1]
+      "score": [
+        4,
+        1
+      ]
     },
     {
       "home": "CAN",
       "away": "QAT",
-      "score": [6, 0]
+      "score": [
+        6,
+        0
+      ]
     },
     {
       "home": "MEX",
       "away": "KOR",
-      "score": [1, 0]
+      "score": [
+        1,
+        0
+      ]
     },
     {
       "home": "BRA",
       "away": "HAI",
-      "score": [3, 0]
+      "score": [
+        3,
+        0
+      ]
     },
     {
       "home": "SCO",
       "away": "MAR",
-      "score": [0, 1]
+      "score": [
+        0,
+        1
+      ]
     },
     {
       "home": "TUR",
       "away": "PAR",
-      "score": [0, 1]
+      "score": [
+        0,
+        1
+      ]
     },
     {
       "home": "USA",
       "away": "AUS",
-      "score": [2, 0]
+      "score": [
+        2,
+        0
+      ]
     },
     {
       "home": "GER",
       "away": "CIV",
-      "score": [2, 1]
+      "score": [
+        2,
+        1
+      ]
     },
     {
       "home": "ECU",
       "away": "CUW",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "NED",
       "away": "SWE",
-      "score": [5, 1]
+      "score": [
+        5,
+        1
+      ]
     },
     {
       "home": "TUN",
       "away": "JPN",
-      "score": [0, 4]
+      "score": [
+        0,
+        4
+      ]
     },
     {
       "home": "URU",
       "away": "CPV",
-      "score": [2, 2]
+      "score": [
+        2,
+        2
+      ]
     },
     {
       "home": "ESP",
       "away": "KSA",
-      "score": [4, 0]
+      "score": [
+        4,
+        0
+      ]
     },
     {
       "home": "BEL",
       "away": "IRN",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "NZL",
       "away": "EGY",
-      "score": [1, 3]
+      "score": [
+        1,
+        3
+      ]
     },
     {
       "home": "NOR",
       "away": "SEN",
-      "score": [3, 2]
+      "score": [
+        3,
+        2
+      ]
     },
     {
       "home": "FRA",
       "away": "IRQ",
-      "score": [3, 0]
+      "score": [
+        3,
+        0
+      ]
     },
     {
       "home": "ARG",
       "away": "AUT",
-      "score": [2, 0]
+      "score": [
+        2,
+        0
+      ]
     },
     {
       "home": "JOR",
       "away": "ALG",
-      "score": [1, 2]
+      "score": [
+        1,
+        2
+      ]
     },
     {
       "home": "ENG",
       "away": "GHA",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "PAN",
       "away": "CRO",
-      "score": [0, 1]
+      "score": [
+        0,
+        1
+      ]
     },
     {
       "home": "POR",
       "away": "UZB",
-      "score": [5, 0]
+      "score": [
+        5,
+        0
+      ]
     },
     {
       "home": "COL",
       "away": "COD",
-      "score": [1, 0]
+      "score": [
+        1,
+        0
+      ]
     },
     {
       "home": "SUI",
       "away": "CAN",
-      "score": [2, 1]
+      "score": [
+        2,
+        1
+      ]
     },
     {
       "home": "BIH",
       "away": "QAT",
-      "score": [3, 1]
+      "score": [
+        3,
+        1
+      ]
     },
     {
       "home": "SCO",
       "away": "BRA",
-      "score": [0, 3]
+      "score": [
+        0,
+        3
+      ]
     },
     {
       "home": "MAR",
       "away": "HAI",
-      "score": [4, 2]
+      "score": [
+        4,
+        2
+      ]
     },
     {
       "home": "CZE",
       "away": "MEX",
-      "score": [0, 3]
+      "score": [
+        0,
+        3
+      ]
     },
     {
       "home": "RSA",
       "away": "KOR",
-      "score": [1, 0]
+      "score": [
+        1,
+        0
+      ]
     },
     {
       "home": "CUW",
       "away": "CIV",
-      "score": [0, 2]
+      "score": [
+        0,
+        2
+      ]
     },
     {
       "home": "ECU",
       "away": "GER",
-      "score": [2, 1]
+      "score": [
+        2,
+        1
+      ]
     },
     {
       "home": "JPN",
       "away": "SWE",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "TUN",
       "away": "NED",
-      "score": [1, 3]
+      "score": [
+        1,
+        3
+      ]
     },
     {
       "home": "TUR",
       "away": "USA",
-      "score": [3, 2]
+      "score": [
+        3,
+        2
+      ]
     },
     {
       "home": "PAR",
       "away": "AUS",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "NOR",
       "away": "FRA",
-      "score": [1, 4]
+      "score": [
+        1,
+        4
+      ]
     },
     {
       "home": "SEN",
       "away": "IRQ",
-      "score": [5, 0]
+      "score": [
+        5,
+        0
+      ]
     },
     {
       "home": "EGY",
       "away": "IRN",
-      "score": [1, 1]
+      "score": [
+        1,
+        1
+      ]
     },
     {
       "home": "NZL",
       "away": "BEL",
-      "score": [1, 5]
+      "score": [
+        1,
+        5
+      ]
     },
     {
       "home": "CPV",
       "away": "KSA",
-      "score": [0, 0]
+      "score": [
+        0,
+        0
+      ]
     },
     {
       "home": "URU",
       "away": "ESP",
-      "score": [0, 1]
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "home": "PAN",
+      "away": "ENG",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "home": "CRO",
+      "away": "GHA",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "home": "ALG",
+      "away": "AUT",
+      "score": [
+        3,
+        3
+      ]
+    },
+    {
+      "home": "JOR",
+      "away": "ARG",
+      "score": [
+        1,
+        3
+      ]
+    },
+    {
+      "home": "COL",
+      "away": "POR",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "home": "COD",
+      "away": "UZB",
+      "score": [
+        3,
+        1
+      ]
     }
   ]
 }
