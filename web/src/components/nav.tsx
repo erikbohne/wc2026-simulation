@@ -16,7 +16,7 @@ const MOBILE_TABS = [
   { href: "/matches", label: "Matches" },
   { href: "/bracket", label: "Bracket" },
   { href: "/groups", label: "Groups" },
-  { href: "/scenario", label: "Scenario" },
+  { href: "/table", label: "Table" },
   { href: "/analysis", label: "Analysis" },
 ];
 
@@ -89,9 +89,6 @@ export function Nav() {
                 </div>
               </div>
             </div>
-            <Link href="/scenario" className={pill(pathname === "/scenario")}>
-              Scenario
-            </Link>
             <Link href="/analysis" className={pill(pathname === "/analysis")}>
               Analysis
             </Link>
