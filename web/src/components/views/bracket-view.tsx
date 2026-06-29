@@ -19,6 +19,34 @@ const RIGHT = {
   sf: [102],
 };
 
+type BracketPhase = "played" | "next" | "potential";
+
+function phase(f: Fixture): BracketPhase {
+  if (f.status === "played") return "played";
+  if (f.status === "upcoming") return "next";
+  return "potential";
+}
+
+function boxClass(f: Fixture, final?: boolean): string {
+  const p = phase(f);
+  const tone =
+    p === "played"
+      ? "bracket-played"
+      : p === "next"
+        ? "bracket-next"
+        : "bracket-potential";
+  return `bracket-box ${tone}${final ? " bracket-final" : ""}`;
+}
+
+function connectorClass(f: Fixture): string {
+  const p = phase(f);
+  return p === "played"
+    ? "bracket-connector-played"
+    : p === "next"
+      ? "bracket-connector-next"
+      : "bracket-connector-potential";
+}
+
 function Side({
   f,
   side,
@@ -31,18 +59,15 @@ function Side({
   const likely = (side === "home" ? f.likely_home : f.likely_away) ?? [];
   const goals = f.score ? (side === "home" ? f.score[0] : f.score[1]) : null;
   const won = f.winner != null && f.winner === code;
-  const p =
-    f.status === "upcoming"
-      ? side === "home"
-        ? f.p_home
-        : f.p_away
-      : null;
+  const p = phase(f) === "next" ? (side === "home" ? f.p_home : f.p_away) : null;
+  const dimPlayed = f.status === "played" && !won;
+  const dimPotential = phase(f) === "potential";
 
   if (code) {
     return (
       <div
         className={`flex items-center gap-1.5 ${
-          f.status === "played" && !won ? "opacity-45" : ""
+          dimPlayed ? "opacity-40" : dimPotential ? "opacity-75" : ""
         }`}
       >
         <Flag code={code} className="text-[9px]" />
@@ -60,24 +85,25 @@ function Side({
     );
   }
   const top = likely[0];
+  const ghost = phase(f) === "potential";
   return (
     <div
-      className="flex items-center gap-1.5"
+      className={`flex items-center gap-1.5 ${ghost ? "opacity-55" : ""}`}
       title={likely.map((s) => `${s.code} ${(s.p * 100).toFixed(1)}%`).join(" · ")}
     >
-      <span className="font-data w-6 text-[9px] text-ink-dim/70">{label}</span>
+      <span className="font-data w-6 text-[9px] text-ink-dim/50">{label}</span>
       {top ? (
         <>
-          <Flag code={top.code} className="text-[9px] opacity-60" />
-          <span className="font-data text-[10px] text-ink-dim">
+          <Flag code={top.code} className="text-[9px] opacity-45" />
+          <span className="font-data text-[10px] text-ink-dim/80">
             {top.code}
           </span>
-          <span className="font-data ml-auto text-[10px] tabular-nums text-ink-dim/60">
+          <span className="font-data ml-auto text-[10px] tabular-nums text-ink-dim/45">
             {Math.round(top.p * 100)}%
           </span>
         </>
       ) : (
-        <span className="font-data text-[10px] text-ink-dim/50">tbd</span>
+        <span className="font-data text-[10px] text-ink-dim/35">—</span>
       )}
     </div>
   );
@@ -86,7 +112,7 @@ function Side({
 function Box({ f, final }: { f: Fixture; final?: boolean }) {
   return (
     <div
-      className={`glass rounded-xl px-2.5 py-2 ${final ? "glass-strong" : ""}`}
+      className={`rounded-xl px-2.5 py-2 ${boxClass(f, final)}`}
       title={f.city ?? undefined}
     >
       <div className="font-data mb-1 flex justify-between text-[8px] tracking-[0.08em] text-ink-dim/70 uppercase">
@@ -125,14 +151,15 @@ function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
   const likely = (side === "home" ? f.likely_home : f.likely_away) ?? [];
   const goals = f.score ? (side === "home" ? f.score[0] : f.score[1]) : null;
   const won = f.winner != null && f.winner === code;
-  const p =
-    f.status === "upcoming" ? (side === "home" ? f.p_home : f.p_away) : null;
+  const p = phase(f) === "next" ? (side === "home" ? f.p_home : f.p_away) : null;
   const top = likely[0];
+  const dimPlayed = f.status === "played" && !won;
+  const dimPotential = phase(f) === "potential";
 
   return (
     <div
       className={`flex w-9 flex-col items-center gap-0.5 ${
-        f.status === "played" && !won ? "opacity-45" : ""
+        dimPlayed ? "opacity-40" : dimPotential ? "opacity-55" : ""
       }`}
       title={
         code
@@ -143,9 +170,9 @@ function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
       {code ? (
         <Flag code={code} className="text-[10px]" />
       ) : top ? (
-        <Flag code={top.code} className="text-[10px] opacity-50" />
+        <Flag code={top.code} className="text-[10px] opacity-40" />
       ) : (
-        <span className="h-[10px] w-[13px] rounded-[2px] bg-ink/10" />
+        <span className="h-[10px] w-[13px] rounded-[2px] bg-ink/8" />
       )}
       <span className="font-data text-[9px] font-semibold">
         {code ?? label}
@@ -165,9 +192,7 @@ function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
 
 function MiniBox({ f, final }: { f: Fixture; final?: boolean }) {
   return (
-    <div
-      className={`rounded-xl px-1 py-1.5 ${final ? "glass-strong" : "glass"}`}
-    >
+    <div className={`rounded-xl px-1 py-1.5 ${boxClass(f, final)}`}>
       <div className="flex justify-center gap-1">
         <MiniSide f={f} side="home" />
         <MiniSide f={f} side="away" />
@@ -179,11 +204,14 @@ function MiniBox({ f, final }: { f: Fixture; final?: boolean }) {
   );
 }
 
-function Elbow({ span }: { span: number }) {
+function Elbow({ span, f }: { span: number; f: Fixture }) {
+  const tone = connectorClass(f);
   return (
     <div style={{ gridColumn: `span ${span}` }} className="px-[25%]">
-      <div className="h-3 rounded-b-lg border-x border-b border-ink/15" />
-      <div className="mx-auto h-2.5 w-px bg-ink/15" />
+      <div
+        className={`h-3 rounded-b-lg border-x border-b border-ink/15 ${tone}`}
+      />
+      <div className={`mx-auto h-2.5 w-px bg-ink/15 ${tone}`} />
     </div>
   );
 }
@@ -218,8 +246,7 @@ export function BracketView({
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
         <h1 className="text-3xl font-bold tracking-tight">Bracket</h1>
         <span className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
-          each slot: most likely team + chance of landing there · hover for
-          top 3
+          most likely team per slot · hover for top 3
         </span>
       </div>
 
@@ -251,7 +278,9 @@ export function BracketView({
           {MOBILE_ROWS.map((row, ri) => (
             <div key={ri} className="contents">
               {ri > 0 &&
-                row.ids.map((id) => <Elbow key={`e${id}`} span={row.span} />)}
+                row.ids.map((id) => (
+                  <Elbow key={`e${id}`} span={row.span} f={fx.get(id)!} />
+                ))}
               {row.ids.map((id) => (
                 <div key={id} style={{ gridColumn: `span ${row.span}` }}>
                   <div className="mx-auto max-w-44">
@@ -261,7 +290,7 @@ export function BracketView({
               ))}
             </div>
           ))}
-          <Elbow span={16} />
+          <Elbow span={16} f={final} />
           <div className="col-span-full flex flex-col items-center gap-3">
             <div className="w-32">
               <div className="font-data mb-1 text-center text-[8px] tracking-[0.2em] text-ink-dim uppercase">

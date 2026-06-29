@@ -117,3 +117,82 @@ body {
     animation: none;
   }
 }
+
+/* Bracket match boxes — played / next / potential, color + shading only */
+.bracket-box {
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.03),
+    0 8px 24px rgba(0, 0, 0, 0.05);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.bracket-played {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(52, 199, 89, 0.1) 100%
+  );
+  border: 1px solid rgba(52, 199, 89, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(52, 199, 89, 0.14),
+    0 8px 22px rgba(52, 199, 89, 0.08);
+}
+
+.bracket-next {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(0, 113, 227, 0.11) 100%
+  );
+  border: 1px solid rgba(0, 113, 227, 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 113, 227, 0.08),
+    0 10px 26px rgba(0, 113, 227, 0.07);
+}
+
+.bracket-potential {
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(60, 60, 67, 0.12);
+  opacity: 0.58;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.bracket-final.bracket-played {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(184, 134, 11, 0.12) 55%,
+    rgba(52, 199, 89, 0.1) 100%
+  );
+  border-color: rgba(184, 134, 11, 0.35);
+}
+
+.bracket-final.bracket-next {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(184, 134, 11, 0.1) 50%,
+    rgba(0, 113, 227, 0.1) 100%
+  );
+  border-color: rgba(184, 134, 11, 0.28);
+}
+
+.bracket-connector-played {
+  border-color: rgba(52, 199, 89, 0.35) !important;
+  background-color: rgba(52, 199, 89, 0.35) !important;
+}
+
+.bracket-connector-next {
+  border-color: rgba(0, 113, 227, 0.28) !important;
+  background-color: rgba(0, 113, 227, 0.28) !important;
+}
+
+.bracket-connector-potential {
+  border-color: rgba(60, 60, 67, 0.1) !important;
+  background-color: rgba(60, 60, 67, 0.1) !important;
+}
