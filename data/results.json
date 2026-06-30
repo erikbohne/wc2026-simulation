@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28",
+  "updated": "2026-06-30",
   "matches": [
     {
       "home": "MEX",
@@ -583,6 +583,37 @@
       "away": "CAN",
       "score": [
         0,
+        1
+      ]
+    },
+    {
+      "match": 74,
+      "home": "GER",
+      "away": "PAR",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": true,
+      "winner": "PAR"
+    },
+    {
+      "match": 75,
+      "home": "NED",
+      "away": "MAR",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": true,
+      "winner": "MAR"
+    },
+    {
+      "match": 76,
+      "home": "BRA",
+      "away": "JPN",
+      "score": [
+        2,
         1
       ]
     }
