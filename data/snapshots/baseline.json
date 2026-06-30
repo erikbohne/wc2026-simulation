@@ -64,7 +64,25 @@
           "code": "BEL",
           "p": 0.00329
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          84,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "AUT",
+          "CRO",
+          "USA",
+          "FRA",
+          "ARG"
+        ],
+        "p": 0.00009,
+        "p_given_title": 0.0005152868430092751
+      }
     },
     {
       "code": "ARG",
@@ -121,7 +139,25 @@
           "code": "BIH",
           "p": 0.00451
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          86,
+          95,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "URU",
+          "BEL",
+          "COL",
+          "MEX",
+          "ESP"
+        ],
+        "p": 0.00008,
+        "p_given_title": 0.0006911447084233262
+      }
     },
     {
       "code": "FRA",
@@ -178,7 +214,25 @@
           "code": "PAR",
           "p": 0.0309
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "SWE",
+          "GER",
+          "NED",
+          "ESP",
+          "COL"
+        ],
+        "p": 0.00005,
+        "p_given_title": 0.0005885122410546139
+      }
     },
     {
       "code": "ENG",
@@ -235,7 +289,25 @@
           "code": "FRA",
           "p": 0.02221
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          80,
+          92,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "COD",
+          "MEX",
+          "GER",
+          "ARG",
+          "ESP"
+        ],
+        "p": 0.00005,
+        "p_given_title": 0.0007044237813468582
+      }
     },
     {
       "code": "COL",
@@ -292,7 +364,25 @@
           "code": "CIV",
           "p": 0.01611
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          87,
+          96,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "GHA",
+          "CAN",
+          "ARG",
+          "ENG",
+          "ESP"
+        ],
+        "p": 0.00005,
+        "p_given_title": 0.001051967178624027
+      }
     },
     {
       "code": "BRA",
@@ -349,7 +439,25 @@
           "code": "CIV",
           "p": 0.01192
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          76,
+          91,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "JPN",
+          "SEN",
+          "ENG",
+          "URU",
+          "ESP"
+        ],
+        "p": 0.00004,
+        "p_given_title": 0.0009606147934678194
+      }
     },
     {
       "code": "POR",
@@ -406,7 +514,25 @@
           "code": "CIV",
           "p": 0.01378
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          87,
+          96,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "GHA",
+          "CAN",
+          "ARG",
+          "ENG",
+          "ESP"
+        ],
+        "p": 0.00004,
+        "p_given_title": 0.0009874105159219946
+      }
     },
     {
       "code": "NED",
@@ -463,7 +589,25 @@
           "code": "ECU",
           "p": 0.00555
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          75,
+          90,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "SCO",
+          "KOR",
+          "FRA",
+          "ESP",
+          "MEX"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0005685048322910744
+      }
     },
     {
       "code": "ECU",
@@ -520,7 +664,25 @@
           "code": "TUR",
           "p": 0.05328
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "SCO",
+          "PAR",
+          "NED",
+          "ESP",
+          "MEX"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0007067137809187279
+      }
     },
     {
       "code": "CRO",
@@ -577,7 +739,25 @@
           "code": "FRA",
           "p": 0.01237
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          83,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "POR",
+          "ESP",
+          "PAR",
+          "JPN",
+          "BRA"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0007158196134574087
+      }
     },
     {
       "code": "MEX",
@@ -634,7 +814,25 @@
           "code": "GER",
           "p": 0.04514
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          79,
+          92,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "CIV",
+          "CRO",
+          "ECU",
+          "COL",
+          "FRA"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.001076426264800861
+      }
     },
     {
       "code": "NOR",
@@ -691,7 +889,25 @@
           "code": "CUW",
           "p": 0.03707
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "TUN",
+          "ECU",
+          "JPN",
+          "ESP",
+          "ENG"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.0011424219345011425
+      }
     },
     {
       "code": "CAN",
@@ -748,7 +964,25 @@
           "code": "BEL",
           "p": 0.05612
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          73,
+          90,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "CZE",
+          "NED",
+          "ECU",
+          "ESP",
+          "SUI"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.0011787819253438114
+      }
     },
     {
       "code": "GER",
@@ -805,7 +1039,25 @@
           "code": "USA",
           "p": 0.0484
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "HAI",
+          "FRA",
+          "SCO",
+          "ESP",
+          "SUI"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0008543357539513029
+      }
     },
     {
       "code": "SUI",
@@ -862,7 +1114,25 @@
           "code": "USA",
           "p": 0.05088
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          85,
+          96,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "NZL",
+          "COL",
+          "ARG",
+          "MEX",
+          "ESP"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.0014058106841611997
+      }
     },
     {
       "code": "USA",
@@ -919,7 +1189,25 @@
           "code": "GER",
           "p": 0.0484
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          81,
+          94,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "BIH",
+          "BEL",
+          "UZB",
+          "SCO",
+          "BRA"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0010167768174885613
+      }
     },
     {
       "code": "TUR",
@@ -976,7 +1264,25 @@
           "code": "SUI",
           "p": 0.04772
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          81,
+          94,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "CAN",
+          "IRN",
+          "ESP",
+          "NED",
+          "GER"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0010911074740861974
+      }
     },
     {
       "code": "URU",
@@ -1033,7 +1339,25 @@
           "code": "BEL",
           "p": 0.01439
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          84,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "ALG",
+          "UZB",
+          "USA",
+          "ECU",
+          "BRA"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0011019283746556473
+      }
     },
     {
       "code": "SEN",
@@ -1090,7 +1414,25 @@
           "code": "TUN",
           "p": 0.02863
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "JPN",
+          "ECU",
+          "NED",
+          "ESP",
+          "ARG"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.0018226002430133657
+      }
     },
     {
       "code": "JPN",
@@ -1147,7 +1489,25 @@
           "code": "IRQ",
           "p": 0.00646
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          76,
+          91,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "BRA",
+          "FRA",
+          "ENG",
+          "ARG",
+          "ESP"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.0018259281801582471
+      }
     },
     {
       "code": "BEL",
@@ -1204,7 +1564,25 @@
           "code": "CAN",
           "p": 0.05612
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          82,
+          94,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "CZE",
+          "TUR",
+          "ESP",
+          "FRA",
+          "ENG"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.002223869532987398
+      }
     },
     {
       "code": "MAR",
@@ -1261,7 +1639,25 @@
           "code": "CIV",
           "p": 0.0192
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          76,
+          91,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "NED",
+          "FRA",
+          "MEX",
+          "CAN",
+          "ESP"
+        ],
+        "p": 0.00003,
+        "p_given_title": 0.0023273855702094647
+      }
     },
     {
       "code": "AUT",
@@ -1318,7 +1714,25 @@
           "code": "BIH",
           "p": 0.0129
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          86,
+          95,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "URU",
+          "EGY",
+          "POR",
+          "GER",
+          "ECU"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.001869158878504673
+      }
     },
     {
       "code": "IRN",
@@ -1375,7 +1789,25 @@
           "code": "KOR",
           "p": 0.04901
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          88,
+          95,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "TUR",
+          "ARG",
+          "CAN",
+          "BRA",
+          "SCO"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.0027100271002710027
+      }
     },
     {
       "code": "KOR",
@@ -1432,7 +1864,25 @@
           "code": "CIV",
           "p": 0.03129
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          79,
+          92,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "CIV",
+          "COD",
+          "BRA",
+          "ESP",
+          "FRA"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.00273224043715847
+      }
     },
     {
       "code": "PAR",
@@ -1489,7 +1939,25 @@
           "code": "QAT",
           "p": 0.03328
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          81,
+          94,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "SUI",
+          "EGY",
+          "ESP",
+          "ECU",
+          "GER"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.002857142857142857
+      }
     },
     {
       "code": "SCO",
@@ -1546,7 +2014,25 @@
           "code": "CIV",
           "p": 0.02278
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          75,
+          90,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "SWE",
+          "CZE",
+          "FRA",
+          "ESP",
+          "ARG"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.002967359050445104
+      }
     },
     {
       "code": "EGY",
@@ -1603,7 +2089,25 @@
           "code": "KOR",
           "p": 0.04512
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          82,
+          94,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "KOR",
+          "AUS",
+          "ESP",
+          "FRA",
+          "URU"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.003048780487804878
+      }
     },
     {
       "code": "SWE",
@@ -1660,7 +2164,25 @@
           "code": "IRQ",
           "p": 0.00728
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "FRA",
+          "ECU",
+          "NED",
+          "ESP",
+          "ARG"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.003316749585406302
+      }
     },
     {
       "code": "CZE",
@@ -1717,7 +2239,25 @@
           "code": "CIV",
           "p": 0.02415
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          79,
+          92,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "URU",
+          "ENG",
+          "ECU",
+          "ARG",
+          "ESP"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.004008016032064128
+      }
     },
     {
       "code": "ALG",
@@ -1774,7 +2314,25 @@
           "code": "BIH",
           "p": 0.01356
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          84,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "ESP",
+          "CRO",
+          "BEL",
+          "CAN",
+          "ARG"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.004048582995951417
+      }
     },
     {
       "code": "CIV",
@@ -1831,7 +2389,25 @@
           "code": "USA",
           "p": 0.02592
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          78,
+          91,
+          99,
+          102,
+          104
+        ],
+        "opponents": [
+          "SEN",
+          "BRA",
+          "ENG",
+          "COL",
+          "FRA"
+        ],
+        "p": 0.00002,
+        "p_given_title": 0.004395604395604396
+      }
     },
     {
       "code": "AUS",
@@ -1888,7 +2464,25 @@
           "code": "FRA",
           "p": 0.02917
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "ECU",
+          "SWE",
+          "KOR",
+          "EGY",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.002551020408163265
+      }
     },
     {
       "code": "TUN",
@@ -1945,7 +2539,25 @@
           "code": "IRQ",
           "p": 0.00692
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "GER",
+          "IRQ",
+          "SCO",
+          "ENG",
+          "EGY"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.002881844380403458
+      }
     },
     {
       "code": "BIH",
@@ -2002,7 +2614,25 @@
           "code": "AUS",
           "p": 0.02967
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "CUW",
+          "NZL",
+          "CZE",
+          "BEL",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.0038022813688212928
+      }
     },
     {
       "code": "PAN",
@@ -2059,7 +2689,25 @@
           "code": "FRA",
           "p": 0.0034
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          83,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "POR",
+          "ESP",
+          "KOR",
+          "NED",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.0045871559633027525
+      }
     },
     {
       "code": "COD",
@@ -2116,7 +2764,25 @@
           "code": "FRA",
           "p": 0.00313
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          83,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "PAN",
+          "ALG",
+          "ECU",
+          "NOR",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.0048543689320388345
+      }
     },
     {
       "code": "GHA",
@@ -2173,7 +2839,25 @@
           "code": "FRA",
           "p": 0.00312
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          83,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "COL",
+          "ESP",
+          "BIH",
+          "ECU",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.0049504950495049506
+      }
     },
     {
       "code": "UZB",
@@ -2230,7 +2914,25 @@
           "code": "FRA",
           "p": 0.00301
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          83,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "GHA",
+          "JOR",
+          "TUR",
+          "CZE",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.0051813471502590676
+      }
     },
     {
       "code": "RSA",
@@ -2287,7 +2989,25 @@
           "code": "CIV",
           "p": 0.01592
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          73,
+          90,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "SUI",
+          "NED",
+          "BEL",
+          "ESP",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.005952380952380952
+      }
     },
     {
       "code": "JOR",
@@ -2344,7 +3064,25 @@
           "code": "TUR",
           "p": 0.01088
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          84,
+          93,
+          98,
+          101,
+          104
+        ],
+        "opponents": [
+          "ESP",
+          "POR",
+          "IRN",
+          "NOR",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.006369426751592357
+      }
     },
     {
       "code": "IRQ",
@@ -2401,7 +3139,25 @@
           "code": "CUW",
           "p": 0.01225
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "USA",
+          "HAI",
+          "TUN",
+          "BEL",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.008547008547008548
+      }
     },
     {
       "code": "KSA",
@@ -2458,7 +3214,25 @@
           "code": "JOR",
           "p": 0.01492
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "SEN",
+          "ECU",
+          "RSA",
+          "ESP",
+          "NED"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.010752688172043012
+      }
     },
     {
       "code": "QAT",
@@ -2515,7 +3289,25 @@
           "code": "AUS",
           "p": 0.02336
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          73,
+          90,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "CZE",
+          "MAR",
+          "FRA",
+          "SUI",
+          "CAN"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.011627906976744186
+      }
     },
     {
       "code": "NZL",
@@ -2572,7 +3364,25 @@
           "code": "CZE",
           "p": 0.01672
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "IRQ",
+          "GER",
+          "TUN",
+          "SEN",
+          "COL"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.0136986301369863
+      }
     },
     {
       "code": "CPV",
@@ -2629,7 +3439,25 @@
           "code": "FRA",
           "p": 0.01266
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          77,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "FRA",
+          "GER",
+          "CAN",
+          "CRO",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.014084507042253521
+      }
     },
     {
       "code": "HAI",
@@ -2686,7 +3514,25 @@
           "code": "CIV",
           "p": 0.0129
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "GER",
+          "FRA",
+          "CAN",
+          "BEL",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.02631578947368421
+      }
     },
     {
       "code": "CUW",
@@ -2743,7 +3589,25 @@
           "code": "TUR",
           "p": 0.01089
         }
-      ]
+      ],
+      "title_path": {
+        "matches": [
+          74,
+          89,
+          97,
+          101,
+          104
+        ],
+        "opponents": [
+          "PAR",
+          "SEN",
+          "SWE",
+          "CAN",
+          "MEX"
+        ],
+        "p": 0.00001,
+        "p_given_title": 0.02857142857142857
+      }
     }
   ],
   "fixtures": [
