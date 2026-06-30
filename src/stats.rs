@@ -1,4 +1,7 @@
-use crate::data::{NUM_TEAMS, Teams};
+use std::collections::HashMap;
+
+use crate::bracket::champion_title_path;
+use crate::data::{NUM_TEAMS, TeamId, Teams};
 use crate::fixtures::{Fixture, SlotLikely};
 use crate::tournament::{STAGE_CHAMPION, TournamentResult};
 use serde::Serialize;
@@ -17,6 +20,31 @@ pub struct Counters {
     pub goals: u64,
     pub group_goals: u64,
     pub matches: u64,
+    pub title_paths: HashMap<u128, u64>,
+}
+
+fn pack_title_path_key(champion: usize, match_nos: [u8; 5], opponents: [TeamId; 5]) -> u128 {
+    let mut key = champion as u128;
+    for (i, &o) in opponents.iter().enumerate() {
+        key |= (o as u128) << (6 + i * 6);
+    }
+    for (i, &m) in match_nos.iter().enumerate() {
+        key |= ((m - 73) as u128) << (36 + i * 6);
+    }
+    key
+}
+
+fn unpack_title_path_key(key: u128) -> (usize, [u8; 5], [TeamId; 5]) {
+    let champion = (key & 0x3F) as usize;
+    let mut opponents = [TeamId::MAX; 5];
+    for (i, slot) in opponents.iter_mut().enumerate() {
+        *slot = ((key >> (6 + i * 6)) & 0x3F) as TeamId;
+    }
+    let mut match_nos = [0u8; 5];
+    for (i, slot) in match_nos.iter_mut().enumerate() {
+        *slot = 73 + ((key >> (36 + i * 6)) & 0x3F) as u8;
+    }
+    (champion, match_nos, opponents)
 }
 
 impl Counters {
@@ -34,6 +62,7 @@ impl Counters {
             goals: 0,
             group_goals: 0,
             matches: 0,
+            title_paths: HashMap::new(),
         }
     }
 
@@ -60,6 +89,11 @@ impl Counters {
         self.goals += r.total_goals as u64;
         self.group_goals += r.group_goals as u64;
         self.matches += r.matches as u64;
+        if r.champion != TeamId::MAX {
+            let path = champion_title_path(r.champion, &r.ko_a, &r.ko_b);
+            let key = pack_title_path_key(r.champion as usize, path.match_nos, path.opponents);
+            *self.title_paths.entry(key).or_insert(0) += 1;
+        }
     }
 
     pub fn merge(mut self, other: Counters) -> Counters {
@@ -89,6 +123,9 @@ impl Counters {
         self.goals += other.goals;
         self.group_goals += other.group_goals;
         self.matches += other.matches;
+        for (key, count) in other.title_paths {
+            *self.title_paths.entry(key).or_insert(0) += count;
+        }
         self
     }
 
@@ -119,6 +156,14 @@ pub struct R32Opponent {
 }
 
 #[derive(Debug, Serialize)]
+pub struct TitlePath {
+    pub matches: Vec<u8>,
+    pub opponents: Vec<String>,
+    pub p: f64,
+    pub p_given_title: f64,
+}
+
+#[derive(Debug, Serialize)]
 pub struct TeamRow {
     pub code: String,
     pub name: String,
@@ -137,6 +182,42 @@ pub struct TeamRow {
     pub expected_gd: f64,
     pub group_position: GroupPositionDist,
     pub r32_opponents: Vec<R32Opponent>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub title_path: Option<TitlePath>,
+}
+
+fn mode_title_path(c: &Counters, teams: &Teams, team: usize, n: f64) -> Option<TitlePath> {
+    let wins = c.stage_exact[STAGE_CHAMPION as usize][team];
+    if wins == 0 {
+        return None;
+    }
+    let mut best: Option<(u128, u64)> = None;
+    for (&key, &count) in &c.title_paths {
+        if (key & 0x3F) as usize != team {
+            continue;
+        }
+        best = Some(match best {
+            None => (key, count),
+            Some((bk, bc)) => {
+                if count > bc || (count == bc && key < bk) {
+                    (key, count)
+                } else {
+                    (bk, bc)
+                }
+            }
+        });
+    }
+    let (key, count) = best?;
+    let (_, match_nos, opponents) = unpack_title_path_key(key);
+    Some(TitlePath {
+        matches: match_nos.to_vec(),
+        opponents: opponents
+            .iter()
+            .map(|&o| teams.teams[o as usize].code.clone())
+            .collect(),
+        p: count as f64 / n,
+        p_given_title: count as f64 / wins as f64,
+    })
 }
 
 #[derive(Debug, Serialize)]
@@ -248,6 +329,7 @@ pub fn build_report(
                     third_eliminated: (c.group_pos[2][t] - c.third_qualified[t]) as f64 / n,
                     fourth: c.group_pos[3][t] as f64 / n,
                 },
+                title_path: mode_title_path(c, teams, t, n),
             }
         })
         .collect();

@@ -42,6 +42,13 @@ export interface R32Opponent {
   p: number;
 }
 
+export interface TitlePath {
+  matches: number[];
+  opponents: string[];
+  p: number;
+  p_given_title: number;
+}
+
 export interface TeamRow {
   code: string;
   name: string;
@@ -59,6 +66,7 @@ export interface TeamRow {
   expected_points: number;
   expected_gd: number;
   group_position: GroupPositionDist;
+  title_path?: TitlePath;
 }
 
 export interface Report {

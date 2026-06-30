@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import { Flag } from "@/components/flag";
 import { usePick } from "@/components/mode";
 import { shortDate } from "@/lib/format";
-import type { Fixture, Report } from "@/lib/report";
+import type { Report } from "@/lib/report";
+import type { BracketFixture } from "@/lib/title-path-bracket";
 
 const LEFT = {
   r32: [74, 77, 73, 75, 83, 84, 81, 82],
@@ -19,39 +20,44 @@ const RIGHT = {
   sf: [102],
 };
 
-type BracketPhase = "played" | "next" | "potential";
+type BracketPhase = "played" | "next" | "potential" | "path";
 
-function phase(f: Fixture): BracketPhase {
+function phase(f: BracketFixture): BracketPhase {
+  if (f.status === "path") return "path";
   if (f.status === "played") return "played";
   if (f.status === "upcoming") return "next";
   return "potential";
 }
 
-function boxClass(f: Fixture, final?: boolean): string {
+function boxClass(f: BracketFixture, final?: boolean): string {
   const p = phase(f);
   const tone =
     p === "played"
       ? "bracket-played"
-      : p === "next"
-        ? "bracket-next"
-        : "bracket-potential";
+      : p === "path"
+        ? "bracket-path"
+        : p === "next"
+          ? "bracket-next"
+          : "bracket-potential";
   return `bracket-box ${tone}${final ? " bracket-final" : ""}`;
 }
 
-function connectorClass(f: Fixture): string {
+function connectorClass(f: BracketFixture): string {
   const p = phase(f);
   return p === "played"
     ? "bracket-connector-played"
-    : p === "next"
-      ? "bracket-connector-next"
-      : "bracket-connector-potential";
+    : p === "path"
+      ? "bracket-connector-path"
+      : p === "next"
+        ? "bracket-connector-next"
+        : "bracket-connector-potential";
 }
 
 function Side({
   f,
   side,
 }: {
-  f: Fixture;
+  f: BracketFixture;
   side: "home" | "away";
 }) {
   const code = side === "home" ? f.home : f.away;
@@ -60,7 +66,7 @@ function Side({
   const goals = f.score ? (side === "home" ? f.score[0] : f.score[1]) : null;
   const won = f.winner != null && f.winner === code;
   const p = phase(f) === "next" ? (side === "home" ? f.p_home : f.p_away) : null;
-  const dimPlayed = f.status === "played" && !won;
+  const dimPlayed = (f.status === "played" || f.status === "path") && !won;
   const dimPotential = phase(f) === "potential";
 
   if (code) {
@@ -77,6 +83,8 @@ function Side({
             <span className="text-[11px] font-semibold text-ink">{goals}</span>
           ) : p != null ? (
             `${Math.round(p * 100)}%`
+          ) : f.status === "path" && won ? (
+            <span className="text-[10px] font-semibold text-win-deep">W</span>
           ) : (
             ""
           )}
@@ -109,7 +117,7 @@ function Side({
   );
 }
 
-function Box({ f, final }: { f: Fixture; final?: boolean }) {
+function Box({ f, final }: { f: BracketFixture; final?: boolean }) {
   return (
     <div
       className={`rounded-xl px-2.5 py-2 ${boxClass(f, final)}`}
@@ -132,7 +140,7 @@ function Column({
   ids,
   className = "",
 }: {
-  fixtures: Map<number, Fixture>;
+  fixtures: Map<number, BracketFixture>;
   ids: number[];
   className?: string;
 }) {
@@ -145,7 +153,7 @@ function Column({
   );
 }
 
-function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
+function MiniSide({ f, side }: { f: BracketFixture; side: "home" | "away" }) {
   const code = side === "home" ? f.home : f.away;
   const label = side === "home" ? f.home_label : f.away_label;
   const likely = (side === "home" ? f.likely_home : f.likely_away) ?? [];
@@ -153,7 +161,7 @@ function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
   const won = f.winner != null && f.winner === code;
   const p = phase(f) === "next" ? (side === "home" ? f.p_home : f.p_away) : null;
   const top = likely[0];
-  const dimPlayed = f.status === "played" && !won;
+  const dimPlayed = (f.status === "played" || f.status === "path") && !won;
   const dimPotential = phase(f) === "potential";
 
   return (
@@ -182,15 +190,17 @@ function MiniSide({ f, side }: { f: Fixture; side: "home" | "away" }) {
           ? goals
           : p != null
             ? `${Math.round(p * 100)}%`
-            : top
-              ? `${Math.round(top.p * 100)}%`
-              : ""}
+            : f.status === "path" && won
+              ? "W"
+              : top
+                ? `${Math.round(top.p * 100)}%`
+                : ""}
       </span>
     </div>
   );
 }
 
-function MiniBox({ f, final }: { f: Fixture; final?: boolean }) {
+function MiniBox({ f, final }: { f: BracketFixture; final?: boolean }) {
   return (
     <div className={`rounded-xl px-1 py-1.5 ${boxClass(f, final)}`}>
       <div className="flex justify-center gap-1">
@@ -204,7 +214,7 @@ function MiniBox({ f, final }: { f: Fixture; final?: boolean }) {
   );
 }
 
-function Elbow({ span, f }: { span: number; f: Fixture }) {
+function Elbow({ span, f }: { span: number; f: BracketFixture }) {
   const tone = connectorClass(f);
   return (
     <div style={{ gridColumn: `span ${span}` }} className="px-[25%]">
@@ -223,38 +233,30 @@ const MOBILE_ROWS = [
   { ids: [101, 102], span: 8 },
 ];
 
-export function BracketView({
-  live,
-  baseline,
+export function BracketGrid({
+  fixtures,
+  compact,
 }: {
-  live: Report;
-  baseline: Report;
+  fixtures: Map<number, BracketFixture>;
+  compact?: boolean;
 }) {
-  const report = usePick(live, baseline);
-  const fx = new Map(report.fixtures.map((f) => [f.match, f]));
-  const final = fx.get(104)!;
-  const third = fx.get(103)!;
+  const final = fixtures.get(104)!;
+  const third = fixtures.get(103)!;
   const scroller = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (compact) return;
     const el = scroller.current;
     if (el) el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
-  }, []);
+  }, [compact]);
 
   return (
-    <section className="py-10">
-      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Bracket</h1>
-        <span className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
-          most likely team per slot · hover for top 3
-        </span>
-      </div>
-
-      <div className="hidden grid-cols-9 gap-2 xl:grid">
-        <Column fixtures={fx} ids={LEFT.r32} />
-        <Column fixtures={fx} ids={LEFT.r16} />
-        <Column fixtures={fx} ids={LEFT.qf} />
-        <Column fixtures={fx} ids={LEFT.sf} />
+    <>
+      <div className={`hidden grid-cols-9 gap-2 ${compact ? "" : "xl:grid"}`}>
+        <Column fixtures={fixtures} ids={LEFT.r32} />
+        <Column fixtures={fixtures} ids={LEFT.r16} />
+        <Column fixtures={fixtures} ids={LEFT.qf} />
+        <Column fixtures={fixtures} ids={LEFT.sf} />
         <div className="flex flex-col justify-center gap-3">
           <div className="font-data text-center text-[9px] tracking-[0.2em] text-ink-dim uppercase">
             Final
@@ -267,24 +269,29 @@ export function BracketView({
             <Box f={third} />
           </div>
         </div>
-        <Column fixtures={fx} ids={RIGHT.sf} />
-        <Column fixtures={fx} ids={RIGHT.qf} />
-        <Column fixtures={fx} ids={RIGHT.r16} />
-        <Column fixtures={fx} ids={RIGHT.r32} />
+        <Column fixtures={fixtures} ids={RIGHT.sf} />
+        <Column fixtures={fixtures} ids={RIGHT.qf} />
+        <Column fixtures={fixtures} ids={RIGHT.r16} />
+        <Column fixtures={fixtures} ids={RIGHT.r32} />
       </div>
 
-      <div ref={scroller} className="-mx-5 overflow-x-auto px-5 pb-4 xl:hidden">
-        <div className="grid w-[1380px] grid-cols-[repeat(16,1fr)] gap-x-1.5">
+      <div
+        ref={scroller}
+        className={`-mx-5 overflow-x-auto px-5 pb-4 ${compact ? "" : "xl:hidden"}`}
+      >
+        <div
+          className={`grid grid-cols-[repeat(16,1fr)] gap-x-1.5 ${compact ? "w-full min-w-[900px]" : "w-[1380px]"}`}
+        >
           {MOBILE_ROWS.map((row, ri) => (
             <div key={ri} className="contents">
               {ri > 0 &&
                 row.ids.map((id) => (
-                  <Elbow key={`e${id}`} span={row.span} f={fx.get(id)!} />
+                  <Elbow key={`e${id}`} span={row.span} f={fixtures.get(id)!} />
                 ))}
               {row.ids.map((id) => (
                 <div key={id} style={{ gridColumn: `span ${row.span}` }}>
                   <div className="mx-auto max-w-44">
-                    <MiniBox f={fx.get(id)!} />
+                    <MiniBox f={fixtures.get(id)!} />
                   </div>
                 </div>
               ))}
@@ -307,6 +314,32 @@ export function BracketView({
           </div>
         </div>
       </div>
+    </>
+  );
+}
+
+export function BracketView({
+  live,
+  baseline,
+}: {
+  live: Report;
+  baseline: Report;
+}) {
+  const report = usePick(live, baseline);
+  const fixtures = new Map(
+    report.fixtures.map((f) => [f.match, f as BracketFixture]),
+  );
+
+  return (
+    <section className="py-10">
+      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+        <h1 className="text-3xl font-bold tracking-tight">Bracket</h1>
+        <span className="font-data text-[10px] tracking-[0.12em] text-ink-dim uppercase">
+          most likely team per slot · hover for top 3
+        </span>
+      </div>
+
+      <BracketGrid fixtures={fixtures} />
     </section>
   );
 }

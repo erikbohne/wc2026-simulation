@@ -1,12 +1,15 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
+import { BracketGrid } from "@/components/views/bracket-view";
 import { GroupCard } from "@/components/group-card";
 import { MatchCard } from "@/components/match-card";
 import { Flag } from "@/components/flag";
 import { usePick } from "@/components/mode";
 import { pct } from "@/lib/format";
 import type { Report, TeamRow } from "@/lib/report";
+import { applyTitlePath } from "@/lib/title-path-bracket";
 
 function JourneyStep({
   label,
@@ -51,6 +54,12 @@ export function TeamView({
   const report = usePick(live, baseline);
   const simRank = report.teams.findIndex((t) => t.code === code) + 1;
   const team = report.teams[simRank - 1] as TeamRow | undefined;
+  const titlePath = team?.title_path;
+  const pathFixtures = useMemo(
+    () =>
+      titlePath ? applyTitlePath(report.fixtures, code, titlePath) : null,
+    [report.fixtures, code, titlePath],
+  );
   if (!team) return null;
 
   const matches = report.fixtures.filter(
@@ -154,6 +163,27 @@ export function TeamView({
           </div>
         </div>
       </div>
+
+      {titlePath && pathFixtures && (
+        <div className="glass mt-4 rounded-3xl p-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="text-sm font-bold tracking-tight text-ink-dim">
+              Most likely path to victory
+            </h2>
+            <span className="font-data text-[10px] tracking-[0.1em] text-ink-dim">
+              {pct(titlePath.p_given_title)} of their title wins ·{" "}
+              {pct(titlePath.p)} of all simulations
+            </span>
+          </div>
+          <p className="mt-1 text-xs text-ink-dim/80">
+            Knockout bracket with the most common opponents this team beats en
+            route to the title (scores omitted).
+          </p>
+          <div className="mt-5">
+            <BracketGrid fixtures={pathFixtures} compact />
+          </div>
+        </div>
+      )}
 
       <div className="mt-10">
         <h2 className="mb-4 text-sm font-bold tracking-tight text-ink-dim">

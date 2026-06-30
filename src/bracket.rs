@@ -53,6 +53,64 @@ pub const KNOCKOUT: [(u8, KoSource, KoSource); 16] = [
     (104, KoSource::WinnerOf(101), KoSource::WinnerOf(102)),
 ];
 
+use crate::data::TeamId;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TitlePathOutcome {
+    pub match_nos: [u8; 5],
+    pub opponents: [TeamId; 5],
+}
+
+fn next_winner_match(current: u8) -> u8 {
+    for &(m, sa, sb) in &KNOCKOUT {
+        if m == 103 {
+            continue;
+        }
+        for src in [sa, sb] {
+            if matches!(src, KoSource::WinnerOf(p) if p == current) {
+                return m;
+            }
+        }
+    }
+    panic!("no knockout match feeds winner of match {current}");
+}
+
+/// Opponents the champion defeats at R32 → R16 → QF → SF → Final (match 103 excluded).
+pub fn champion_title_path(
+    champion: TeamId,
+    ko_a: &[TeamId; 32],
+    ko_b: &[TeamId; 32],
+) -> TitlePathOutcome {
+    let mut match_no = R32
+        .iter()
+        .find(|&&(m, _, _)| {
+            let idx = (m - 73) as usize;
+            ko_a[idx] == champion || ko_b[idx] == champion
+        })
+        .map(|&(m, _, _)| m)
+        .expect("champion must appear in round of 32");
+
+    let mut outcome = TitlePathOutcome {
+        match_nos: [0; 5],
+        opponents: [TeamId::MAX; 5],
+    };
+
+    for stage in 0..5 {
+        let idx = (match_no - 73) as usize;
+        let opp = if ko_a[idx] == champion {
+            ko_b[idx]
+        } else {
+            ko_a[idx]
+        };
+        outcome.match_nos[stage] = match_no;
+        outcome.opponents[stage] = opp;
+        if stage < 4 {
+            match_no = next_winner_match(match_no);
+        }
+    }
+    outcome
+}
+
 pub fn stage_of_match(match_no: u8) -> u8 {
     match match_no {
         73..=88 => 1,
@@ -137,5 +195,26 @@ mod tests {
         assert_eq!(stage_of_match(100), 3);
         assert_eq!(stage_of_match(102), 4);
         assert_eq!(stage_of_match(104), 6);
+    }
+
+    #[test]
+    fn champion_title_path_follows_bracket_feeders() {
+        let mut ko_a = [TeamId::MAX; 32];
+        let mut ko_b = [TeamId::MAX; 32];
+        // Champion (team 1) wins R32 m85, R16 m96, QF m100, SF m102, Final m104.
+        ko_a[12] = 1;
+        ko_b[12] = 10; // m85
+        ko_a[23] = 1;
+        ko_b[23] = 11; // m96
+        ko_a[27] = 1;
+        ko_b[27] = 12; // m100
+        ko_a[29] = 1;
+        ko_b[29] = 13; // m102
+        ko_a[31] = 1;
+        ko_b[31] = 14; // m104
+
+        let path = champion_title_path(1, &ko_a, &ko_b);
+        assert_eq!(path.match_nos, [85, 96, 100, 102, 104]);
+        assert_eq!(path.opponents, [10, 11, 12, 13, 14]);
     }
 }
