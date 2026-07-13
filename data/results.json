@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30",
+  "updated": "2026-07-13",
   "matches": [
     {
       "home": "MEX",
@@ -616,6 +616,230 @@
         2,
         1
       ]
+    },
+    {
+      "match": 77,
+      "home": "FRA",
+      "away": "SWE",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "match": 78,
+      "home": "CIV",
+      "away": "NOR",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "match": 79,
+      "home": "MEX",
+      "away": "ECU",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "match": 80,
+      "home": "ENG",
+      "away": "COD",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "match": 81,
+      "home": "USA",
+      "away": "BIH",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "match": 82,
+      "home": "BEL",
+      "away": "SEN",
+      "score": [
+        3,
+        2
+      ],
+      "extra_time": true
+    },
+    {
+      "match": 83,
+      "home": "POR",
+      "away": "CRO",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "match": 84,
+      "home": "ESP",
+      "away": "AUT",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "match": 85,
+      "home": "SUI",
+      "away": "ALG",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "match": 86,
+      "home": "ARG",
+      "away": "CPV",
+      "score": [
+        3,
+        2
+      ],
+      "extra_time": true
+    },
+    {
+      "match": 87,
+      "home": "COL",
+      "away": "GHA",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "match": 88,
+      "home": "AUS",
+      "away": "EGY",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": true,
+      "winner": "EGY"
+    },
+    {
+      "match": 89,
+      "home": "PAR",
+      "away": "FRA",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "match": 90,
+      "home": "CAN",
+      "away": "MAR",
+      "score": [
+        0,
+        3
+      ]
+    },
+    {
+      "match": 91,
+      "home": "BRA",
+      "away": "NOR",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "match": 92,
+      "home": "MEX",
+      "away": "ENG",
+      "score": [
+        2,
+        3
+      ]
+    },
+    {
+      "match": 93,
+      "home": "POR",
+      "away": "ESP",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "match": 94,
+      "home": "USA",
+      "away": "BEL",
+      "score": [
+        1,
+        4
+      ]
+    },
+    {
+      "match": 95,
+      "home": "ARG",
+      "away": "EGY",
+      "score": [
+        3,
+        2
+      ]
+    },
+    {
+      "match": 96,
+      "home": "SUI",
+      "away": "COL",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": true,
+      "winner": "SUI"
+    },
+    {
+      "match": 97,
+      "home": "FRA",
+      "away": "MAR",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "match": 98,
+      "home": "ESP",
+      "away": "BEL",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "match": 99,
+      "home": "NOR",
+      "away": "ENG",
+      "score": [
+        1,
+        2
+      ],
+      "extra_time": true
+    },
+    {
+      "match": 100,
+      "home": "ARG",
+      "away": "SUI",
+      "score": [
+        3,
+        1
+      ],
+      "extra_time": true
     }
   ]
 }
