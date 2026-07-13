@@ -5,70 +5,23 @@
   "pens": "coin",
   "elo_snapshot_date": "2026-01-19",
   "elo_source": "eloratings.net",
-  "results_updated": "2026-06-30",
-  "fixed_matches": 76,
-  "avg_goals_per_match": 2.8887681730769232,
+  "results_updated": "2026-07-13",
+  "fixed_matches": 100,
+  "avg_goals_per_match": 2.909301346153846,
   "teams": [
-    {
-      "code": "ARG",
-      "name": "Argentina",
-      "group": "J",
-      "elo": 2113.0,
-      "elo_rank": 2,
-      "win": 0.17637,
-      "final": 0.30319,
-      "sf": 0.49042,
-      "qf": 0.73527,
-      "r16": 0.90749,
-      "r32": 1.0,
-      "third_place_win": 0.11496,
-      "expected_points": 9.0,
-      "expected_gd": 7.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "CPV",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          86,
-          95,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "CPV",
-          "EGY",
-          "COL",
-          "BRA",
-          "FRA"
-        ],
-        "p": 0.00311,
-        "p_given_title": 0.017633384362419912
-      }
-    },
     {
       "code": "ESP",
       "name": "Spain",
       "group": "H",
       "elo": 2171.0,
       "elo_rank": 1,
-      "win": 0.16242,
-      "final": 0.2718,
-      "sf": 0.41711,
-      "qf": 0.54693,
-      "r16": 0.80079,
+      "win": 0.29679,
+      "final": 0.53373,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.09105,
+      "third_place_win": 0.26158,
       "expected_points": 7.0,
       "expected_gd": 5.0,
       "group_position": {
@@ -95,12 +48,59 @@
         "opponents": [
           "AUT",
           "POR",
-          "USA",
+          "BEL",
           "FRA",
           "ARG"
         ],
-        "p": 0.00388,
-        "p_given_title": 0.023888683659647827
+        "p": 0.16086,
+        "p_given_title": 0.541999393510563
+      }
+    },
+    {
+      "code": "ARG",
+      "name": "Argentina",
+      "group": "J",
+      "elo": 2113.0,
+      "elo_rank": 2,
+      "win": 0.27786,
+      "final": 0.57232,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.20928,
+      "expected_points": 9.0,
+      "expected_gd": 7.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "CPV",
+          "p": 1.0
+        }
+      ],
+      "title_path": {
+        "matches": [
+          86,
+          95,
+          100,
+          102,
+          104
+        ],
+        "opponents": [
+          "CPV",
+          "EGY",
+          "SUI",
+          "ENG",
+          "ESP"
+        ],
+        "p": 0.14309,
+        "p_given_title": 0.514971568415749
       }
     },
     {
@@ -109,13 +109,13 @@
       "group": "I",
       "elo": 2063.0,
       "elo_rank": 3,
-      "win": 0.15421,
-      "final": 0.27341,
-      "sf": 0.47834,
-      "qf": 0.67215,
-      "r16": 0.8147,
+      "win": 0.24411,
+      "final": 0.46627,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.12045,
+      "third_place_win": 0.28275,
       "expected_points": 9.0,
       "expected_gd": 8.0,
       "group_position": {
@@ -142,12 +142,12 @@
         "opponents": [
           "SWE",
           "PAR",
-          "CAN",
+          "MAR",
           "ESP",
           "ARG"
         ],
-        "p": 0.00669,
-        "p_given_title": 0.043382400622527725
+        "p": 0.1336,
+        "p_given_title": 0.547294252591045
       }
     },
     {
@@ -156,13 +156,13 @@
       "group": "L",
       "elo": 2042.0,
       "elo_rank": 4,
-      "win": 0.07707,
-      "final": 0.14593,
-      "sf": 0.27722,
-      "qf": 0.47088,
-      "r16": 0.79972,
+      "win": 0.18124,
+      "final": 0.42768,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.07595,
+      "third_place_win": 0.24639,
       "expected_points": 7.0,
       "expected_gd": 4.0,
       "group_position": {
@@ -189,106 +189,12 @@
         "opponents": [
           "COD",
           "MEX",
-          "BRA",
+          "NOR",
           "ARG",
           "ESP"
         ],
-        "p": 0.00249,
-        "p_given_title": 0.032308291163877
-      }
-    },
-    {
-      "code": "BRA",
-      "name": "Brazil",
-      "group": "C",
-      "elo": 1979.0,
-      "elo_rank": 6,
-      "win": 0.07085,
-      "final": 0.14617,
-      "sf": 0.30693,
-      "qf": 0.61739,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.08557,
-      "expected_points": 7.0,
-      "expected_gd": 6.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "JPN",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          76,
-          91,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "JPN",
-          "NOR",
-          "ENG",
-          "ARG",
-          "FRA"
-        ],
-        "p": 0.00173,
-        "p_given_title": 0.024417784050811575
-      }
-    },
-    {
-      "code": "COL",
-      "name": "Colombia",
-      "group": "K",
-      "elo": 1998.0,
-      "elo_rank": 5,
-      "win": 0.05668,
-      "final": 0.11498,
-      "sf": 0.22417,
-      "qf": 0.4803,
-      "r16": 0.77797,
-      "r32": 1.0,
-      "third_place_win": 0.05678,
-      "expected_points": 7.0,
-      "expected_gd": 3.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "GHA",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          87,
-          96,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "GHA",
-          "SUI",
-          "ARG",
-          "BRA",
-          "FRA"
-        ],
-        "p": 0.00191,
-        "p_given_title": 0.03369795342272407
+        "p": 0.09385,
+        "p_given_title": 0.5178216729198852
       }
     },
     {
@@ -297,13 +203,13 @@
       "group": "A",
       "elo": 1830.0,
       "elo_rank": 21,
-      "win": 0.03628,
-      "final": 0.0743,
-      "sf": 0.15429,
-      "qf": 0.29169,
-      "r16": 0.59073,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.04216,
+      "third_place_win": 0.0,
       "expected_points": 9.0,
       "expected_gd": 6.0,
       "group_position": {
@@ -318,1012 +224,7 @@
           "code": "ECU",
           "p": 1.0
         }
-      ],
-      "title_path": {
-        "matches": [
-          79,
-          92,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "ECU",
-          "ENG",
-          "BRA",
-          "ARG",
-          "FRA"
-        ],
-        "p": 0.0015,
-        "p_given_title": 0.041345093715545754
-      }
-    },
-    {
-      "code": "POR",
-      "name": "Portugal",
-      "group": "K",
-      "elo": 1976.0,
-      "elo_rank": 7,
-      "win": 0.03448,
-      "final": 0.07188,
-      "sf": 0.13662,
-      "qf": 0.21562,
-      "r16": 0.55298,
-      "r32": 1.0,
-      "third_place_win": 0.03278,
-      "expected_points": 5.0,
-      "expected_gd": 5.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "CRO",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          83,
-          93,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "CRO",
-          "ESP",
-          "USA",
-          "FRA",
-          "ARG"
-        ],
-        "p": 0.00098,
-        "p_given_title": 0.02842227378190255
-      }
-    },
-    {
-      "code": "CAN",
-      "name": "Canada",
-      "group": "B",
-      "elo": 1820.0,
-      "elo_rank": 22,
-      "win": 0.02995,
-      "final": 0.07654,
-      "sf": 0.198,
-      "qf": 0.50788,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.05044,
-      "expected_points": 4.0,
-      "expected_gd": 5.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "RSA",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          73,
-          90,
-          97,
-          101,
-          104
-        ],
-        "opponents": [
-          "RSA",
-          "MAR",
-          "FRA",
-          "ESP",
-          "ARG"
-        ],
-        "p": 0.00102,
-        "p_given_title": 0.0340567612687813
-      }
-    },
-    {
-      "code": "MAR",
-      "name": "Morocco",
-      "group": "C",
-      "elo": 1850.0,
-      "elo_rank": 18,
-      "win": 0.02734,
-      "final": 0.07104,
-      "sf": 0.18801,
-      "qf": 0.49212,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.04778,
-      "expected_points": 7.0,
-      "expected_gd": 3.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "NED",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          75,
-          90,
-          97,
-          101,
-          104
-        ],
-        "opponents": [
-          "NED",
-          "CAN",
-          "FRA",
-          "ESP",
-          "ARG"
-        ],
-        "p": 0.00114,
-        "p_given_title": 0.04169714703730797
-      }
-    },
-    {
-      "code": "SUI",
-      "name": "Switzerland",
-      "group": "B",
-      "elo": 1897.0,
-      "elo_rank": 13,
-      "win": 0.0263,
-      "final": 0.06018,
-      "sf": 0.13245,
-      "qf": 0.3195,
-      "r16": 0.66371,
-      "r32": 1.0,
-      "third_place_win": 0.03559,
-      "expected_points": 7.0,
-      "expected_gd": 4.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "ALG",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          85,
-          96,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "ALG",
-          "COL",
-          "ARG",
-          "BRA",
-          "FRA"
-        ],
-        "p": 0.00094,
-        "p_given_title": 0.03574144486692015
-      }
-    },
-    {
-      "code": "USA",
-      "name": "United States",
-      "group": "D",
-      "elo": 1790.0,
-      "elo_rank": 23,
-      "win": 0.02424,
-      "final": 0.05976,
-      "sf": 0.13189,
-      "qf": 0.38236,
-      "r16": 0.69874,
-      "r32": 1.0,
-      "third_place_win": 0.03154,
-      "expected_points": 6.0,
-      "expected_gd": 4.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "BIH",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          81,
-          94,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "BIH",
-          "SEN",
-          "ESP",
-          "FRA",
-          "ARG"
-        ],
-        "p": 0.00051,
-        "p_given_title": 0.02103960396039604
-      }
-    },
-    {
-      "code": "NOR",
-      "name": "Norway",
-      "group": "I",
-      "elo": 1922.0,
-      "elo_rank": 11,
-      "win": 0.02173,
-      "final": 0.05008,
-      "sf": 0.1191,
-      "qf": 0.26941,
-      "r16": 0.63685,
-      "r32": 1.0,
-      "third_place_win": 0.03276,
-      "expected_points": 6.0,
-      "expected_gd": 1.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "CIV",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          78,
-          91,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "CIV",
-          "BRA",
-          "ENG",
-          "ARG",
-          "FRA"
-        ],
-        "p": 0.00085,
-        "p_given_title": 0.039116428900138056
-      }
-    },
-    {
-      "code": "CRO",
-      "name": "Croatia",
-      "group": "L",
-      "elo": 1933.0,
-      "elo_rank": 9,
-      "win": 0.01881,
-      "final": 0.04446,
-      "sf": 0.0927,
-      "qf": 0.15615,
-      "r16": 0.44702,
-      "r32": 1.0,
-      "third_place_win": 0.02224,
-      "expected_points": 6.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "POR",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          83,
-          93,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "POR",
-          "ESP",
-          "USA",
-          "FRA",
-          "ARG"
-        ],
-        "p": 0.00046,
-        "p_given_title": 0.024455077086656035
-      }
-    },
-    {
-      "code": "ECU",
-      "name": "Ecuador",
-      "group": "E",
-      "elo": 1933.0,
-      "elo_rank": 10,
-      "win": 0.01485,
-      "final": 0.03493,
-      "sf": 0.08153,
-      "qf": 0.17448,
-      "r16": 0.40927,
-      "r32": 1.0,
-      "third_place_win": 0.02159,
-      "expected_points": 4.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "MEX",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          79,
-          92,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "MEX",
-          "ENG",
-          "BRA",
-          "ARG",
-          "ESP"
-        ],
-        "p": 0.00058,
-        "p_given_title": 0.039057239057239054
-      }
-    },
-    {
-      "code": "BEL",
-      "name": "Belgium",
-      "group": "G",
-      "elo": 1849.0,
-      "elo_rank": 19,
-      "win": 0.01252,
-      "final": 0.03278,
-      "sf": 0.07963,
-      "qf": 0.25796,
-      "r16": 0.50808,
-      "r32": 1.0,
-      "third_place_win": 0.01947,
-      "expected_points": 5.0,
-      "expected_gd": 4.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "SEN",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          82,
-          94,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "SEN",
-          "USA",
-          "ESP",
-          "FRA",
-          "ARG"
-        ],
-        "p": 0.00032,
-        "p_given_title": 0.025559105431309903
-      }
-    },
-    {
-      "code": "SEN",
-      "name": "Senegal",
-      "group": "I",
-      "elo": 1869.0,
-      "elo_rank": 17,
-      "win": 0.01122,
-      "final": 0.03158,
-      "sf": 0.07622,
-      "qf": 0.24803,
-      "r16": 0.49192,
-      "r32": 1.0,
-      "third_place_win": 0.018,
-      "expected_points": 3.0,
-      "expected_gd": 2.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "BEL",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          82,
-          94,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "BEL",
-          "USA",
-          "ESP",
-          "FRA",
-          "ARG"
-        ],
-        "p": 0.00028,
-        "p_given_title": 0.024955436720142603
-      }
-    },
-    {
-      "code": "PAR",
-      "name": "Paraguay",
-      "group": "D",
-      "elo": 1790.0,
-      "elo_rank": 26,
-      "win": 0.00779,
-      "final": 0.02616,
-      "sf": 0.08862,
-      "qf": 0.22321,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.02095,
-      "expected_points": 4.0,
-      "expected_gd": -2.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "GER",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          74,
-          89,
-          97,
-          101,
-          104
-        ],
-        "opponents": [
-          "GER",
-          "FRA",
-          "MAR",
-          "ESP",
-          "ARG"
-        ],
-        "p": 0.00017,
-        "p_given_title": 0.021822849807445442
-      }
-    },
-    {
-      "code": "AUT",
-      "name": "Austria",
-      "group": "J",
-      "elo": 1840.0,
-      "elo_rank": 20,
-      "win": 0.00679,
-      "final": 0.01759,
-      "sf": 0.04202,
-      "qf": 0.0813,
-      "r16": 0.19921,
-      "r32": 1.0,
-      "third_place_win": 0.01035,
-      "expected_points": 4.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "ESP",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          84,
-          93,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "ESP",
-          "POR",
-          "BEL",
-          "FRA",
-          "BRA"
-        ],
-        "p": 0.00014,
-        "p_given_title": 0.020618556701030927
-      }
-    },
-    {
-      "code": "EGY",
-      "name": "Egypt",
-      "group": "G",
-      "elo": 1780.0,
-      "elo_rank": 28,
-      "win": 0.00554,
-      "final": 0.01724,
-      "sf": 0.0494,
-      "qf": 0.12728,
-      "r16": 0.53728,
-      "r32": 1.0,
-      "third_place_win": 0.01237,
-      "expected_points": 5.0,
-      "expected_gd": 2.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "AUS",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          88,
-          95,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "AUS",
-          "ARG",
-          "COL",
-          "BRA",
-          "FRA"
-        ],
-        "p": 0.00018,
-        "p_given_title": 0.032490974729241874
-      }
-    },
-    {
-      "code": "SWE",
-      "name": "Sweden",
-      "group": "F",
-      "elo": 1780.0,
-      "elo_rank": 29,
-      "win": 0.00515,
-      "final": 0.01539,
-      "sf": 0.04703,
-      "qf": 0.10464,
-      "r16": 0.1853,
-      "r32": 1.0,
-      "third_place_win": 0.0114,
-      "expected_points": 4.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "FRA",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          77,
-          89,
-          97,
-          101,
-          104
-        ],
-        "opponents": [
-          "FRA",
-          "PAR",
-          "CAN",
-          "ESP",
-          "ARG"
-        ],
-        "p": 0.0002,
-        "p_given_title": 0.038834951456310676
-      }
-    },
-    {
-      "code": "CIV",
-      "name": "Ivory Coast",
-      "group": "E",
-      "elo": 1750.0,
-      "elo_rank": 31,
-      "win": 0.00446,
-      "final": 0.01328,
-      "sf": 0.03896,
-      "qf": 0.1132,
-      "r16": 0.36315,
-      "r32": 1.0,
-      "third_place_win": 0.01035,
-      "expected_points": 6.0,
-      "expected_gd": 2.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "NOR",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          78,
-          91,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "NOR",
-          "BRA",
-          "MEX",
-          "ARG",
-          "FRA"
-        ],
-        "p": 0.00019,
-        "p_given_title": 0.042600896860986545
-      }
-    },
-    {
-      "code": "ALG",
-      "name": "Algeria",
-      "group": "J",
-      "elo": 1770.0,
-      "elo_rank": 30,
-      "win": 0.0039,
-      "final": 0.01184,
-      "sf": 0.03517,
-      "qf": 0.11801,
-      "r16": 0.33629,
-      "r32": 1.0,
-      "third_place_win": 0.00859,
-      "expected_points": 4.0,
-      "expected_gd": -2.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "SUI",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          85,
-          96,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "SUI",
-          "COL",
-          "ARG",
-          "ENG",
-          "ESP"
-        ],
-        "p": 0.00012,
-        "p_given_title": 0.03076923076923077
-      }
-    },
-    {
-      "code": "AUS",
-      "name": "Australia",
-      "group": "D",
-      "elo": 1740.0,
-      "elo_rank": 33,
-      "win": 0.00377,
-      "final": 0.01149,
-      "sf": 0.03616,
-      "qf": 0.1001,
-      "r16": 0.46272,
-      "r32": 1.0,
-      "third_place_win": 0.00881,
-      "expected_points": 4.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "EGY",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          88,
-          95,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "EGY",
-          "ARG",
-          "SUI",
-          "ENG",
-          "ESP"
-        ],
-        "p": 0.00007,
-        "p_given_title": 0.01856763925729443
-      }
-    },
-    {
-      "code": "GHA",
-      "name": "Ghana",
-      "group": "L",
-      "elo": 1700.0,
-      "elo_rank": 39,
-      "win": 0.00225,
-      "final": 0.00684,
-      "sf": 0.02161,
-      "qf": 0.08219,
-      "r16": 0.22203,
-      "r32": 1.0,
-      "third_place_win": 0.00536,
-      "expected_points": 4.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "COL",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          87,
-          96,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "COL",
-          "SUI",
-          "ARG",
-          "BRA",
-          "FRA"
-        ],
-        "p": 0.00006,
-        "p_given_title": 0.02666666666666667
-      }
-    },
-    {
-      "code": "COD",
-      "name": "DR Congo",
-      "group": "K",
-      "elo": 1700.0,
-      "elo_rank": 36,
-      "win": 0.0022,
-      "final": 0.00702,
-      "sf": 0.02197,
-      "qf": 0.06295,
-      "r16": 0.20028,
-      "r32": 1.0,
-      "third_place_win": 0.00565,
-      "expected_points": 4.0,
-      "expected_gd": 1.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "ENG",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          80,
-          92,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "ENG",
-          "MEX",
-          "BRA",
-          "ARG",
-          "FRA"
-        ],
-        "p": 0.00009,
-        "p_given_title": 0.04090909090909091
-      }
-    },
-    {
-      "code": "BIH",
-      "name": "Bosnia-Herzegovina",
-      "group": "B",
-      "elo": 1700.0,
-      "elo_rank": 38,
-      "win": 0.00217,
-      "final": 0.00761,
-      "sf": 0.02381,
-      "qf": 0.11165,
-      "r16": 0.30126,
-      "r32": 1.0,
-      "third_place_win": 0.00485,
-      "expected_points": 4.0,
-      "expected_gd": -1.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 0.0,
-        "third_qualified": 1.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "USA",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          81,
-          94,
-          98,
-          101,
-          104
-        ],
-        "opponents": [
-          "USA",
-          "SEN",
-          "POR",
-          "FRA",
-          "ARG"
-        ],
-        "p": 0.00005,
-        "p_given_title": 0.02304147465437788
-      }
-    },
-    {
-      "code": "CPV",
-      "name": "Cape Verde",
-      "group": "H",
-      "elo": 1620.0,
-      "elo_rank": 45,
-      "win": 0.00066,
-      "final": 0.00253,
-      "sf": 0.01062,
-      "qf": 0.03735,
-      "r16": 0.09251,
-      "r32": 1.0,
-      "third_place_win": 0.00221,
-      "expected_points": 3.0,
-      "expected_gd": 0.0,
-      "group_position": {
-        "first": 0.0,
-        "second": 1.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "ARG",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          86,
-          95,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "ARG",
-          "AUS",
-          "COL",
-          "MEX",
-          "ESP"
-        ],
-        "p": 0.00002,
-        "p_given_title": 0.030303030303030304
-      }
+      ]
     },
     {
       "code": "RSA",
@@ -1403,6 +304,64 @@
       "r32_opponents": []
     },
     {
+      "code": "CAN",
+      "name": "Canada",
+      "group": "B",
+      "elo": 1820.0,
+      "elo_rank": 22,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 5.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "RSA",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "BIH",
+      "name": "Bosnia-Herzegovina",
+      "group": "B",
+      "elo": 1700.0,
+      "elo_rank": 38,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": -1.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "USA",
+          "p": 1.0
+        }
+      ]
+    },
+    {
       "code": "QAT",
       "name": "Qatar",
       "group": "B",
@@ -1425,6 +384,93 @@
         "fourth": 1.0
       },
       "r32_opponents": []
+    },
+    {
+      "code": "SUI",
+      "name": "Switzerland",
+      "group": "B",
+      "elo": 1897.0,
+      "elo_rank": 13,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 7.0,
+      "expected_gd": 4.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "ALG",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "BRA",
+      "name": "Brazil",
+      "group": "C",
+      "elo": 1979.0,
+      "elo_rank": 6,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 7.0,
+      "expected_gd": 6.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "JPN",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "MAR",
+      "name": "Morocco",
+      "group": "C",
+      "elo": 1850.0,
+      "elo_rank": 18,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 7.0,
+      "expected_gd": 3.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "NED",
+          "p": 1.0
+        }
+      ]
     },
     {
       "code": "HAI",
@@ -1473,6 +519,93 @@
         "fourth": 0.0
       },
       "r32_opponents": []
+    },
+    {
+      "code": "USA",
+      "name": "United States",
+      "group": "D",
+      "elo": 1790.0,
+      "elo_rank": 23,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 6.0,
+      "expected_gd": 4.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "BIH",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "PAR",
+      "name": "Paraguay",
+      "group": "D",
+      "elo": 1790.0,
+      "elo_rank": 26,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": -2.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "GER",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "AUS",
+      "name": "Australia",
+      "group": "D",
+      "elo": 1740.0,
+      "elo_rank": 33,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "EGY",
+          "p": 1.0
+        }
+      ]
     },
     {
       "code": "TUR",
@@ -1552,6 +685,64 @@
       "r32_opponents": []
     },
     {
+      "code": "CIV",
+      "name": "Ivory Coast",
+      "group": "E",
+      "elo": 1750.0,
+      "elo_rank": 31,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 6.0,
+      "expected_gd": 2.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "NOR",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "ECU",
+      "name": "Ecuador",
+      "group": "E",
+      "elo": 1933.0,
+      "elo_rank": 10,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "MEX",
+          "p": 1.0
+        }
+      ]
+    },
+    {
       "code": "NED",
       "name": "Netherlands",
       "group": "F",
@@ -1610,6 +801,35 @@
       ]
     },
     {
+      "code": "SWE",
+      "name": "Sweden",
+      "group": "F",
+      "elo": 1780.0,
+      "elo_rank": 29,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "FRA",
+          "p": 1.0
+        }
+      ]
+    },
+    {
       "code": "TUN",
       "name": "Tunisia",
       "group": "F",
@@ -1632,6 +852,64 @@
         "fourth": 1.0
       },
       "r32_opponents": []
+    },
+    {
+      "code": "BEL",
+      "name": "Belgium",
+      "group": "G",
+      "elo": 1849.0,
+      "elo_rank": 19,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 5.0,
+      "expected_gd": 4.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "SEN",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "EGY",
+      "name": "Egypt",
+      "group": "G",
+      "elo": 1780.0,
+      "elo_rank": 28,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 5.0,
+      "expected_gd": 2.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "AUS",
+          "p": 1.0
+        }
+      ]
     },
     {
       "code": "IRN",
@@ -1682,6 +960,35 @@
       "r32_opponents": []
     },
     {
+      "code": "CPV",
+      "name": "Cape Verde",
+      "group": "H",
+      "elo": 1620.0,
+      "elo_rank": 45,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 3.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "ARG",
+          "p": 1.0
+        }
+      ]
+    },
+    {
       "code": "KSA",
       "name": "Saudi Arabia",
       "group": "H",
@@ -1730,6 +1037,35 @@
       "r32_opponents": []
     },
     {
+      "code": "SEN",
+      "name": "Senegal",
+      "group": "I",
+      "elo": 1869.0,
+      "elo_rank": 17,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 3.0,
+      "expected_gd": 2.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "BEL",
+          "p": 1.0
+        }
+      ]
+    },
+    {
       "code": "IRQ",
       "name": "Iraq",
       "group": "I",
@@ -1752,6 +1088,93 @@
         "fourth": 1.0
       },
       "r32_opponents": []
+    },
+    {
+      "code": "NOR",
+      "name": "Norway",
+      "group": "I",
+      "elo": 1922.0,
+      "elo_rank": 11,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 6.0,
+      "expected_gd": 1.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "CIV",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "ALG",
+      "name": "Algeria",
+      "group": "J",
+      "elo": 1770.0,
+      "elo_rank": 30,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": -2.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "SUI",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "AUT",
+      "name": "Austria",
+      "group": "J",
+      "elo": 1840.0,
+      "elo_rank": 20,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "ESP",
+          "p": 1.0
+        }
+      ]
     },
     {
       "code": "JOR",
@@ -1778,6 +1201,64 @@
       "r32_opponents": []
     },
     {
+      "code": "POR",
+      "name": "Portugal",
+      "group": "K",
+      "elo": 1976.0,
+      "elo_rank": 7,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 5.0,
+      "expected_gd": 5.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "CRO",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "COD",
+      "name": "DR Congo",
+      "group": "K",
+      "elo": 1700.0,
+      "elo_rank": 36,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 1.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "ENG",
+          "p": 1.0
+        }
+      ]
+    },
+    {
       "code": "UZB",
       "name": "Uzbekistan",
       "group": "K",
@@ -1800,6 +1281,93 @@
         "fourth": 1.0
       },
       "r32_opponents": []
+    },
+    {
+      "code": "COL",
+      "name": "Colombia",
+      "group": "K",
+      "elo": 1998.0,
+      "elo_rank": 5,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 7.0,
+      "expected_gd": 3.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "GHA",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "CRO",
+      "name": "Croatia",
+      "group": "L",
+      "elo": 1933.0,
+      "elo_rank": 9,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 6.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 1.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "POR",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "GHA",
+      "name": "Ghana",
+      "group": "L",
+      "elo": 1700.0,
+      "elo_rank": 39,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 0.0,
+      "qf": 0.0,
+      "r16": 0.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 4.0,
+      "expected_gd": 0.0,
+      "group_position": {
+        "first": 0.0,
+        "second": 0.0,
+        "third_qualified": 1.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "COL",
+          "p": 1.0
+        }
+      ]
     },
     {
       "code": "PAN",
@@ -3813,10 +3381,13 @@
       "away": "SWE",
       "home_label": "FRA",
       "away_label": "SWE",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        3,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "FRA",
       "p_home": 0.8155217923369285,
       "p_draw": null,
       "p_away": 0.18447820766307155,
@@ -3836,10 +3407,13 @@
       "away": "NOR",
       "home_label": "CIV",
       "away_label": "NOR",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        1,
+        2
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "NOR",
       "p_home": 0.35977863883968253,
       "p_draw": null,
       "p_away": 0.6402213611603175,
@@ -3859,10 +3433,13 @@
       "away": "ECU",
       "home_label": "MEX",
       "away_label": "ECU",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        2,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "MEX",
       "p_home": 0.5901877020900547,
       "p_draw": null,
       "p_away": 0.40981229790994533,
@@ -3882,10 +3459,13 @@
       "away": "COD",
       "home_label": "ENG",
       "away_label": "COD",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        2,
+        1
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ENG",
       "p_home": 0.8034416540217583,
       "p_draw": null,
       "p_away": 0.19655834597824173,
@@ -3905,10 +3485,13 @@
       "away": "BIH",
       "home_label": "USA",
       "away_label": "BIH",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        2,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "USA",
       "p_home": 0.698890624483361,
       "p_draw": null,
       "p_away": 0.30110937551663897,
@@ -3928,10 +3511,13 @@
       "away": "SEN",
       "home_label": "BEL",
       "away_label": "SEN",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        3,
+        2
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "BEL",
       "p_home": 0.5059015058001116,
       "p_draw": null,
       "p_away": 0.4940984941998884,
@@ -3951,10 +3537,13 @@
       "away": "CRO",
       "home_label": "POR",
       "away_label": "CRO",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        2,
+        1
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "POR",
       "p_home": 0.553972939606705,
       "p_draw": null,
       "p_away": 0.446027060393295,
@@ -3974,10 +3563,13 @@
       "away": "AUT",
       "home_label": "ESP",
       "away_label": "AUT",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        3,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ESP",
       "p_home": 0.808487900565128,
       "p_draw": null,
       "p_away": 0.19151209943487202,
@@ -3997,10 +3589,13 @@
       "away": "ALG",
       "home_label": "SUI",
       "away_label": "ALG",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        2,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "SUI",
       "p_home": 0.6632729238146268,
       "p_draw": null,
       "p_away": 0.33672707618537323,
@@ -4020,10 +3615,13 @@
       "away": "CPV",
       "home_label": "ARG",
       "away_label": "CPV",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        3,
+        2
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ARG",
       "p_home": 0.912307116779111,
       "p_draw": null,
       "p_away": 0.08769288322088897,
@@ -4043,10 +3641,13 @@
       "away": "GHA",
       "home_label": "COL",
       "away_label": "GHA",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        1,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "COL",
       "p_home": 0.7810004164230582,
       "p_draw": null,
       "p_away": 0.21899958357694183,
@@ -4066,10 +3667,13 @@
       "away": "EGY",
       "home_label": "AUS",
       "away_label": "EGY",
-      "status": "upcoming",
-      "score": null,
-      "penalties": false,
-      "winner": null,
+      "status": "played",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": true,
+      "winner": "EGY",
       "p_home": 0.462324028501173,
       "p_draw": null,
       "p_away": 0.5376759714988271,
@@ -4085,35 +3689,25 @@
       "group": null,
       "date": "2026-07-04",
       "city": "Philadelphia",
-      "home": null,
-      "away": null,
-      "home_label": "W74",
-      "away_label": "W77",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "PAR",
-          "p": 1.0
-        }
+      "home": "PAR",
+      "away": "FRA",
+      "home_label": "PAR",
+      "away_label": "FRA",
+      "status": "played",
+      "score": [
+        0,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "FRA",
-          "p": 0.8147
-        },
-        {
-          "code": "SWE",
-          "p": 0.1853
-        }
-      ]
+      "penalties": false,
+      "winner": "FRA",
+      "p_home": 0.17074399407797963,
+      "p_draw": null,
+      "p_away": 0.8292560059220204,
+      "likely_score": [
+        0,
+        2
+      ],
+      "likely_p": 0.1364803707792894
     },
     {
       "match": 90,
@@ -4125,10 +3719,13 @@
       "away": "MAR",
       "home_label": "CAN",
       "away_label": "MAR",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        0,
+        3
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "MAR",
       "p_home": 0.5050448171163499,
       "p_draw": null,
       "p_away": 0.49495518288365015,
@@ -4144,35 +3741,25 @@
       "group": null,
       "date": "2026-07-05",
       "city": "East Rutherford",
-      "home": null,
-      "away": null,
-      "home_label": "W76",
-      "away_label": "W78",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "BRA",
-          "p": 1.0
-        }
+      "home": "BRA",
+      "away": "NOR",
+      "home_label": "BRA",
+      "away_label": "NOR",
+      "status": "played",
+      "score": [
+        1,
+        2
       ],
-      "likely_away": [
-        {
-          "code": "NOR",
-          "p": 0.63685
-        },
-        {
-          "code": "CIV",
-          "p": 0.36315
-        }
-      ]
+      "penalties": false,
+      "winner": "NOR",
+      "p_home": 0.5814405741541528,
+      "p_draw": null,
+      "p_away": 0.41855942584584716,
+      "likely_score": [
+        1,
+        1
+      ],
+      "likely_p": 0.12824747479423854
     },
     {
       "match": 92,
@@ -4180,39 +3767,25 @@
       "group": null,
       "date": "2026-07-05",
       "city": "Mexico City",
-      "home": null,
-      "away": null,
-      "home_label": "W79",
-      "away_label": "W80",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "MEX",
-          "p": 0.59073
-        },
-        {
-          "code": "ECU",
-          "p": 0.40927
-        }
+      "home": "MEX",
+      "away": "ENG",
+      "home_label": "MEX",
+      "away_label": "ENG",
+      "status": "played",
+      "score": [
+        2,
+        3
       ],
-      "likely_away": [
-        {
-          "code": "ENG",
-          "p": 0.79972
-        },
-        {
-          "code": "COD",
-          "p": 0.20028
-        }
-      ]
+      "penalties": false,
+      "winner": "ENG",
+      "p_home": 0.44940581673743396,
+      "p_draw": null,
+      "p_away": 0.550594183262566,
+      "likely_score": [
+        1,
+        1
+      ],
+      "likely_p": 0.12971555078946295
     },
     {
       "match": 93,
@@ -4220,39 +3793,25 @@
       "group": null,
       "date": "2026-07-06",
       "city": "Arlington",
-      "home": null,
-      "away": null,
-      "home_label": "W83",
-      "away_label": "W84",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "POR",
-          "p": 0.55298
-        },
-        {
-          "code": "CRO",
-          "p": 0.44702
-        }
+      "home": "POR",
+      "away": "ESP",
+      "home_label": "POR",
+      "away_label": "ESP",
+      "status": "played",
+      "score": [
+        0,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "ESP",
-          "p": 0.80079
-        },
-        {
-          "code": "AUT",
-          "p": 0.19921
-        }
-      ]
+      "penalties": false,
+      "winner": "ESP",
+      "p_home": 0.32362360380479727,
+      "p_draw": null,
+      "p_away": 0.6763763961952027,
+      "likely_score": [
+        0,
+        1
+      ],
+      "likely_p": 0.13081025455463985
     },
     {
       "match": 94,
@@ -4260,39 +3819,25 @@
       "group": null,
       "date": "2026-07-06",
       "city": "Seattle",
-      "home": null,
-      "away": null,
-      "home_label": "W81",
-      "away_label": "W82",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "USA",
-          "p": 0.69874
-        },
-        {
-          "code": "BIH",
-          "p": 0.30126
-        }
+      "home": "USA",
+      "away": "BEL",
+      "home_label": "USA",
+      "away_label": "BEL",
+      "status": "played",
+      "score": [
+        1,
+        4
       ],
-      "likely_away": [
-        {
-          "code": "BEL",
-          "p": 0.50808
-        },
-        {
-          "code": "SEN",
-          "p": 0.49192
-        }
-      ]
+      "penalties": false,
+      "winner": "BEL",
+      "p_home": 0.5501207056532819,
+      "p_draw": null,
+      "p_away": 0.44987929434671814,
+      "likely_score": [
+        1,
+        1
+      ],
+      "likely_p": 0.12973268869205878
     },
     {
       "match": 95,
@@ -4300,39 +3845,25 @@
       "group": null,
       "date": "2026-07-07",
       "city": "Atlanta",
-      "home": null,
-      "away": null,
-      "home_label": "W86",
-      "away_label": "W88",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "ARG",
-          "p": 0.90749
-        },
-        {
-          "code": "CPV",
-          "p": 0.09251
-        }
+      "home": "ARG",
+      "away": "EGY",
+      "home_label": "ARG",
+      "away_label": "EGY",
+      "status": "played",
+      "score": [
+        3,
+        2
       ],
-      "likely_away": [
-        {
-          "code": "EGY",
-          "p": 0.53728
-        },
-        {
-          "code": "AUS",
-          "p": 0.46272
-        }
-      ]
+      "penalties": false,
+      "winner": "ARG",
+      "p_home": 0.8297429049072949,
+      "p_draw": null,
+      "p_away": 0.17025709509270515,
+      "likely_score": [
+        2,
+        0
+      ],
+      "likely_p": 0.13656644822574748
     },
     {
       "match": 96,
@@ -4340,39 +3871,25 @@
       "group": null,
       "date": "2026-07-07",
       "city": "Vancouver",
-      "home": null,
-      "away": null,
-      "home_label": "W85",
-      "away_label": "W87",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "SUI",
-          "p": 0.66371
-        },
-        {
-          "code": "ALG",
-          "p": 0.33629
-        }
+      "home": "SUI",
+      "away": "COL",
+      "home_label": "SUI",
+      "away_label": "COL",
+      "status": "played",
+      "score": [
+        0,
+        0
       ],
-      "likely_away": [
-        {
-          "code": "COL",
-          "p": 0.77797
-        },
-        {
-          "code": "GHA",
-          "p": 0.22203
-        }
-      ]
+      "penalties": true,
+      "winner": "SUI",
+      "p_home": 0.43242511392203176,
+      "p_draw": null,
+      "p_away": 0.5675748860779682,
+      "likely_score": [
+        1,
+        1
+      ],
+      "likely_p": 0.12899333659934845
     },
     {
       "match": 97,
@@ -4380,43 +3897,25 @@
       "group": null,
       "date": "2026-07-09",
       "city": "Foxborough",
-      "home": null,
-      "away": null,
-      "home_label": "W89",
-      "away_label": "W90",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "FRA",
-          "p": 0.67215
-        },
-        {
-          "code": "PAR",
-          "p": 0.22321
-        },
-        {
-          "code": "SWE",
-          "p": 0.10464
-        }
+      "home": "FRA",
+      "away": "MAR",
+      "home_label": "FRA",
+      "away_label": "MAR",
+      "status": "played",
+      "score": [
+        2,
+        0
       ],
-      "likely_away": [
-        {
-          "code": "CAN",
-          "p": 0.50788
-        },
-        {
-          "code": "MAR",
-          "p": 0.49212
-        }
-      ]
+      "penalties": false,
+      "winner": "FRA",
+      "p_home": 0.6980786520803508,
+      "p_draw": null,
+      "p_away": 0.3019213479196492,
+      "likely_score": [
+        1,
+        0
+      ],
+      "likely_p": 0.1321844747566682
     },
     {
       "match": 98,
@@ -4424,47 +3923,25 @@
       "group": null,
       "date": "2026-07-10",
       "city": "Inglewood",
-      "home": null,
-      "away": null,
-      "home_label": "W93",
-      "away_label": "W94",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "ESP",
-          "p": 0.54693
-        },
-        {
-          "code": "POR",
-          "p": 0.21562
-        },
-        {
-          "code": "CRO",
-          "p": 0.15615
-        }
+      "home": "ESP",
+      "away": "BEL",
+      "home_label": "ESP",
+      "away_label": "BEL",
+      "status": "played",
+      "score": [
+        2,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "USA",
-          "p": 0.38236
-        },
-        {
-          "code": "BEL",
-          "p": 0.25796
-        },
-        {
-          "code": "SEN",
-          "p": 0.24803
-        }
-      ]
+      "penalties": false,
+      "winner": "ESP",
+      "p_home": 0.7463061022705395,
+      "p_draw": null,
+      "p_away": 0.2536938977294605,
+      "likely_score": [
+        1,
+        0
+      ],
+      "likely_p": 0.13367978990632257
     },
     {
       "match": 99,
@@ -4472,47 +3949,25 @@
       "group": null,
       "date": "2026-07-11",
       "city": "Miami Gardens",
-      "home": null,
-      "away": null,
-      "home_label": "W91",
-      "away_label": "W92",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "BRA",
-          "p": 0.61739
-        },
-        {
-          "code": "NOR",
-          "p": 0.26941
-        },
-        {
-          "code": "CIV",
-          "p": 0.1132
-        }
+      "home": "NOR",
+      "away": "ENG",
+      "home_label": "NOR",
+      "away_label": "ENG",
+      "status": "played",
+      "score": [
+        1,
+        2
       ],
-      "likely_away": [
-        {
-          "code": "ENG",
-          "p": 0.47088
-        },
-        {
-          "code": "MEX",
-          "p": 0.29169
-        },
-        {
-          "code": "ECU",
-          "p": 0.17448
-        }
-      ]
+      "penalties": false,
+      "winner": "ENG",
+      "p_home": 0.38308689629412424,
+      "p_draw": null,
+      "p_away": 0.6169131037058757,
+      "likely_score": [
+        1,
+        1
+      ],
+      "likely_p": 0.12569054545862912
     },
     {
       "match": 100,
@@ -4520,47 +3975,25 @@
       "group": null,
       "date": "2026-07-11",
       "city": "Kansas City",
-      "home": null,
-      "away": null,
-      "home_label": "W95",
-      "away_label": "W96",
-      "status": "tbd",
-      "score": null,
-      "penalties": false,
-      "winner": null,
-      "p_home": null,
-      "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "ARG",
-          "p": 0.73527
-        },
-        {
-          "code": "EGY",
-          "p": 0.12728
-        },
-        {
-          "code": "AUS",
-          "p": 0.1001
-        }
+      "home": "ARG",
+      "away": "SUI",
+      "home_label": "ARG",
+      "away_label": "SUI",
+      "status": "played",
+      "score": [
+        3,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "COL",
-          "p": 0.4803
-        },
-        {
-          "code": "SUI",
-          "p": 0.3195
-        },
-        {
-          "code": "ALG",
-          "p": 0.11801
-        }
-      ]
+      "penalties": false,
+      "winner": "ARG",
+      "p_home": 0.6960808722911583,
+      "p_draw": null,
+      "p_away": 0.30391912770884166,
+      "likely_score": [
+        1,
+        0
+      ],
+      "likely_p": 0.13207445345665858
     },
     {
       "match": 101,
@@ -4568,47 +4001,22 @@
       "group": null,
       "date": "2026-07-14",
       "city": "Arlington",
-      "home": null,
-      "away": null,
-      "home_label": "W97",
-      "away_label": "W98",
-      "status": "tbd",
+      "home": "FRA",
+      "away": "ESP",
+      "home_label": "FRA",
+      "away_label": "ESP",
+      "status": "upcoming",
       "score": null,
       "penalties": false,
       "winner": null,
-      "p_home": null,
+      "p_home": 0.4652738990086641,
       "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "FRA",
-          "p": 0.47834
-        },
-        {
-          "code": "CAN",
-          "p": 0.198
-        },
-        {
-          "code": "MAR",
-          "p": 0.18801
-        }
+      "p_away": 0.5347261009913359,
+      "likely_score": [
+        1,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "ESP",
-          "p": 0.41711
-        },
-        {
-          "code": "POR",
-          "p": 0.13662
-        },
-        {
-          "code": "USA",
-          "p": 0.13189
-        }
-      ]
+      "likely_p": 0.1302016612195932
     },
     {
       "match": 102,
@@ -4616,47 +4024,22 @@
       "group": null,
       "date": "2026-07-15",
       "city": "Atlanta",
-      "home": null,
-      "away": null,
-      "home_label": "W99",
-      "away_label": "W100",
-      "status": "tbd",
+      "home": "ENG",
+      "away": "ARG",
+      "home_label": "ENG",
+      "away_label": "ARG",
+      "status": "upcoming",
       "score": null,
       "penalties": false,
       "winner": null,
-      "p_home": null,
+      "p_home": 0.4287912441702597,
       "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "BRA",
-          "p": 0.30693
-        },
-        {
-          "code": "ENG",
-          "p": 0.27722
-        },
-        {
-          "code": "MEX",
-          "p": 0.15429
-        }
+      "p_away": 0.5712087558297403,
+      "likely_score": [
+        1,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "ARG",
-          "p": 0.49042
-        },
-        {
-          "code": "COL",
-          "p": 0.22417
-        },
-        {
-          "code": "SUI",
-          "p": 0.13245
-        }
-      ]
+      "likely_p": 0.12881149173056072
     },
     {
       "match": 103,
@@ -4680,29 +4063,21 @@
       "likely_home": [
         {
           "code": "FRA",
-          "p": 0.20493
+          "p": 0.53373
         },
         {
           "code": "ESP",
-          "p": 0.14531
-        },
-        {
-          "code": "CAN",
-          "p": 0.12146
+          "p": 0.46627
         }
       ],
       "likely_away": [
         {
-          "code": "ARG",
-          "p": 0.18723
-        },
-        {
-          "code": "BRA",
-          "p": 0.16076
-        },
-        {
           "code": "ENG",
-          "p": 0.13129
+          "p": 0.57232
+        },
+        {
+          "code": "ARG",
+          "p": 0.42768
         }
       ]
     },
@@ -4727,30 +4102,22 @@
       "likely_p": null,
       "likely_home": [
         {
-          "code": "FRA",
-          "p": 0.27341
-        },
-        {
           "code": "ESP",
-          "p": 0.2718
+          "p": 0.53373
         },
         {
-          "code": "CAN",
-          "p": 0.07654
+          "code": "FRA",
+          "p": 0.46627
         }
       ],
       "likely_away": [
         {
           "code": "ARG",
-          "p": 0.30319
-        },
-        {
-          "code": "BRA",
-          "p": 0.14617
+          "p": 0.57232
         },
         {
           "code": "ENG",
-          "p": 0.14593
+          "p": 0.42768
         }
       ]
     }
