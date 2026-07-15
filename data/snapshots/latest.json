@@ -5,9 +5,9 @@
   "pens": "coin",
   "elo_snapshot_date": "2026-01-19",
   "elo_source": "eloratings.net",
-  "results_updated": "2026-07-13",
-  "fixed_matches": 100,
-  "avg_goals_per_match": 2.909301346153846,
+  "results_updated": "2026-07-15",
+  "fixed_matches": 101,
+  "avg_goals_per_match": 2.903089326923077,
   "teams": [
     {
       "code": "ESP",
@@ -15,13 +15,13 @@
       "group": "H",
       "elo": 2171.0,
       "elo_rank": 1,
-      "win": 0.29679,
-      "final": 0.53373,
+      "win": 0.55995,
+      "final": 1.0,
       "sf": 1.0,
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.26158,
+      "third_place_win": 0.0,
       "expected_points": 7.0,
       "expected_gd": 5.0,
       "group_position": {
@@ -52,8 +52,8 @@
           "FRA",
           "ARG"
         ],
-        "p": 0.16086,
-        "p_given_title": 0.541999393510563
+        "p": 0.30486,
+        "p_given_title": 0.5444414679882132
       }
     },
     {
@@ -62,13 +62,13 @@
       "group": "J",
       "elo": 2113.0,
       "elo_rank": 2,
-      "win": 0.27786,
-      "final": 0.57232,
+      "win": 0.26651,
+      "final": 0.57137,
       "sf": 1.0,
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.20928,
+      "third_place_win": 0.21928,
       "expected_points": 9.0,
       "expected_gd": 7.0,
       "group_position": {
@@ -99,55 +99,8 @@
           "ENG",
           "ESP"
         ],
-        "p": 0.14309,
-        "p_given_title": 0.514971568415749
-      }
-    },
-    {
-      "code": "FRA",
-      "name": "France",
-      "group": "I",
-      "elo": 2063.0,
-      "elo_rank": 3,
-      "win": 0.24411,
-      "final": 0.46627,
-      "sf": 1.0,
-      "qf": 1.0,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.28275,
-      "expected_points": 9.0,
-      "expected_gd": 8.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "SWE",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          77,
-          89,
-          97,
-          101,
-          104
-        ],
-        "opponents": [
-          "SWE",
-          "PAR",
-          "MAR",
-          "ESP",
-          "ARG"
-        ],
-        "p": 0.1336,
-        "p_given_title": 0.547294252591045
+        "p": 0.26651,
+        "p_given_title": 1.0
       }
     },
     {
@@ -156,13 +109,13 @@
       "group": "L",
       "elo": 2042.0,
       "elo_rank": 4,
-      "win": 0.18124,
-      "final": 0.42768,
+      "win": 0.17354,
+      "final": 0.42863,
       "sf": 1.0,
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.24639,
+      "third_place_win": 0.25694,
       "expected_points": 7.0,
       "expected_gd": 4.0,
       "group_position": {
@@ -193,8 +146,8 @@
           "ARG",
           "ESP"
         ],
-        "p": 0.09385,
-        "p_given_title": 0.5178216729198852
+        "p": 0.17354,
+        "p_given_title": 1.0
       }
     },
     {
@@ -1035,6 +988,35 @@
         "fourth": 0.0
       },
       "r32_opponents": []
+    },
+    {
+      "code": "FRA",
+      "name": "France",
+      "group": "I",
+      "elo": 2063.0,
+      "elo_rank": 3,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.52378,
+      "expected_points": 9.0,
+      "expected_gd": 8.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "SWE",
+          "p": 1.0
+        }
+      ]
     },
     {
       "code": "SEN",
@@ -4005,10 +3987,13 @@
       "away": "ESP",
       "home_label": "FRA",
       "away_label": "ESP",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        0,
+        2
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ESP",
       "p_home": 0.4652738990086641,
       "p_draw": null,
       "p_away": 0.5347261009913359,
@@ -4063,21 +4048,17 @@
       "likely_home": [
         {
           "code": "FRA",
-          "p": 0.53373
-        },
-        {
-          "code": "ESP",
-          "p": 0.46627
+          "p": 1.0
         }
       ],
       "likely_away": [
         {
           "code": "ENG",
-          "p": 0.57232
+          "p": 0.57137
         },
         {
           "code": "ARG",
-          "p": 0.42768
+          "p": 0.42863
         }
       ]
     },
@@ -4103,21 +4084,17 @@
       "likely_home": [
         {
           "code": "ESP",
-          "p": 0.53373
-        },
-        {
-          "code": "FRA",
-          "p": 0.46627
+          "p": 1.0
         }
       ],
       "likely_away": [
         {
           "code": "ARG",
-          "p": 0.57232
+          "p": 0.57137
         },
         {
           "code": "ENG",
-          "p": 0.42768
+          "p": 0.42863
         }
       ]
     }
