@@ -5,9 +5,9 @@
   "pens": "coin",
   "elo_snapshot_date": "2026-01-19",
   "elo_source": "eloratings.net",
-  "results_updated": "2026-07-15",
-  "fixed_matches": 101,
-  "avg_goals_per_match": 2.903089326923077,
+  "results_updated": "2026-07-17",
+  "fixed_matches": 102,
+  "avg_goals_per_match": 2.9064054807692306,
   "teams": [
     {
       "code": "ESP",
@@ -15,7 +15,7 @@
       "group": "H",
       "elo": 2171.0,
       "elo_rank": 1,
-      "win": 0.55995,
+      "win": 0.5407,
       "final": 1.0,
       "sf": 1.0,
       "qf": 1.0,
@@ -52,8 +52,8 @@
           "FRA",
           "ARG"
         ],
-        "p": 0.30486,
-        "p_given_title": 0.5444414679882132
+        "p": 0.5407,
+        "p_given_title": 1.0
       }
     },
     {
@@ -62,13 +62,13 @@
       "group": "J",
       "elo": 2113.0,
       "elo_rank": 2,
-      "win": 0.26651,
-      "final": 0.57137,
+      "win": 0.4593,
+      "final": 1.0,
       "sf": 1.0,
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.21928,
+      "third_place_win": 0.0,
       "expected_points": 9.0,
       "expected_gd": 7.0,
       "group_position": {
@@ -99,54 +99,7 @@
           "ENG",
           "ESP"
         ],
-        "p": 0.26651,
-        "p_given_title": 1.0
-      }
-    },
-    {
-      "code": "ENG",
-      "name": "England",
-      "group": "L",
-      "elo": 2042.0,
-      "elo_rank": 4,
-      "win": 0.17354,
-      "final": 0.42863,
-      "sf": 1.0,
-      "qf": 1.0,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.25694,
-      "expected_points": 7.0,
-      "expected_gd": 4.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "COD",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          80,
-          92,
-          99,
-          102,
-          104
-        ],
-        "opponents": [
-          "COD",
-          "MEX",
-          "NOR",
-          "ARG",
-          "ESP"
-        ],
-        "p": 0.17354,
+        "p": 0.4593,
         "p_given_title": 1.0
       }
     },
@@ -1001,7 +954,7 @@
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.52378,
+      "third_place_win": 0.54548,
       "expected_points": 9.0,
       "expected_gd": 8.0,
       "group_position": {
@@ -1289,6 +1242,35 @@
       "r32_opponents": [
         {
           "code": "GHA",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "ENG",
+      "name": "England",
+      "group": "L",
+      "elo": 2042.0,
+      "elo_rank": 4,
+      "win": 0.0,
+      "final": 0.0,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.45452,
+      "expected_points": 7.0,
+      "expected_gd": 4.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "COD",
           "p": 1.0
         }
       ]
@@ -4013,10 +3995,13 @@
       "away": "ARG",
       "home_label": "ENG",
       "away_label": "ARG",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        1,
+        2
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ARG",
       "p_home": 0.4287912441702597,
       "p_draw": null,
       "p_away": 0.5712087558297403,
@@ -4032,35 +4017,22 @@
       "group": null,
       "date": "2026-07-18",
       "city": "Miami Gardens",
-      "home": null,
-      "away": null,
-      "home_label": "L101",
-      "away_label": "L102",
-      "status": "tbd",
+      "home": "FRA",
+      "away": "ENG",
+      "home_label": "FRA",
+      "away_label": "ENG",
+      "status": "upcoming",
       "score": null,
       "penalties": false,
       "winner": null,
-      "p_home": null,
+      "p_home": 0.5426931748468661,
       "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "FRA",
-          "p": 1.0
-        }
+      "p_away": 0.4573068251531339,
+      "likely_score": [
+        1,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "ENG",
-          "p": 0.57137
-        },
-        {
-          "code": "ARG",
-          "p": 0.42863
-        }
-      ]
+      "likely_p": 0.12998031252858336
     },
     {
       "match": 104,
@@ -4068,35 +4040,22 @@
       "group": null,
       "date": "2026-07-19",
       "city": "East Rutherford",
-      "home": null,
-      "away": null,
-      "home_label": "W101",
-      "away_label": "W102",
-      "status": "tbd",
+      "home": "ESP",
+      "away": "ARG",
+      "home_label": "ESP",
+      "away_label": "ARG",
+      "status": "upcoming",
       "score": null,
       "penalties": false,
       "winner": null,
-      "p_home": null,
+      "p_home": 0.5417868145676585,
       "p_draw": null,
-      "p_away": null,
-      "likely_score": null,
-      "likely_p": null,
-      "likely_home": [
-        {
-          "code": "ESP",
-          "p": 1.0
-        }
+      "p_away": 0.45821318543234146,
+      "likely_score": [
+        1,
+        1
       ],
-      "likely_away": [
-        {
-          "code": "ARG",
-          "p": 0.57137
-        },
-        {
-          "code": "ENG",
-          "p": 0.42863
-        }
-      ]
+      "likely_p": 0.13000780105703738
     }
   ]
 }
