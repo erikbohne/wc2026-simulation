@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15",
+  "updated": "2026-07-17",
   "matches": [
     {
       "home": "MEX",
@@ -847,6 +847,15 @@
       "away": "ESP",
       "score": [
         0,
+        2
+      ]
+    },
+    {
+      "match": 102,
+      "home": "ENG",
+      "away": "ARG",
+      "score": [
+        1,
         2
       ]
     }
