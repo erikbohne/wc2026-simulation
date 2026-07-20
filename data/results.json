@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17",
+  "updated": "2026-07-20",
   "matches": [
     {
       "home": "MEX",
@@ -858,6 +858,25 @@
         1,
         2
       ]
+    },
+    {
+      "match": 103,
+      "home": "FRA",
+      "away": "ENG",
+      "score": [
+        4,
+        6
+      ]
+    },
+    {
+      "match": 104,
+      "home": "ESP",
+      "away": "ARG",
+      "score": [
+        1,
+        0
+      ],
+      "extra_time": true
     }
   ]
 }
