@@ -5,9 +5,9 @@
   "pens": "coin",
   "elo_snapshot_date": "2026-01-19",
   "elo_source": "eloratings.net",
-  "results_updated": "2026-07-17",
-  "fixed_matches": 102,
-  "avg_goals_per_match": 2.9064054807692306,
+  "results_updated": "2026-07-20",
+  "fixed_matches": 104,
+  "avg_goals_per_match": 2.9615384615384617,
   "teams": [
     {
       "code": "ESP",
@@ -15,7 +15,7 @@
       "group": "H",
       "elo": 2171.0,
       "elo_rank": 1,
-      "win": 0.5407,
+      "win": 1.0,
       "final": 1.0,
       "sf": 1.0,
       "qf": 1.0,
@@ -52,54 +52,7 @@
           "FRA",
           "ARG"
         ],
-        "p": 0.5407,
-        "p_given_title": 1.0
-      }
-    },
-    {
-      "code": "ARG",
-      "name": "Argentina",
-      "group": "J",
-      "elo": 2113.0,
-      "elo_rank": 2,
-      "win": 0.4593,
-      "final": 1.0,
-      "sf": 1.0,
-      "qf": 1.0,
-      "r16": 1.0,
-      "r32": 1.0,
-      "third_place_win": 0.0,
-      "expected_points": 9.0,
-      "expected_gd": 7.0,
-      "group_position": {
-        "first": 1.0,
-        "second": 0.0,
-        "third_qualified": 0.0,
-        "third_eliminated": 0.0,
-        "fourth": 0.0
-      },
-      "r32_opponents": [
-        {
-          "code": "CPV",
-          "p": 1.0
-        }
-      ],
-      "title_path": {
-        "matches": [
-          86,
-          95,
-          100,
-          102,
-          104
-        ],
-        "opponents": [
-          "CPV",
-          "EGY",
-          "SUI",
-          "ENG",
-          "ESP"
-        ],
-        "p": 0.4593,
+        "p": 1.0,
         "p_given_title": 1.0
       }
     },
@@ -954,7 +907,7 @@
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.54548,
+      "third_place_win": 0.0,
       "expected_points": 9.0,
       "expected_gd": 8.0,
       "group_position": {
@@ -1049,6 +1002,35 @@
       "r32_opponents": [
         {
           "code": "CIV",
+          "p": 1.0
+        }
+      ]
+    },
+    {
+      "code": "ARG",
+      "name": "Argentina",
+      "group": "J",
+      "elo": 2113.0,
+      "elo_rank": 2,
+      "win": 0.0,
+      "final": 1.0,
+      "sf": 1.0,
+      "qf": 1.0,
+      "r16": 1.0,
+      "r32": 1.0,
+      "third_place_win": 0.0,
+      "expected_points": 9.0,
+      "expected_gd": 7.0,
+      "group_position": {
+        "first": 1.0,
+        "second": 0.0,
+        "third_qualified": 0.0,
+        "third_eliminated": 0.0,
+        "fourth": 0.0
+      },
+      "r32_opponents": [
+        {
+          "code": "CPV",
           "p": 1.0
         }
       ]
@@ -1258,7 +1240,7 @@
       "qf": 1.0,
       "r16": 1.0,
       "r32": 1.0,
-      "third_place_win": 0.45452,
+      "third_place_win": 1.0,
       "expected_points": 7.0,
       "expected_gd": 4.0,
       "group_position": {
@@ -4021,10 +4003,13 @@
       "away": "ENG",
       "home_label": "FRA",
       "away_label": "ENG",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        4,
+        6
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ENG",
       "p_home": 0.5426931748468661,
       "p_draw": null,
       "p_away": 0.4573068251531339,
@@ -4044,10 +4029,13 @@
       "away": "ARG",
       "home_label": "ESP",
       "away_label": "ARG",
-      "status": "upcoming",
-      "score": null,
+      "status": "played",
+      "score": [
+        1,
+        0
+      ],
       "penalties": false,
-      "winner": null,
+      "winner": "ESP",
       "p_home": 0.5417868145676585,
       "p_draw": null,
       "p_away": 0.45821318543234146,
